@@ -2,15 +2,16 @@ package org.dev.board;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
-@SpringBootApplication
-public class ProjectSbApplication {
+@SpringBootApplication( exclude= {UserDetailsServiceAutoConfiguration.class})
+public class BoardSbApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ProjectSbApplication.class, args);
+		SpringApplication.run(BoardSbApplication.class, args);
 	}
 
 //	FE 연동
@@ -23,5 +24,4 @@ public class ProjectSbApplication {
 			}
 		};
 	}
-
 }
