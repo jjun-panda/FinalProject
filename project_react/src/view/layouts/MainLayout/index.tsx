@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import Navigation from '../../Authentication/Navigation';
-import Authentication from '../../Authentication';
-import BoardMain from '../../BoardMain';
 import { useUserStore } from '../../../stores';
 import { useCookies } from 'react-cookie';
+import Navigation from '../../Authentication/Navigation';
+
 import axios from 'axios';
+import Service from './service';
+import Footer from '../../../components/footer';
 
 export default function MainLayout() {
 
@@ -18,8 +19,8 @@ export default function MainLayout() {
         Authorization: `Bearer ${token}`
       }
     };
-    await axios.get('http://localhost:8888/api/board/', requsetOption).then((response) => {
-    // await axios.get('http://192.168.10.93:8888/api/board/', requsetOption).then((response) => {
+    // await axios.get('http://localhost:8888/api/board/', requsetOption).then((response) => {
+    await axios.get('http://192.168.10.93:8888/api/board/', requsetOption).then((response) => {
         setBoardResponse(response.data);
     }).catch((error) => '');    
   }
@@ -33,7 +34,9 @@ export default function MainLayout() {
   return (
     <>
       <Navigation />
-      {boardResponse ? (<BoardMain />) : (<Authentication />)}
+      <Service />
+      <Footer />
+      {/* {boardResponse ? (<BoardMain />) : (<Authentication />)} */}
     </>
   )
 }

@@ -1,8 +1,7 @@
-import logo from './logo.svg';
-import './App.css';
 import { useEffect, useState } from 'react';
 import axios from 'axios'
 import MainLayout from './view/layouts/MainLayout';
+import "./assets/css/common.css"
 
 function App() {
 
@@ -10,8 +9,8 @@ function App() {
   const [connection, setConnection] = useState<string>('');
   
   const connectionTest = () => {
-    axios.get('http://localhost:8888/').then((response) => {
-    // axios.get('http://192.168.10.93:8888/').then((response) => {
+    // axios.get('http://localhost:8888/').then((response) => {
+    axios.get('http://192.168.10.93:8888/').then((response) => {
         setConnection(response.data);
     }).catch((error) => {
       setConnection(error.message);
@@ -27,7 +26,6 @@ function App() {
     <div className="App">
       <MainLayout />
     </div>
-    <img src='http://jjuns-c.com/components/jjun_logo_f.svg' className="App-logo" alt="logo" width={300} />
     <p style={
       {position: 'fixed',
       bottom: '0',

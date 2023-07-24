@@ -1,0 +1,17 @@
+@import '../../assets/scss/mixin';
+
+.gridHeader {
+  margin: 0 auto;
+}
+
+@include pcMini {
+  .gridHeader {
+    margin: 0 1.5rem;
+  }
+}
+
+@include tablet {
+  .gridHeader {
+    margin: 0 .5rem 0 1rem;
+  }
+}

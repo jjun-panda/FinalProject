@@ -1,0 +1,156 @@
+select {
+  display: inline-flex;
+  height: 3rem;
+  padding: 0.5rem 0.75rem;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 0.25rem;
+  border: 1px solid var(--light-line-normal);
+  width: 100%;
+  font-size: 1rem;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+.modal .modalContent {
+  background-color: var(--white);
+  max-width: 25rem;
+  width: 100%;
+  padding: 2.5rem 1.25rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.modal .modalContent.ws20 {
+  max-width: 20rem;
+}
+.modal .modalContent .modalIcon {
+  width: 64px;
+  margin-bottom: 0.5rem;
+}
+.modal .modalContent .titleModal {
+  color: var(--light-text-normal);
+}
+.modal .modalContent .textModal {
+  margin: 0.5rem 0 1rem;
+  color: var(--light-text-assitive);
+}
+.modal .modalContent Button {
+  width: 100%;
+}
+.modal .modalContent .modalBill {
+  margin-bottom: 1rem;
+}
+.modal .modalContent .textBox {
+  background-color: var(--light-background-primary);
+  border-radius: 0.25rem;
+  height: 3rem;
+  padding: 0 1rem;
+  border: 0;
+  font-size: 1rem;
+  width: 15rem;
+  margin-bottom: 1rem;
+}
+.modal .modalContent .twoBtn {
+  display: flex;
+  gap: 0.5rem;
+}
+.modal .modalContent .twoBtn button {
+  padding: 0 1rem;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--white);
+  cursor: pointer;
+  background-color: var(--light-primary-normal);
+  border: none;
+  border-radius: 4px;
+  outline: none;
+  height: 2.5rem;
+  min-width: 6rem;
+  max-width: 10rem;
+}
+.modal .modalContent .twoBtn button:hover {
+  background-color: var(--light-primary-strong);
+}
+.modal .modalContent .twoBtn button + .cance {
+  border: 1px solid var(--light-primary-normal);
+  background-color: var(--white);
+  color: var(--light-primary-normal);
+}
+.modal .modalContent .twoBtn button + .cance:hover {
+  background-color: var(--light-primary-assistive);
+}
+
+.todoBtn {
+  border: 1px solid var(--light-text-normal);
+  border-radius: 0.5rem;
+  height: 2rem;
+  padding: 0 1rem;
+  background-color: var(--white);
+  color: var(--light-text-normal);
+  font-size: 0.875rem;
+  transition: all 0.1s ease;
+}
+.todoBtn:hover {
+  background-color: var(--light-primary-normal);
+  color: var(--white);
+  border: 1px solid var(--light-primary-normal);
+}
+.todoBtn:active {
+  background-color: var(--light-primary-strong);
+}
+
+.flex {
+  display: flex;
+}
+
+.listBtn {
+  display: flex;
+  width: 1.5rem;
+  height: 1.5rem;
+  align-items: center;
+  justify-content: center;
+}
+.listBtn .checkIcon {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+.listBtn .imgIcon {
+  width: 1.25rem;
+  height: 1.25rem;
+  opacity: 0.1;
+}
+.listBtn .imgIcon:hover {
+  opacity: 0.5;
+}
+
+@media (max-width: 1023px) {
+  .modal {
+    padding: 0 1rem;
+  }
+  .modal .modalContent .twoBtn {
+    width: 100%;
+  }
+  .modal .modalContent .twoBtn button {
+    height: 3.5rem;
+    width: 100%;
+    max-width: none;
+  }
+  .modal .modalContent .textModal + .textBox {
+    width: calc(100% - 2rem);
+    height: 3.5rem;
+  }
+}
