@@ -1,0 +1,21 @@
+jwt:
+  secret: jwtsecretkey
+  
+server:
+  port: 8888
+  
+spring:
+  datasource:
+    hikari:
+      driver-class-name: org.mariadb.jdbc.Driver
+      jdbc-url: jdbc:mariadb://127.0.0.1:3306/0725?characterEncoding=UTF-8&serverTimezone=UTC
+      username: jjun
+      password: 1234
+  
+      
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+    show-sql: true
