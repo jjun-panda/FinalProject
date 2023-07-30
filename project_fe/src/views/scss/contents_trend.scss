@@ -1,0 +1,53 @@
+// 다른 콘텐츠 보기
+#contentsBodyTum {
+    padding: 3rem 0 5rem;
+    max-width: 48rem;
+    width: 100%;
+    margin: 0 auto;
+
+    .contentsTitle {
+        margin-bottom: .5rem;
+    }
+
+    #contentsCards{
+        display: flex;
+        gap: 1rem;
+
+        #contentsBox {
+            display: block;
+            width: calc(100%/3);
+            // flex:calc(100%/3);
+
+            #contentsImg {
+                position: relative;
+
+                img {
+                    width: 100%;
+                    aspect-ratio: 16/9;
+                    object-fit: cover;
+                    object-position: center;
+                    border-radius: .5rem;
+                }
+            }
+            #contentsText {
+                .category {
+                    color: var(--light-primary-normal);
+                    padding: 0.25rem 0.5rem;
+                    background-color: var(--light-primary-alternarive);
+                    border-radius: 1rem;
+                }
+                .title {
+                    display: -webkit-box;
+                    max-height:52px;
+                    overflow:hidden;
+                    text-overflow: ellipsis;
+                    word-break:break-all;
+                    -webkit-box-orient:vertical;
+                    -webkit-line-clamp:2;
+                    height: 52px;
+                    margin-top: .25rem;
+                }
+            }
+        }
+    }
+}

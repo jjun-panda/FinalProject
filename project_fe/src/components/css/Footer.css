@@ -1,0 +1,59 @@
+.footerContainer {
+  background-color: var(--light-background-primary);
+  color: var(--light-text-alternative);
+  padding: 5rem 0;
+  position: relative;
+  text-align: left;
+  color: var(--light-text-assitive);
+}
+.footerContainer a {
+  color: var(--light-text-assitive);
+}
+.footerContainer a:hover {
+  transform: all 0.3s ease;
+  color: var(--light-text-normal);
+}
+.footerContainer .footerMain {
+  max-width: 64rem;
+  width: 100%;
+  margin: 0 auto;
+}
+.footerContainer .footerMain .footerTop {
+  border-bottom: 1px solid var(--light-line-normal);
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto 1.25rem;
+  padding-bottom: 1.25rem;
+}
+.footerContainer .footerMain .footerTop img {
+  filter: grayscale(100%) brightness(100%);
+}
+.footerContainer .footerMain .footerMain {
+  display: flex;
+  margin: 0 auto;
+}
+.footerContainer .footerMain .footerMain .footerLeft {
+  width: calc(100% - 15rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.footerContainer .footerMain .footerMain .footerLeft .menuList {
+  display: flex;
+  gap: 2rem;
+}
+.footerContainer .footerMain .footerMain .teamInfo {
+  margin-top: 1rem;
+  display: flex;
+  min-width: 100%;
+  flex-wrap: wrap;
+  row-gap: 0rem;
+  -moz-column-gap: 0.625rem;
+  column-gap: 0.625rem;
+}
+.footerContainer .footerMain .footerMain .footerRight .contact {
+  width: 15rem;
+}
+.footerContainer .footerMain .footerBottom {
+  margin-top: 0.5rem;
+}

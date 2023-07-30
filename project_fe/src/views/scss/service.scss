@@ -1,0 +1,135 @@
+@import '../../assets/scss/mixin';
+
+// 맨상단
+.containerBody {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10rem 0 10rem;
+    width: 100%;
+    margin: 0 auto;
+    max-width: 75rem;
+
+    .containerContext {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 3rem;
+        text-align: center;
+
+        .titleBG {
+            background-color: var(--light-primary-normal);
+            color: var(--white);
+            border-radius: .25rem;
+            text-emphasis: "•" var(--light-primary-normal);
+        }
+
+        .contextWrapper {
+            max-width: 45rem;
+            width: 100%;
+        }
+    }
+
+    .containerCategory {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        margin-top: 8rem;
+        width: 100%;
+
+        .sebCategories {
+            display: flex;
+            flex-flow: row wrap;
+            -moz-column-gap: 1rem;
+            column-gap: 1rem;
+            row-gap: 1rem;
+            justify-content: center;
+            text-align: center;
+
+            .sebCategory {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                width: calc(100% / 8);
+                gap: .5rem;
+                
+                .imageBox {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 7.5rem;
+                    height: 7.5rem;
+                    background: var(--light-fill-primary);
+                    border: 0.0625rem solid transparent;
+                    border-radius: 1.5rem;
+                    transition: .2s linear;
+                    padding: .5rem;
+                }
+
+
+                &:hover .imageBox {
+                    border-color: var(--light-line-strong);
+                }
+            }
+        }
+    }
+}
+
+
+.mainBanner {
+    background-color: var(--light-fill-primary);
+
+    &.mianColor {
+        background-color: #f1f5ff;
+    }
+    &.whiteColor {
+        background-color: var(--white);
+    }
+    .mainReversed {
+        display: flex;
+        justify-content: center;
+        max-height: 47.5rem;
+        max-width: 75rem;
+        width: 100%;
+        padding: 30px 0;
+        margin: 0 auto;
+        align-items: center;
+        gap: 3rem;
+
+        .mainImage {
+            width: calc(100%/2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            img {
+            max-width: 30rem;
+            padding: 0;
+            }
+        }
+        .mainDescription {
+            width: calc(100%/2);
+            padding: 0 3rem;
+
+            .title {
+                margin-bottom: 1rem;
+            }
+        }
+
+        @include tablet {
+            .mainDescription {
+                margin-left: 20px;
+                max-width: 240px;
+            }
+            .link-wrap {
+                flex-direction: column;
+                width: fit-content;
+                a,
+                button {
+                    padding: 0.5rem 1rem;
+                    font-size: 1rem;
+                }
+            }
+        }
+    }
+}

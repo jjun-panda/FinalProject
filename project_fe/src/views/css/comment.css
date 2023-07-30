@@ -1,0 +1,130 @@
+#comments {
+  padding: 3rem 0;
+  max-width: 48rem;
+  width: 100%;
+  margin: 0 auto;
+  border-bottom: 1px solid var(--light-line-normal);
+}
+
+.commentTitle {
+  margin-bottom: 0.5rem;
+}
+
+#commenterTextbox {
+  padding: 1rem 1.5rem;
+  background-color: var(--white);
+  border: 1px solid var(--light-line-normal);
+  border-radius: 0.5rem;
+}
+#commenterTextbox #commenterProfile {
+  text-decoration: none;
+  display: block;
+  padding-bottom: 0.5rem;
+  position: relative;
+}
+#commenterTextbox #commenterProfile .spaceBetween {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+#commenterTextbox #commenterProfile .spaceBetween #commenterProfileLeft {
+  display: flex;
+  align-items: center;
+}
+#commenterTextbox #commenterProfile .spaceBetween #commenterProfileLeft #commenterProfileImg {
+  display: flex;
+  align-items: center;
+}
+#commenterTextbox #commenterProfile .spaceBetween #commenterProfileLeft #commenterProfileImg img {
+  width: 2rem;
+  height: 2rem;
+  -o-object-fit: cover;
+  object-fit: cover;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+}
+#commenterTextbox #commenterProfile .spaceBetween #commenterProfileLeft #commenterProfiName {
+  display: flex;
+  margin-left: 0.5rem;
+  gap: 0.25rem;
+  align-items: center;
+}
+#commenterTextbox #commenterProfile .spaceBetween #commenterProfileLeft #commenterProfiName .nickName {
+  color: var(--light-text-normal);
+}
+#commenterTextbox #commenterProfile .spaceBetween #commenterProfileLeft #commenterProfiName .mail {
+  color: var(--light-text-assitive);
+}
+#commenterTextbox #commenterProfile .spaceBetween #commenterProfileRight Button {
+  min-width: 15rem;
+}
+#commenterTextbox .textBox {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.5rem;
+}
+#commenterTextbox .textBox textarea {
+  border: none;
+}
+
+#commenterList {
+  padding: 1rem 1.5rem;
+  background-color: var(--light-background-tertiary);
+  border-radius: 0.5rem;
+  margin-top: 1rem;
+}
+#commenterList #commenterProfile {
+  text-decoration: none;
+  display: block;
+  padding-bottom: 0.5rem;
+  position: relative;
+}
+#commenterList #commenterProfile .spaceBetween {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+#commenterList #commenterProfile .spaceBetween #commenterProfileLeft {
+  display: flex;
+  align-items: center;
+}
+#commenterList #commenterProfile .spaceBetween #commenterProfileLeft #commenterProfileImg {
+  display: flex;
+  align-items: center;
+}
+#commenterList #commenterProfile .spaceBetween #commenterProfileLeft #commenterProfileImg img {
+  width: 2rem;
+  height: 2rem;
+  -o-object-fit: cover;
+  object-fit: cover;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+}
+#commenterList #commenterProfile .spaceBetween #commenterProfileLeft #commenterProfiName {
+  display: flex;
+  margin-left: 0.5rem;
+  gap: 0.25rem;
+  align-items: baseline;
+}
+#commenterList #commenterProfile .spaceBetween #commenterProfileLeft #commenterProfiName .nickName {
+  color: var(--light-text-normal);
+}
+#commenterList #commenterProfile .spaceBetween #commenterProfileLeft #commenterProfiName .mail {
+  color: var(--light-text-assitive);
+}
+#commenterList #commenterProfile .spaceBetween #commenterProfileRight Button {
+  min-width: 15rem;
+}
+#commenterList #commenterDescription {
+  padding: 0;
+}
+#commenterList #commenterDescription #commenterTitle {
+  padding-bottom: 0.5rem;
+}
+#commenterList #commenterDescription #commenterCategory {
+  color: var(--light-text-assitive);
+  padding-bottom: 2rem;
+}
