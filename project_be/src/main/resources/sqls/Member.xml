@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="org.project.back.member.dao.MemberDao">
+
+<select id="findByEmail" parameterType="String" resultType="org.project.back.member.domain.Member">
+
+SELECT phone, name, pwd, email
+	FROM member
+	WHERE email=#{email}
+
+</select>
+
+<select id="isExistUserEmail" parameterType="String" resultType="java.lang.Integer">
+	SELECT count(*)
+	FROM member
+	WHERE email=#{email}
+</select>
+
+<insert id="createMember" parameterType="org.project.back.member.dto.param.CreateMemberParam">
+	INSERT INTO member(phone, pwd, name, email)
+	VALUES(#{phone}, #{pwd}, #{name}, #{email})
+</insert>
+
+<!--<select id="login" parameterType="org.project.back.member.domain.Member"-->
+<!--	resultType="org.project.back.member.domain.Member">-->
+<!--	select phone, name, email-->
+<!--	from member-->
+<!--	where email=#{email} and pwd=#{pwd}-->
+<!--</select>-->
+
+</mapper>
+
+
+

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.project.back.board.dao.BoardDao">
+
+	<!-- 글 목록 조회 -->
+	<select id="getBoardSearchPageList" parameterType="org.project.back.board.dto.param.BoardListParam"
+		resultType="org.project.back.board.domain.Board">
+		SELECT seq, email, ref, step, depth, title, content, write_date writeDate, del, read_count readCount
+		FROM
+					(SELECT row_number() OVER(ORDER BY ref DESC, step ASC) AS rnum,
+					seq, email, ref, step, depth, title, content, write_date, del, read_count
+					FROM board
+					<if test="choice != null and choice != ''
+								and search != null and search != '' ">
+						<if test="choice == 'title'">
+							WHERE title LIKE concat('%', #{search}, '%')
+						</if>
+						<if test="choice == 'content'">
+							WHERE content LIKE concat('%', #{search}, '%')
+						</if>
+						<if test="choice == 'writer'">
+							WHERE email=#{search}
+						</if>
+					</if>
+					ORDER BY ref DESC, step ASC) a
+		WHERE rnum BETWEEN ${pageStart} AND ${pageEnd}
+	</select>
+
+	<!-- 글 총 개수 조회 -->
+	<select id="getBoardCount" parameterType="org.project.back.board.dto.param.BoardCountParam" resultType="Integer">
+
+		SELECT ifnull(count(*), 0)
+		FROM board
+		<if test="choice != null and choice != ''
+		 			and search != null and search != '' ">
+			<if test="choice == 'title'">
+				WHERE title LIKE concat('%', #{search}, '%')
+			</if>
+			<if test="choice == 'content'">
+				WHERE content LIKE concat('%', #{search}, '%')
+			</if>
+			<if test="choice == 'writer'">
+				WHERE email=#{search}
+			</if>
+		</if>
+	</select>
+
+	<!-- 특정 게시글 조회 -->
+	<select id="getBoard" parameterType="Integer" resultType="org.project.back.board.domain.Board">
+		SELECT seq, email, ref, step, depth, title, content, write_date writeDate, del, read_count readCount
+		FROM board
+		WHERE seq=#{seq}
+		ORDER BY ref DESC, step ASC
+	</select>
+
+	<!-- 게시글 조회수 레코드 생성 -->
+	<insert id="createBoardReadCountHistory" parameterType="org.project.back.board.dto.param.CreateReadCountParam">
+		INSERT INTO read_history (board_seq, email, latest_write_date) VALUES (#{boardSeq}, #{readerEmail}, NOW())
+		ON DUPLICATE KEY
+		UPDATE latest_write_date=NOW();
+	</insert>
+
+	<!-- 게시글 조회수 수정 -->
+	<update id="increaseBoardReadCount" parameterType="Integer">
+		UPDATE board
+		SET read_count = read_count + 1
+		WHERE seq = #{seq}
+	</update>
+
+	<!-- 게시글 작성 -->
+	<insert id="createBoard" parameterType="org.project.back.board.dto.param.CreateBoardParam"
+					useGeneratedKeys="true" keyProperty="seq">
+		INSERT board (email, ref, step, depth, title, content, write_date, del, read_count)
+		VALUES (#{email}, (SELECT ifnull(max(ref), 0)+1 from board b), 0, 0, #{title}, #{content}, NOW(), 0, 0)
+	</insert>
+
+	<!-- 답글 작성 -->
+	<!-- 부모 게시글 step 업데이트 -->
+	<!-- <update id="updateBoardStep" parameterType="Integer">
+		UPDATE board
+		SET step = step + 1
+		WHERE ref = (SELECT ref FROM (SELECT ref FROM board a WHERE seq=#{parentSeq}) A)
+		AND step > (SELECT step FROM (SELECT step FROM board b WHERE seq=#{parentSeq}) B)
+	</update> -->
+
+	<!-- 부모 게시글 하위 답글 개수 조회 (step 업데이트 성공 여부 확인 휘함) -->
+	<!-- <select id="getBoardAnswerCount" parameterType="Integer" resultType="Integer">
+		SELECT COUNT(*)
+		FROM board
+		WHERE ref = (SELECT ref FROM (SELECT ref FROM board a WHERE seq=#{parentSeq}) A)
+		AND step > (SELECT step FROM (SELECT step FROM board b WHERE seq=#{parentSeq}) B)
+	</select> -->
+
+	<!-- 새로운 답글 추가 -->
+	<!-- <insert id="createBoardAnswer" parameterType="org.project.back.board.dto.param.CreateBoardAnswerParam"
+					useGeneratedKeys="true" keyProperty="seq">
+		INSERT INTO board (email, ref, step, depth, title, content, write_date, del, read_count)
+		VALUES (#{email}, (SELECT ref FROM board a WHERE seq=#{parentSeq}),
+		        		(SELECT step FROM board b WHERE seq=#{parentSeq}) + 1,
+		       			(SELECT depth FROM board c WHERE seq=#{parentSeq}) + 1,
+		       			#{title}, #{content}, NOW(), 0, 0);
+	</insert> -->
+
+	<!-- 게시글 수정 -->
+	<!-- 수정 성공 시 1(수정한 레코드 개수) 을 반환, 실패 시 0 을 반환 -->
+	<update id="updateBoard" parameterType="org.project.back.board.dto.param.UpdateBoardParam">
+
+		UPDATE board
+		SET content=#{content}, title=#{title}
+		WHERE seq=#{seq}
+
+	</update>
+
+	<update id="deleteBoard" parameterType="Integer">
+		UPDATE board
+		SET del = 1
+		WHERE seq=#{seq}
+	</update>
+
+</mapper>
+
+
+

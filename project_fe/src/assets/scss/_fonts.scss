@@ -1,0 +1,85 @@
+// Pretendatd Variable
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/variable/pretendardvariable.css");
+// @font-face {
+// 	font-family: 'Pretendard Variable';
+// 	font-weight: 45 920;
+// 	font-style: normal;
+// 	font-display: swap;
+// 	src: local('Pretendard Variable'), url('http://www.jjuns-c.com/components/font/woff2/PretendardVariable.woff2'), format('woff2-variations');
+// }
+
+// 전역변수 - 배열 활용
+
+// font px->rem변환
+$fontBasic: 16;
+$fontSizePx: (72, 64, 56, 48, 40, 32, 24, 20, 18, 16, 14, 12, 10);
+
+$fontSizeRem: ();
+@for $i from 1 through length($fontSizePx) {
+  $fontSizeRem: append($fontSizeRem, nth($fontSizePx, $i) / $fontBasic);
+}
+
+$fontSizeFamily: ();
+@for $i from 1 through length($fontSizeRem) {
+  $fontSizeFamily: map-merge($fontSizeFamily, (nth($fontSizePx, $i): nth($fontSizeRem, $i)));
+}
+
+
+$fontType: 
+  "title" 800 1.25, 
+  "bodyB" 700 1.6,
+  "body" 400 1.6,
+  "tag" 400 1.6,
+  "button" 700 1,
+  "field" 400 1,
+  "checkbox" 700 1;
+
+
+@mixin fontFamily($spacing) {
+  font-family: "Pretendard Variable";
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: $spacing;
+  font-variant-numeric: tabular-nums;
+}
+
+// ExBold: 800;
+// Bold: 700;
+// Regular: 400;
+
+@each $type, $weight, $height in $fontType {
+  @each $size, $rem in $fontSizeFamily {
+    .#{$type}#{$size}x {
+      @include fontFamily(-.025rem);
+      font-size: #{$rem}rem;
+      font-weight: #{$weight};
+      line-height: #{$height};
+    }
+  }
+}
+
+.caption {
+  @include fontFamily(-.025rem);
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1.25;
+}
+
+$fontStyle: 
+  400 "html, a, p, span",
+  700 "button, b, strong";
+
+// 변수 각 적용스타일
+@each $weight, $type in $fontStyle {
+  #{$type} {
+    @include fontFamily(null);
+    font-weight: #{$weight};
+  }
+}
+
+
+* {
+  font-family: "Pretendard Variable", -apple-system, BlinkMacSystemFont,
+            system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR",
+            "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif
+}
