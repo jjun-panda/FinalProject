@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthProvider";
 import '../css/Header.css';
-import React from "react";
+
 
 
 export default function Header() {
@@ -26,11 +26,17 @@ export default function Header() {
 								<li className="nav-item">
 									<span className="nav-link"> {auth} 님 반갑습니다 <i className="fab fa-ello"></i> &nbsp; </span>
 								</li>
+								
+								{/*마이페이지 */}
+								<li className="nav-item">
+									<Link className="nav-link" to="/MyPageDetail" ><i className="fas fa-my-page"></i>마이페이지</Link>
+								</li>
 
 								{/* 로그아웃 */}
 								<li className="nav-item">
-									<Link className="nav-link" to="/logout"><i className="fas fa-sign-out-alt"></i> 로그아웃</Link>
+									<Link className="nav-link" to="/logout"><i className="fas fa-sign-out-alt"></i>로그아웃</Link>
 								</li>
+								
 							</>
 							:
 							<>

@@ -13,6 +13,7 @@ import SignUp from '../views/member/SignUp';
 import Logout from '../views/member/Logout';
 import NotFoundPage from '../components/app/NotFoundPage';
 import ScrollToTop from '../utils/ScrollToTop';
+import MyPageDetail from '../views/mypage/MyPageDetail';
 
 export default function RouterLayOut() {
 
@@ -36,6 +37,7 @@ export default function RouterLayOut() {
 						<Route path="/login" element={<Login />} />
 						<Route path="/signup" element={<SignUp />} />
 						<Route path="/logout" element={<Logout />} />
+						<Route path='/MyPageDetail' element={<MyPageDetail />} />
 						<Route path="*" element={<NotFoundPage />} />
 					</Routes>
 				</HttpHeadersProvider>
