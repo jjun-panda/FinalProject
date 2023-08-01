@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="my.css">
+</head>
+
+<body>
+  <div class="nav">
+    <div class="gridHeader">
+      <a href="/">
+        <div class="logo title24x">
+          <img src="?" alt="logo" width="100" />
+          <!-- ::after -->
+        </div>
+      </a>
+    </div>
+    <div class="container">
+      <ul class="menu">
+        <li class="nav-link">
+          <a class="nav-link" href="/login">로그인</a>
+          <span style="padding:0px 0.25rem;">/</span>
+          <a class="nav-link" href="/signup">회원가입</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <!-- 여기에 로그인 회원가입 - 표지 없애야하는데.. -->
+  </div>
+
+  <div class="top01">
+    <div class="top02">
+      <div class="containerBody1">
+        <div class="imgfile">
+          <img src=img/pro.png alt="MyImage">
+        </div>
+        <div class="saram1">
+          <p>Name : 미정</p> <!--이것들은 디비에 불러와야한다.-->
+          <p>Phone Number : 010-1111-9999</p>
+          <p>E-mail : 01번@kakao</p><br />
+          <div class="btn1">
+            <input type="button" value="수정하기" onclick="alert('회원수정 모달팝업 이동')" />
+            <input type="button" value="회원탈퇴" onclick="alert('회원탈퇴 모달팝업 이동')"/>
+            <!-- 버튼색 수정과삭제 다르게하기 -->
+          </div>
+        </div>
+      </div>
+      <div class="btn2">
+        <input class="btn_input" type="button" value="기부 내역" onclick="location.href='record.html'"/>
+        <div class="containerBody2">
+          <div class="saram2">
+            <p>기부 받은 금액</p>
+            <!-- <input type=""/> <=여기에 입력-->
+            <!--/*기부받은금액은 +++ 해서 화면에 보이게하기*/-->
+
+            <input type="button" value="출금하기" onclick="location.href='out.html'"/>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  그걸 내일 명철이한테 넘겨서 리액트 변환 고
+  
+
+
+  <hr>
+
+  <div class=love>
+    <p>내가 올린 썸네일</p>
+    <img src="img/click1.png" alt="MyImage01">
+    <img src="img/click1.png" alt="MyImage02">
+    <img src="img/click1.png" alt="MyImage03">
+    <img src="img/click1.png" alt="MyImage04">
+    <img src="img/click1.png" alt="MyImage05">
+    <img src="img/click1.png" alt="MyImage06">
+    <img src="img/click1.png" alt="MyImage07">
+    <img src="img/click1.png" alt="MyImage08">
+    <img src="img/click1.png" alt="MyImage09">
+    <img src="img/click1.png" alt="MyImage10">
+  </div>
+  <!--게시수 많으면 페이징 번호클릭아닌 더보기 클릭하면 밑에 더 출력되는식을 하기 게시글은 이미지로 가로 1~2줄정도만 .-->
+</body>
+
+</html>
