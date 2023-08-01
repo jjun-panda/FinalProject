@@ -17,13 +17,13 @@ export default function SNSLogin() {
                     <p className='body14x'>SNS 간편 로그인</p>
                 </div>
                 <div className="snsBtn">
-                    <Link to='http://localhost:8080/oauth2/authorization/google' className='googleBtn' ><img src={googleIcon} alt="구글 로고" />
+                    <Link to='http://localhost:8888/oauth2/authorization/google' className='googleBtn' ><img src={googleIcon} alt="구글 로고" />
                         {/* <p className='button16x'>구글 로그인</p> */}
                     </Link>
-                    <Link to='http://localhost:8080/oauth2/authorization/naver' className='naverBtn' ><img src={naverIcon} alt="네이버 로고" />
+                    <Link to='http://localhost:8888/oauth2/authorization/naver' className='naverBtn' ><img src={naverIcon} alt="네이버 로고" />
                         {/* <p className='button16x'>네이버 로그인</p> */}
                     </Link>
-                    <Link to='http://localhost:8080/oauth2/authorization/kakao' className='kakaoBtn' ><img src={kakaoIcon} alt="카카오 로고" />
+                    <Link to='http://localhost:8888/oauth2/authorization/kakao' className='kakaoBtn' ><img src={kakaoIcon} alt="카카오 로고" />
                         {/* <p className='button16x'>카카오 로그인</p> */}
                     </Link>
                     {/* <Link to='#' className='googleBtn'><img src={googleIcon} alt="구글 로고"  /></Link> */}
