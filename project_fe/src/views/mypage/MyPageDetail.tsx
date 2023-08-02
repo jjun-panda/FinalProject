@@ -1,5 +1,8 @@
 import React from "react";
 import "../css/mypage_detail.css"
+import MyContents from './MyContents';
+import "../css/contents_mypage.css"
+
 
 
 function MyPageDetail() {
@@ -10,17 +13,7 @@ function MyPageDetail() {
         window.location.href = "out.html"
     };
     return (
-        <div>
-            {/* 상단 로그 div */}
-            <div className="nav">
-                <div className="gridHeader">
-                    <a href="/">
-                        <div className="logo title24x">
-                            <img src="?" alt="logo" width={100} />
-                        </div>
-                    </a>
-                </div>
-            </div>
+        <>
             {/* 회원 정보 표시 */}
             <div className="top01">
                 <div className="top02">
@@ -55,9 +48,18 @@ function MyPageDetail() {
                 </div>
             </div>
             {/*  */}
-            <hr /><hr />
+            <hr />
+            <div id='contentsMypageTum'>
+                <p className="title24x contentsTitle">나의 콘텐츠 최근 글 내역</p>
+                <MyContents />
+            </div>
+            <div id='contentsMypageTum'>
+                <p className="title24x contentsTitle">나의 콘텐츠 조회수 내역</p>
+                <MyContents />
+            </div>
+            <hr />
             
-        </div>
+        </>
         
 
     );
