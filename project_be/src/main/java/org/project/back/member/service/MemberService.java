@@ -88,7 +88,7 @@ public class MemberService {
 		} catch (DisabledException e) {
 			throw new MemberException("인증되지 않은 아이디입니다.", HttpStatus.BAD_REQUEST);
 		} catch (BadCredentialsException e) {
-			throw new MemberException("비밀번호가 일치하지 않습니다.", HttpStatus.BAD_REQUEST);
+			throw new MemberException("아이디또는 비밀번호를 다시 확인해주세요.", HttpStatus.BAD_REQUEST);
 		}
 	}
 

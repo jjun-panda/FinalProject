@@ -34,7 +34,7 @@ public class BoardService {
 	/* 게시글 조회 */
 	public BoardListResponse getBoardList(BoardListRequest req) {
 		BoardListParam param = new BoardListParam(req);
-		param.setPageParam(req.getPage(), 10);
+		param.setPageParam(req.getPage(), 9);
 
 		List<Board> boardList = dao.getBoardSearchPageList(param);
 		int pageCnt = dao.getBoardCount(new BoardCountParam(req));
