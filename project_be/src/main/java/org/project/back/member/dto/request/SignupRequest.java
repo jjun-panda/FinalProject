@@ -44,14 +44,14 @@ public class SignupRequest {
     }
 
     public String getEmail() {
-        return name;
-    }
+		return email;
+	}
 
-    public void setEmail(String name) {
-        this.name = name;
-    }
-    
-    public String getPhone() {
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getPhone() {
         return phone;
     }
 
