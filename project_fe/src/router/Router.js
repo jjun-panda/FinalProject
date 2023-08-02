@@ -30,6 +30,8 @@ export default function RouterLayOut() {
 							<Route path="/board/write" element={<BoardWrite />} />
 							<Route path="/board/detail/:seq" element={<BoardDetail />} />
 							<Route path="/board/update" element={<BoardUpdate />} />
+							<Route path='/MyPageDetail' element={<MyPageDetail />} />
+							
 							{/* <Route path="/board/answer/:parentSeq" element={<BoardAnswer />} /> */}
 						</Route>
 
@@ -37,7 +39,6 @@ export default function RouterLayOut() {
 						<Route path="/login" element={<Login />} />
 						<Route path="/signup" element={<SignUp />} />
 						<Route path="/logout" element={<Logout />} />
-						<Route path='/MyPageDetail' element={<MyPageDetail />} />
 						<Route path="*" element={<NotFoundPage />} />
 					</Routes>
 				</HttpHeadersProvider>

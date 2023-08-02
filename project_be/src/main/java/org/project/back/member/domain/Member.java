@@ -1,5 +1,7 @@
 package org.project.back.member.domain;
 
+import org.project.back.member.dto.request.SignupRequest;
+
 public class Member {
 	
 	private String email;
@@ -10,6 +12,13 @@ public class Member {
 	public Member() {
 	}
 
+	public Member(SignupRequest req, String encodedPwd) {
+        this.email = req.getEmail();
+        this.pwd = encodedPwd;
+        this.name = req.getEmail();
+        this.phone = req.getPhone();
+    }
+	
 	public Member(String email, String pwd, String name, String phone) {
 		super();
 		this.email = email;

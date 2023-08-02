@@ -76,6 +76,9 @@ public class MemberController {
 
 		return new ResponseEntity<>(e.getMessage(), e.getStatus());
 	}
+	
+//	@GetMapping("/MyPageDetail")
+//	public ResponseEntity<MemberInfo>
 }
 
 

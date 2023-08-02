@@ -2,11 +2,11 @@ package org.project.back.member.service;
 
 import org.project.back.jwt.JwtTokenUtil;
 import org.project.back.member.dao.MemberDao;
-import org.project.back.member.dto.param.CreateMemberParam;
-import org.project.back.member.dto.request.SignupRequest;
+import org.project.back.member.domain.Member;
 import org.project.back.member.dto.request.LoginRequest;
-import org.project.back.member.dto.response.SignupResponse;
+import org.project.back.member.dto.request.SignupRequest;
 import org.project.back.member.dto.response.LoginResponse;
+import org.project.back.member.dto.response.SignupResponse;
 import org.project.back.member.exception.MemberException;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -49,7 +49,6 @@ public class MemberService {
 
 	@Transactional
 	public SignupResponse signup(SignupRequest req) {
-
 		saveMember(req);
 		authenticate(req.getEmail(), req.getPwd());
 
@@ -65,9 +64,9 @@ public class MemberService {
 
 		// 회원 정보 생성
 		String encodedPwd = encoder.encode(req.getPwd());
-		CreateMemberParam param = new CreateMemberParam(req, encodedPwd);
+		Member member = new Member(req, encodedPwd);
 
-		Integer result = dao.createMember(param);
+		Integer result = dao.createMember(member);
 		if (result == 0) {
 			throw new MemberException("회원 등록을 실패했습니다.", HttpStatus.INTERNAL_SERVER_ERROR);
 		}
