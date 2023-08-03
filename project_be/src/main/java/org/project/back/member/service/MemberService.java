@@ -6,6 +6,7 @@ import org.project.back.member.domain.Member;
 import org.project.back.member.dto.request.LoginRequest;
 import org.project.back.member.dto.request.SignupRequest;
 import org.project.back.member.dto.response.LoginResponse;
+import org.project.back.member.dto.response.MemberInfoResponse;
 import org.project.back.member.dto.response.SignupResponse;
 import org.project.back.member.exception.MemberException;
 import org.springframework.http.HttpStatus;
@@ -30,11 +31,8 @@ public class MemberService {
 	private final JwtTokenUtil jwtTokenUtil;
 	private final UserDetailsService userDetailsService;
 
-
-	public MemberService(MemberDao dao, PasswordEncoder encoder,
-		AuthenticationManager authenticationManager,
-		JwtTokenUtil jwtTokenUtil,
-		UserDetailsService userDetailsService) {
+	public MemberService(MemberDao dao, PasswordEncoder encoder, AuthenticationManager authenticationManager,
+			JwtTokenUtil jwtTokenUtil, UserDetailsService userDetailsService) {
 		this.dao = dao;
 		this.encoder = encoder;
 		this.authenticationManager = authenticationManager;
@@ -103,8 +101,34 @@ public class MemberService {
 			throw new MemberException("비밀번호가 일치하지 않습니다.", HttpStatus.BAD_REQUEST);
 		}
 	}
+
+	/* 맴버 정보 존재한다면 디비에서 불러오기 */
+	public MemberInfoResponse getMemberInfo(String email) {
+		Integer result = dao.isExistUserEmail(email);
+		if (result == 0) {
+			throw new MemberException("등록되지 않은 사용자입니다.", HttpStatus.BAD_REQUEST);
+		}
+		
+		Member memberInfo = dao.findByEmail(email);
+
+		return new MemberInfoResponse(memberInfo);
+	}
+
+	/* 맴버 이메일이 존재하는지 확인 후 업데이트  */
+	public Integer deleteMember(String email) {
+		Integer result = dao.isExistUserEmail(email);
+		if (result == 0) {
+			throw new MemberException("등록되지 않은 사용자입니다.", HttpStatus.BAD_REQUEST);
+		}
+		return dao.deleteMemberByEmail(email);
+	}
+	
+	/* 맴버 이메일이 존재하는지 확인 후 클릭 시 삭제   */
+	public Integer updateMember(Member member) {
+		Integer result = dao.isExistUserEmail(member.getEmail());
+		if (result == 0) {
+			throw new MemberException("등록되지 않은 사용자입니다.", HttpStatus.BAD_REQUEST);
+		}
+		return dao.updateMemberByEmail(member);
+	}
 }
-
-
-
-

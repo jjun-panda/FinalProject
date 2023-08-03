@@ -13,4 +13,8 @@ public interface MemberDao {
 	Integer isExistUserEmail(String email);
 
 	Integer createMember(Member member);
+	
+	Integer updateMemberByEmail(Member merber);
+	
+	Integer deleteMemberByEmail(String email);
 }

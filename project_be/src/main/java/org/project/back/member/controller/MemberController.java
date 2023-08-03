@@ -3,9 +3,11 @@ package org.project.back.member.controller;
 import java.util.Date;
 import javax.validation.Valid;
 import org.project.back.member.dto.request.SignupRequest;
+import org.project.back.member.domain.Member;
 import org.project.back.member.dto.request.LoginRequest;
 import org.project.back.member.dto.response.SignupResponse;
 import org.project.back.member.dto.response.LoginResponse;
+import org.project.back.member.dto.response.MemberInfoResponse;
 import org.project.back.member.exception.MemberException;
 import org.project.back.member.service.MemberService;
 import org.springframework.http.HttpStatus;
@@ -38,7 +40,7 @@ public class MemberController {
 		HttpStatus status = service.checkEmailDuplicate(email);
 		return new ResponseEntity<>(status);
 	}
-
+	
 	@PostMapping("/signup")
 	public ResponseEntity<SignupResponse> signup(@Valid @RequestBody SignupRequest req) {
 		System.out.println("UserController signup " + new Date());
@@ -77,8 +79,30 @@ public class MemberController {
 		return new ResponseEntity<>(e.getMessage(), e.getStatus());
 	}
 	
-//	@GetMapping("/MyPageDetail")
-//	public ResponseEntity<MemberInfo>
+	/* 멤버 정보*/
+	@GetMapping("/getMemberInfo")
+	public ResponseEntity<MemberInfoResponse> getMemberInfo(@RequestParam String email){
+		System.out.println("MemberInfo Controller getMemberInfo ||" + new Date());
+		
+		return ResponseEntity.ok(service.getMemberInfo(email));
+	}
+	
+	/* 맴버 수정 */
+	@PostMapping("/updateMember")
+	public ResponseEntity<Integer> updateMember(@RequestBody Member member){
+		System.out.println("MemberDelete Controller updateMember ==>> " + new Date());
+		
+		return ResponseEntity.ok(service.updateMember(member));
+	}
+	
+	
+	/* 멤버 삭제*/
+	@GetMapping("/deleteMember")
+	public ResponseEntity<Integer> deleteMember(@RequestParam String email){
+		System.out.println("MemberDelete Controller deleteMember ==>> " + new Date());
+		
+		return ResponseEntity.ok(service.deleteMember(email));
+	}
 }
 
 

@@ -11,11 +11,19 @@ public class Member {
 
 	public Member() {
 	}
+	
+
+	public Member(String email, String name) {
+		super();
+		this.email = email;
+		this.name = name;
+	}
+
 
 	public Member(SignupRequest req, String encodedPwd) {
         this.email = req.getEmail();
         this.pwd = encodedPwd;
-        this.name = req.getEmail();
+        this.name = req.getName();
         this.phone = req.getPhone();
     }
 	
