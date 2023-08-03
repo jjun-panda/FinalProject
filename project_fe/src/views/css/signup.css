@@ -31,6 +31,10 @@
   flex-direction: column;
   padding-bottom: 1rem;
 }
+#signupRequired .signupForm .form-valid .message {
+  margin-top: 0.25rem;
+  color: var(--light-primary-normal);
+}
 #signupRequired .signupForm .form-valid .mail-input, #signupRequired .signupForm .form-valid .pw-input {
   position: relative;
   display: flex;

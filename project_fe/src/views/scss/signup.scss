@@ -34,6 +34,10 @@
             flex-direction: column;
             padding-bottom: 1rem;
 
+            .message {
+                margin-top: .25rem;
+                color: var(--light-primary-normal);
+            }
             .mail-input, .pw-input {
                 position: relative;
                 display: flex;
