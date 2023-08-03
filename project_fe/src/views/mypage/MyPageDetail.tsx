@@ -2,6 +2,8 @@ import React from "react";
 import "../css/mypage_detail.css"
 import MyContents from './MyContents';
 import "../css/contents_mypage.css"
+import Button from "../../components/Button";
+
 
 
 
@@ -12,6 +14,11 @@ function MyPageDetail() {
     const goToOut = () => {
         window.location.href = "out.html"
     };
+
+    const goToBoardWrite = () => {
+        window.location.href = "/board/write" //글쓰기 버튼 클릭시 이동
+    };
+
     return (
         <>
             {/* 회원 정보 표시 */}
@@ -50,14 +57,12 @@ function MyPageDetail() {
             {/*  */}
             <hr />
             <div id='contentsMypageTum'>
-                <p className="title24x contentsTitle">나의 콘텐츠 최근 글 내역</p>
+                <p className="title24x contentsTitle">내 게시글</p>
+                <Button size="Small" onClick={goToBoardWrite}>글 추가</Button>
                 <MyContents />
             </div>
-            <div id='contentsMypageTum'>
-                <p className="title24x contentsTitle">나의 콘텐츠 조회수 내역</p>
-                <MyContents />
-            </div>
-            <hr />
+            
+          
             
         </>
         
