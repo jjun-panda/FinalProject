@@ -59,7 +59,7 @@ export default function Login() {
 			console.log("[Login.js] login() error :<");
 			console.log(err);
 
-			alert(err.response.data);
+			alert("ID(Email) or Password가 잘못 되었습니다.");
 		});
 	}
 
