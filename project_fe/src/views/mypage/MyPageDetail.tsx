@@ -1,13 +1,46 @@
-import React from "react";
+import React, { useEffect, useState, useContext  } from "react";
 import "../css/mypage_detail.css"
 import MyContents from './MyContents';
 import "../css/contents_mypage.css"
 import Button from "../../components/Button";
+import axios from "axios";
+import { AuthContext } from "../../context/AuthProvider";
+import DeleteMember from "./DeleteMember";
+import UpdateMember from "./UpdateMember";
 
-
-
+interface MyPage {
+	name : string;
+    phone : string;
+    email : string;
+    pwd : string;
+}
 
 function MyPageDetail() {
+    const [memberInfo, setMemberInfo] = useState<MyPage>({} as MyPage);
+    const { auth, setAuth } = useContext(AuthContext);
+
+    console.log(memberInfo.name);
+	/* 멤버 정보 불러오기 */
+	const getMemberInfo = async (email: string) => {
+
+		await axios.get("http://localhost:8888/user/getMemberInfo", { params: {"email": auth  }})
+			.then((resp) => {
+				console.log(resp.data);
+
+				setMemberInfo(resp.data);
+			})
+			.catch((err) => {
+				console.log(err);
+
+			});
+	}
+
+
+
+	useEffect(() => {
+		getMemberInfo("");
+	}, []);
+
     const goToRecord = () => {
         window.location.href = "record.html"
     };
@@ -29,16 +62,12 @@ function MyPageDetail() {
                             <img src="/pro.png" alt="MyImage" />
                         </div>
                         <div className="saram1">
-                            <p>Name  : 미정</p>
-                            <p>Phone Number : 010-1111-9999</p>
-                            <p>Email : aaa@aaa.com</p><br />
+                            <p>Name  : {memberInfo.name}</p>
+                            <p>Phone Number : {memberInfo.phone}</p>
+                            <p>Email : {memberInfo.email}</p><br />
                             <div className="btn1">
-                                <input type="button" value={"수정하기"} onClick={(e) => {
-                                    alert("회원수정 페이지로 이동")
-                                }} />
-                                <input type="button" value={"회원탈퇴"} onClick={(e) => {
-                                    alert("정말 회원 탈퇴 하시겠습니까?")
-                                }} />
+                                < UpdateMember />
+                                < DeleteMember />
                             </div>
                         </div>
                     </div>

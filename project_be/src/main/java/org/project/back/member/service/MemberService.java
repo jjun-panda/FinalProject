@@ -114,7 +114,7 @@ public class MemberService {
 		return new MemberInfoResponse(memberInfo);
 	}
 
-	/* 맴버 이메일이 존재하는지 확인 후 업데이트  */
+	/* 맴버 이메일이 존재하는지 확인 후 삭제 */
 	public Integer deleteMember(String email) {
 		Integer result = dao.isExistUserEmail(email);
 		if (result == 0) {
@@ -123,7 +123,7 @@ public class MemberService {
 		return dao.deleteMemberByEmail(email);
 	}
 	
-	/* 맴버 이메일이 존재하는지 확인 후 클릭 시 삭제   */
+	/* 맴버 이메일이 존재하는지 확인 후 업데이트   */
 	public Integer updateMember(Member member) {
 		Integer result = dao.isExistUserEmail(member.getEmail());
 		if (result == 0) {

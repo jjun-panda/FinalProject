@@ -14,6 +14,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.MethodArgumentNotValidException;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -97,10 +98,10 @@ public class MemberController {
 	
 	
 	/* 멤버 삭제*/
-	@GetMapping("/deleteMember")
+	@DeleteMapping("/deleteMember")
 	public ResponseEntity<Integer> deleteMember(@RequestParam String email){
 		System.out.println("MemberDelete Controller deleteMember ==>> " + new Date());
-		
+
 		return ResponseEntity.ok(service.deleteMember(email));
 	}
 }

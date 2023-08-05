@@ -39,7 +39,7 @@ export default function BoardDetail() {
 
 		await axios.get(`http://localhost:8888/board/${seq}`, {params: {readerEmail: auth ? auth : ""}})
 		.then((resp) => {
-			console.log(resp.data);
+			console.log(resp);
 
 			setBoard(resp.data.board);
 		})

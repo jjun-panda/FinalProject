@@ -6,6 +6,7 @@ function AuthProvider({ children }) {
 
 	const [auth, setAuth] = useState(localStorage.getItem("email"));
 
+
 	const value = {auth, setAuth };
 
 	return (
