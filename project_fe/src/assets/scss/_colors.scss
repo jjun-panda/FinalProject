@@ -4,61 +4,61 @@ $white: var(--white);
 
 // ---------- ver.light ---------- 
 // primary color
-$l-pri-no: var(--light-primary-normal);
-$l-pri-st: var(--light-primary-strong);
-$l-pri-he: var(--light-primary-heavy);
-$l-pri-as: var(--light-primary-assistive);
-$l-pri-al: var(--light-primary-alternarive);
-$l-i-pri-ho: var(--light-interaction-primary-hover);
-$l-i-pri-pr: var(--light-interaction-primary-pressed);
+$l-pri-no: var(--primary-normal);
+$l-pri-st: var(--primary-strong);
+$l-pri-he: var(--primary-heavy);
+$l-pri-as: var(--primary-assistive);
+$l-pri-al: var(--primary-alternarive);
+$l-i-pri-ho: var(--interaction-primary-hover);
+$l-i-pri-pr: var(--interaction-primary-pressed);
 
 // secondary color
-$l-sec-no: var(--light-secondary-normal);
-$l-sec-st: var(--light-secondary-strong);
-$l-sec-he: var(--light-secondary-heavy);
-$l-sec-as: var(--light-secondary-assistive);
-$l-sec-al: var(--light-secondary-alternative);
-$l-i-sec-ho: var(--light-interaction-secondary-hover);
-$l-i-sec-pr: var(--light-interaction-secondary-pressed);
+$l-sec-no: var(--secondary-normal);
+$l-sec-st: var(--secondary-strong);
+$l-sec-he: var(--secondary-heavy);
+$l-sec-as: var(--secondary-assistive);
+$l-sec-al: var(--secondary-alternative);
+$l-i-sec-ho: var(--interaction-secondary-hover);
+$l-i-sec-pr: var(--interaction-secondary-pressed);
 
 // status color
-$l-status-su: var(--light-status-success);
-$l-status-in: var(--light-status-inform);
-$l-status-wa: var(--light-status-warning);
-$l-status-al: var(--light-status-alert);
-$l-status-su-bg: var(--light-status-success-bg);
-$l-status-in-bg: var(--light-status-inform-bg);
-$l-status-wa-bg: var(--light-status-warning-bg);
-$l-status-al-bg: var(--light-status-alert-bg);
+$l-status-su: var(--status-success);
+$l-status-in: var(--status-inform);
+$l-status-wa: var(--status-warning);
+$l-status-al: var(--status-alert);
+$l-status-su-bg: var(--status-success-bg);
+$l-status-in-bg: var(--status-inform-bg);
+$l-status-wa-bg: var(--status-warning-bg);
+$l-status-al-bg: var(--status-alert-bg);
 
 // text color
-$l-text-no: var(--light-text-normal);
-$l-text-st: var(--light-text-strong);
-$l-text-he: var(--light-text-heavy);
-$l-text-dl: var(--light-text-dlsable);
-$l-text-as: var(--light-text-assitive);
-$l-text-al: var(--light-text-alternative);
+$l-text-no: var(--text-normal);
+$l-text-st: var(--text-strong);
+$l-text-he: var(--text-heavy);
+$l-text-dl: var(--text-dlsable);
+$l-text-as: var(--text-assitive);
+$l-text-al: var(--text-alternative);
 
 // backgroung color
-$l-bg-pr: var(--light-background-primary);
-$l-bg-se: var(--light-background-second);
-$l-bg-te: var(--light-background-tertiary);
+$l-bg-pr: var(--background-primary);
+$l-bg-se: var(--background-second);
+$l-bg-te: var(--background-tertiary);
 
 // fill color
-$l-fill-pr: var(--light-fill-primary);
-$l-fill-al: var(--light-fill-alternative);
-$l-fill-di: var(--light-fill-disable);
+$l-fill-pr: var(--fill-primary);
+$l-fill-al: var(--fill-alternative);
+$l-fill-di: var(--fill-disable);
 
 // filter color
-$l-filter-lo: var(--light-filter-low);
-$l-filter-hi: var(--light-filter-high);
-$l-filter-ca: var(--light-filter-carousel);
+$l-filter-lo: var(--filter-low);
+$l-filter-hi: var(--filter-high);
+$l-filter-ca: var(--filter-carousel);
 
 // line color
-$l-line-no: var(--light-line-normal);
-$l-line-st: var(--light-line-strong);
-$l-line-di: var(--light-line-disable);
-$l-line-al: var(--light-line-alternative);
+$l-line-no: var(--line-normal);
+$l-line-st: var(--line-strong);
+$l-line-di: var(--line-disable);
+$l-line-al: var(--line-alternative);
 
 // ---------- ver.dark ---------- 
 // primary color
@@ -188,7 +188,7 @@ $gr-500: var(--gray-500);
 $gr-600: var(--gray-600);
 $gr-700: var(--gray-700);
 $gr-800: var(--gray-800);
-$gr-900: var(--light-text-normal);
+$gr-900: var(--gray-900);
 
 // $palette: (
 //     "$pr": "primary",

@@ -1,19 +1,19 @@
 @import '../../assets/scss/mixin';
 
 .footerContainer {
-    background-color: var(--light-background-primary);
-    color: var(--light-text-alternative);
+    background-color: var(--background-primary);
+    color: var(--text-alternative);
     padding: 5rem 0;
     position: relative;
     text-align: left;
-    color: var(--light-text-assitive);
+    color: var(--text-assitive);
 
     a {
-        color: var(--light-text-assitive);
+        color: var(--text-assitive);
 
         &:hover {
             transform: all .3s ease;
-            color: var(--light-text-normal);
+            color: var(--text-normal);
         }
     }
 
@@ -23,7 +23,7 @@
         margin: 0 auto;
 
         .footerTop {
-            border-bottom: 1px solid var(--light-line-normal);
+            border-bottom: 1px solid var(--line-normal);
             display: flex;
             justify-content: space-between;
             margin: 0 auto 1.25rem;
@@ -31,6 +31,27 @@
 
             img {
                 filter: grayscale(100%) brightness(100%);
+            }
+            .logoImg{
+                width: 10rem;
+                height: 0;
+                padding-top: 20%;
+                background-size: contain;
+                background-repeat: no-repeat;
+                position: relative;
+                filter: opacity(.5);
+            
+                // &::before {
+                //     content: "혁신과 공존 함께!";
+                //     vertical-align: super;
+                //     font-size: 0.75rem;
+                //     font-weight: 700;
+                //     color: var(--primary-normal);
+                //     // margin-left: .25rem;
+                //     position: absolute;
+                //     // top: -75%;
+                //     // left: 0;
+                // }
             }
         }
 

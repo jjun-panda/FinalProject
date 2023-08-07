@@ -5,9 +5,11 @@
   align-items: center;
   gap: 0.5rem;
   border-radius: 0.25rem;
-  border: 1px solid var(--light-line-normal);
+  border: 1px solid var(--line-normal);
   width: 100%;
   font-size: 1rem;
+  background-color: var(--white);
+  color: var(--text-normal);
 }
 
 #loginRequired {
@@ -66,7 +68,7 @@
   position: relative;
 }
 .loginLinkWrap .findPw a {
-  color: var(--light-text-alternative);
+  color: var(--text-alternative);
   cursor: pointer;
 }
 .loginLinkWrap .signUp {
@@ -76,33 +78,33 @@
   padding-right: 0.25rem;
 }
 .loginLinkWrap .signUp a {
-  color: var(--light-text-alternative);
+  color: var(--text-alternative);
   cursor: pointer;
 }
 .loginLinkWrap .signUp a:hover {
   transition: all 0.3s ease;
-  color: var(--light-primary-normal);
+  color: var(--primary-normal);
 }
 
 .wrapTerm {
-  background-color: var(--light-fill-primary);
+  background-color: var(--fill-primary);
   padding: 1rem;
   border-radius: 0.5rem;
   margin: 1rem 0 0;
 }
 .wrapTerm .termTxt {
   word-break: keep-all;
-  color: var(--light-text-assitive);
+  color: var(--text-assitive);
   text-align: center;
 }
 .wrapTerm .termTxt span {
   text-underline-position: under;
 }
 .wrapTerm .termTxt span a {
-  color: var(--light-text-assitive);
+  color: var(--text-assitive);
 }
 .wrapTerm .termTxt span a :hover, .wrapTerm .termTxt span a :active {
-  color: var(--light-text-alternative);
+  color: var(--text-alternative);
 }
 
 .loginHrContainer {
@@ -111,12 +113,12 @@
   margin: 2rem 0;
 }
 .loginHrContainer .loginHr {
-  border-bottom: 1px solid var(--light-line-normal);
+  border-bottom: 1px solid var(--line-normal);
   flex: 1 1;
 }
 .loginHrContainer p {
   padding: 0 1rem;
-  color: var(--light-text-assitive);
+  color: var(--text-assitive);
 }
 
 #snsLogin {

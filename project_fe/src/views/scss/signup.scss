@@ -7,7 +7,7 @@
     align-items: center;
     gap: 0.5rem;
     border-radius: 0.25rem;
-    border: 1px solid var(--light-line-normal);
+    border: 1px solid var(--line-normal);
     width: 100%;
     font-size: 1rem;
 }
@@ -36,9 +36,9 @@
 
             .message {
                 margin-top: .25rem;
-                color: var(--light-primary-normal);
+                color: var(--primary-normal);
             }
-            .mail-input, .pw-input {
+            .mail-input, .pw-input, .txt-input {
                 position: relative;
                 display: flex;
                 align-items: center;
@@ -85,12 +85,12 @@
         }
 
         a {
-            color: var(--light-text-alternative);
+            color: var(--text-alternative);
             cursor: pointer;
 
             &:hover {
-                transition: all 0.3s ease;
-                color: var(--light-primary-normal);
+                transition: all .3s ease;
+                color: var(--primary-normal);
             }
         }
     }

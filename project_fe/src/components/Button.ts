@@ -15,11 +15,10 @@ const HEIGHTSIZES = {
 type ButtonProps = {
   size: keyof typeof SIZES;
   round?: boolean;
-  // 다른 필요한 prop들도 여기에 추가할 수 있습니다.
 };
 
 const Button = styled.button<ButtonProps>`
-  background-color: var(--light-primary-normal);
+  background-color: var(--primary-normal);
   border: none;
   border-radius: ${({ round }) => (round ? `0` : `.25rem`)};
   color: var(--white);
@@ -30,13 +29,13 @@ const Button = styled.button<ButtonProps>`
   height: ${({ size }) => HEIGHTSIZES[size] ?? HEIGHTSIZES["Small"]}rem;
   min-width: 4rem;
   max-width: 25rem;
-  transition: all 0.3s ease;
+  transition: all .3s ease;
 
   &:hover {
-    background-color: var(--light-primary-strong);
+    background-color: var(--primary-strong);
   }
   &:active {
-    background-color: var(--light-primary-heavy);
+    background-color: var(--primary-heavy);
   }
 `;
 

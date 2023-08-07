@@ -7,9 +7,11 @@
     align-items: center;
     gap: 0.5rem;
     border-radius: 0.25rem;
-    border: 1px solid var(--light-line-normal);
+    border: 1px solid var(--line-normal);
     width: 100%;
     font-size: 1rem;
+    background-color: var(--white);
+    color: var(--text-normal);
 }
 
 // 로그인 폼
@@ -77,7 +79,7 @@
         position: relative;
 
         a {
-            color: var(--light-text-alternative);
+            color: var(--text-alternative);
             cursor: pointer;
         }
     }
@@ -89,12 +91,12 @@
         }
 
         a {
-            color: var(--light-text-alternative);
+            color: var(--text-alternative);
             cursor: pointer;
 
             &:hover {
-                transition: all 0.3s ease;
-                color: var(--light-primary-normal);
+                transition: all .3s ease;
+                color: var(--primary-normal);
             }
         }
     }
@@ -102,23 +104,23 @@
 
 // 약관
 .wrapTerm {
-    background-color: var(--light-fill-primary);
+    background-color: var(--fill-primary);
     padding: 1rem;
     border-radius: .5rem;
     margin: 1rem 0 0;
 
     .termTxt {
         word-break: keep-all;
-        color: var(--light-text-assitive);
+        color: var(--text-assitive);
         text-align: center;
 
         span {
             text-underline-position: under;
 
             a {
-                color: var(--light-text-assitive);
+                color: var(--text-assitive);
                 :hover, :active {
-                    color: var(--light-text-alternative);
+                    color: var(--text-alternative);
                 }
             }
         }
@@ -131,12 +133,12 @@
     margin: 2rem 0;
 
     .loginHr {
-        border-bottom: 1px solid var(--light-line-normal);
+        border-bottom: 1px solid var(--line-normal);
         flex: 1 1;
     }
     p {
         padding: 0 1rem;
-        color: var(--light-text-assitive);
+        color: var(--text-assitive);
     }
 }
 #snsLogin {

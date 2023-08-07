@@ -1,15 +1,22 @@
 @import '../../assets/scss/mixin';
 
 // 맨상단
-.containerBody {
+.containerBoard {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 10rem 0 10rem;
     width: 100%;
     margin: 0 auto;
     max-width: 75rem;
+    padding-top: 2rem;
 
+    .form-valid {
+        max-width: 50rem;
+        width: 100%;
+        display: flex;
+        gap: 1rem;
+        flex-direction: column;
+    }
     .containerContext {
         display: flex;
         flex-direction: column;
@@ -62,7 +69,7 @@
                     background: var(--fill-primary);
                     border: 0.0625rem solid transparent;
                     border-radius: 1.5rem;
-                    transition: all.2s linear;
+                    transition: all .2s linear;
                     padding: .5rem;
                 }
 
@@ -75,61 +82,8 @@
     }
 }
 
-
-.mainBanner {
-    background-color: var(--fill-primary);
-
-    &.mainColor {
-        background-color: var(--background-maincolor);
-    }
-    &.whiteColor {
-        background-color: var(--white);
-    }
-    .mainReversed {
-        display: flex;
-        justify-content: center;
-        max-height: 47.5rem;
-        max-width: 75rem;
-        width: 100%;
-        padding: 30px 0;
-        margin: 0 auto;
-        align-items: center;
-        gap: 3rem;
-
-        .mainImage {
-            width: calc(100%/2);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
-            img {
-            max-width: 30rem;
-            padding: 0;
-            }
-        }
-        .mainDescription {
-            width: calc(100%/2);
-            padding: 0 3rem;
-
-            .title {
-                margin-bottom: 1rem;
-            }
-        }
-
-        @include tablet {
-            .mainDescription {
-                margin-left: 20px;
-                max-width: 240px;
-            }
-            .link-wrap {
-                flex-direction: column;
-                width: fit-content;
-                a,
-                button {
-                    padding: 0.5rem 1rem;
-                    font-size: 1rem;
-                }
-            }
-        }
+.toastui-editor-defaultUI {
+    .ProseMirror {
+        font-size: 1rem;
     }
 }

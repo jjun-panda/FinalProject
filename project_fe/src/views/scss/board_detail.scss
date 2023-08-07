@@ -22,7 +22,7 @@
         margin-top: 1.5rem;
         padding-bottom: 1.5rem;
         position: relative;
-        border-bottom: 1px solid var(--light-line-normal);
+        border-bottom: 1px solid var(--line-normal);
 
         .spaceBetween {
             display: flex;
@@ -52,10 +52,10 @@
                     margin-left: .5rem;
 
                     .nickName{
-                        color: var(--light-text-normal);
+                        color: var(--text-normal);
                     }
                     .mail{
-                        color: var(--light-text-assitive);
+                        color: var(--text-assitive);
                     }
                 }
             }
@@ -73,16 +73,52 @@
 
     #articleDescription {
         padding: 1.5rem;
-        border-bottom: 1px solid var(--light-line-normal);
+        border-bottom: 1px solid var(--line-normal);
         #articleTitle {
             padding-bottom: .5rem;
         }
-        #articleCategory {
-            color: var(--light-text-assitive);
-            padding-bottom: 2rem;
+        .articleRight {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            #articleCategory {
+                color: var(--text-assitive);
+                padding-bottom: 2rem;
+                a {
+                    color: var(--text-assitive);
+                    transition: all .3s ease;
+                    &:hover, &:active {
+                        color: var(--text-normal);
+                        text-decoration: underline;
+                    }
+                }
+            }
+            .menu {
+                display: flex;
+                gap: .5rem;
+                cursor: pointer;
+                color: var(--text-assitive);
+
+                a{
+                    &.updateToggle, &.deleteComment {
+                        color: var(--text-assitive);
+                        &:hover, &:active {
+                            text-decoration:underline;
+                        }
+                    }
+                }
+            }
         }
-        #articleDetail p {
-            line-height: 1.6;
+        #articleDetail{
+            p {
+                line-height: 1.6;
+            }
+            img {
+                width: calc(100% - 2rem);
+                display: flex;
+                margin: auto;
+            }
+            
         }
     }
 }
@@ -93,7 +129,7 @@
     max-width: 48rem;
     width: 100%;
     margin: 0 auto;
-    border-bottom: 1px solid var(--light-line-normal);
+    border-bottom: 1px solid var(--line-normal);
 
     .donationTitle {
         margin-bottom: .5rem;
@@ -101,12 +137,12 @@
     .donationType {
         display: flex;
         gap: 1rem;
-        color: var(--light-text-assitive);
+        color: var(--text-assitive);
         margin-top: 1rem;
         .donationBox {
             padding: .5rem 1rem;
             background-color: var(--white);
-            border: 1px solid var(--light-line-normal);
+            border: 1px solid var(--line-normal);
             border-radius: .5rem;
             display: flex;
             gap: .5rem;

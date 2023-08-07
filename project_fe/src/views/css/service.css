@@ -16,11 +16,11 @@
   text-align: center;
 }
 .containerBody .containerContext .titleBG {
-  background-color: var(--light-primary-normal);
+  background-color: var(--primary-normal);
   color: var(--white);
   border-radius: 0.25rem;
-  -webkit-text-emphasis: "•" var(--light-primary-normal);
-          text-emphasis: "•" var(--light-primary-normal);
+  -webkit-text-emphasis: "•" var(--primary-normal);
+          text-emphasis: "•" var(--primary-normal);
 }
 .containerBody .containerContext .contextWrapper {
   max-width: 45rem;
@@ -55,21 +55,21 @@
   align-items: center;
   width: 7.5rem;
   height: 7.5rem;
-  background: var(--light-fill-primary);
+  background: var(--fill-primary);
   border: 0.0625rem solid transparent;
   border-radius: 1.5rem;
   transition: 0.2s linear;
   padding: 0.5rem;
 }
 .containerBody .containerCategory .sebCategories .sebCategory:hover .imageBox {
-  border-color: var(--light-line-strong);
+  border-color: var(--line-strong);
 }
 
 .mainBanner {
-  background-color: var(--light-fill-primary);
+  background-color: var(--fill-primary);
 }
-.mainBanner.mianColor {
-  background-color: #f1f5ff;
+.mainBanner.mainColor {
+  background-color: var(--background-maincolor);
 }
 .mainBanner.whiteColor {
   background-color: var(--white);

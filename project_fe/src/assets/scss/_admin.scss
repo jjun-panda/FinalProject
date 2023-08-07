@@ -1,0 +1,15 @@
+.admin {
+    color: var(--status-alert);
+    font-weight: 700;
+
+    &.box {
+        background-color: var(--status-alert-bg);
+        color: var(--status-alert);
+        padding: 0 1rem;
+        border-radius: 1rem;
+        height: 1.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}

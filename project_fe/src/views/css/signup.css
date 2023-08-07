@@ -5,7 +5,7 @@
   align-items: center;
   gap: 0.5rem;
   border-radius: 0.25rem;
-  border: 1px solid var(--light-line-normal);
+  border: 1px solid var(--line-normal);
   width: 100%;
   font-size: 1rem;
 }
@@ -33,18 +33,18 @@
 }
 #signupRequired .signupForm .form-valid .message {
   margin-top: 0.25rem;
-  color: var(--light-primary-normal);
+  color: var(--primary-normal);
 }
-#signupRequired .signupForm .form-valid .mail-input, #signupRequired .signupForm .form-valid .pw-input {
+#signupRequired .signupForm .form-valid .mail-input, #signupRequired .signupForm .form-valid .pw-input, #signupRequired .signupForm .form-valid .txt-input {
   position: relative;
   display: flex;
   align-items: center;
 }
-#signupRequired .signupForm .form-valid .mail-input svg, #signupRequired .signupForm .form-valid .pw-input svg {
+#signupRequired .signupForm .form-valid .mail-input svg, #signupRequired .signupForm .form-valid .pw-input svg, #signupRequired .signupForm .form-valid .txt-input svg {
   left: 0.875rem;
   position: absolute;
 }
-#signupRequired .signupForm .form-valid .mail-input .pwShowBtn, #signupRequired .signupForm .form-valid .pw-input .pwShowBtn {
+#signupRequired .signupForm .form-valid .mail-input .pwShowBtn, #signupRequired .signupForm .form-valid .pw-input .pwShowBtn, #signupRequired .signupForm .form-valid .txt-input .pwShowBtn {
   width: 32px;
   height: 32px;
   position: absolute;
@@ -73,10 +73,10 @@
   padding-right: 0.25rem;
 }
 .signupLinkWrap .logIn a {
-  color: var(--light-text-alternative);
+  color: var(--text-alternative);
   cursor: pointer;
 }
 .signupLinkWrap .logIn a:hover {
   transition: all 0.3s ease;
-  color: var(--light-primary-normal);
+  color: var(--primary-normal);
 }

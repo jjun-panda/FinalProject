@@ -1,23 +1,6 @@
-.gridHeader {
-  margin: 0 auto;
-  align-items: center;
-  display: flex;
-  justify-content: space-between;
-}
-@media (max-width: 1179px) {
-  .gridHeader {
-    margin: 0 1.5rem;
-  }
-}
-@media (max-width: 1023px) {
-  .gridHeader {
-    margin: 0 1rem;
-  }
-}
-
 .nav {
   position: relative;
-  z-index: 10;
+  z-index: 2;
   height: 4rem;
   display: flex;
   align-content: center;
@@ -37,27 +20,50 @@
           backdrop-filter: blur(5px);
   background-color: var(--whiteHalf);
 }
-.nav .menu {
+.nav .container {
+  margin: 0 auto;
+  max-width: 75rem;
+  width: 100%;
+}
+.nav .container .gridHeader {
+  margin: 0 auto;
   align-items: center;
   display: flex;
-  gap: 20px;
+  justify-content: space-between;
+}
+@media (max-width: 1179px) {
+  .nav .container .gridHeader {
+    margin: 0 1.5rem;
+  }
+}
+@media (max-width: 1023px) {
+  .nav .container .gridHeader {
+    margin: 0 1rem;
+  }
+}
+.nav .container .gridHeader a {
+  display: grid;
+  gap: 0.25rem;
+}
+.nav .container .gridHeader a .logoImg {
+  width: 7.5rem;
+  height: 0;
+  padding-top: 20%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: relative;
+}
+.nav .container .gridHeader a .logoText {
+  color: var(--primary-normal);
+  font-weight: 700;
+}
+.nav .container .gridHeader .menu {
+  align-items: center;
+  display: flex;
+  gap: 0.5rem;
   list-style: none;
   margin: 0;
   padding: 0;
-}
-
-.container {
-  margin: 0 auto;
-  max-width: 1180px;
-  width: 100%;
-}
-
-.logo::after {
-  content: "Beta";
-  vertical-align: super;
-  font-size: 0.75rem;
-  color: var(--light-primary-normal);
-  margin-left: 0.25rem;
 }
 
 .mobileToggle {
@@ -77,9 +83,9 @@
   flex-direction: column;
 }
 .mobileToggle span {
-  width: 20px;
+  width: 1.25rem;
   height: 0.25rem;
-  background: var(--light-text-normal);
+  background: var(--text-normal);
   content: " ";
 }
 .mobileToggle span:nth-child(1) {
@@ -94,7 +100,7 @@
 
 @media (max-width: 1179px) {
   .navMobile {
-    height: 56px;
+    height: 3.5rem;
   }
   .logo {
     font-size: 1.25rem;
@@ -107,11 +113,11 @@
     display: inline-flex;
   }
   .nav {
-    height: 56px;
+    height: 3.5rem;
   }
   .nav::after {
     -webkit-backdrop-filter: none;
             backdrop-filter: none;
-    border-bottom: 1px solid var(--light-line-normal);
+    border-bottom: 1px solid var(--line-normal);
   }
 }

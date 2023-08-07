@@ -4,16 +4,19 @@
     max-width: 48rem;
     width: 100%;
     margin: 0 auto;
-    border-bottom: 1px solid var(--light-line-normal);
+    border-bottom: 1px solid var(--line-normal);
 }
 .commentTitle {
     margin-bottom: .5rem;
+    span {
+        padding-left: .5rem;
+    }
 }
 // 댓글 작성
 #commenterTextbox {
     padding: 1rem 1.5rem;
     background-color: var(--white);
-    border: 1px solid var(--light-line-normal);
+    border: 1px solid var(--line-normal);
     border-radius: .5rem;
 
     #commenterProfile {
@@ -52,10 +55,10 @@
                     align-items: center;
 
                     .nickName{
-                        color: var(--light-text-normal);
+                        color: var(--text-normal);
                     }
                     .mail{
-                        color: var(--light-text-assitive);
+                        color: var(--text-assitive);
                     }
                 }
             }
@@ -74,21 +77,22 @@
 
         textarea {
             border: none;
+            background-color: var(--white);
+            color: var(--text-normal);
             // margin-bottom: .5rem;
-            // border-top: 1px solid var(--light-line-normal);
-            // border-bottom: 1px solid var(--light-line-normal);
+            // border-top: 1px solid var(--line-normal);
+            // border-bottom: 1px solid var(--line-normal);
         }
     }
 }
 
 // 댓글리스트
 #commenterList {
-    padding: 1rem 1.5rem;
-    background-color: var(--light-background-tertiary);
-    border-radius: .5rem;
     margin-top: 1rem;
+    display: grid;
     
     #commenterProfile {
+        padding: 1rem 0;
         text-decoration: none;
         display: block;
         padding-bottom: .5rem;
@@ -98,6 +102,7 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
+            padding: 0 .5rem;
 
             #commenterProfileLeft {
                 display: flex;
@@ -124,29 +129,59 @@
                     align-items: baseline;
 
                     .nickName{
-                        color: var(--light-text-normal);
+                        color: var(--text-normal);
                     }
                     .mail{
-                        color: var(--light-text-assitive);
+                        color: var(--text-assitive);
                     }
                 }
             }
             #commenterProfileRight {
-                Button {
-                    min-width: 15rem;
+                .menu {
+                    display: flex;
+                    gap: .5rem;
+                    cursor: pointer;
+                    color: var(--text-assitive);
+
+                    a{
+                        &.updateToggle, &.deleteComment {
+                            color: var(--text-assitive);
+                            &:hover, &:active {
+                                text-decoration:underline;
+                            }
+                        }
+                    }
                 }
             }
         }
     }
-
+    .commentBox {
+        background-color: var(--white);
+        color: var(--text-normal);
+        // border: 1px solid var(--line-normal);
+        padding: 1rem 1.5rem;
+        border-radius: .5rem;
+        min-height: 100%;
+    }
     #commenterDescription {
-        padding: 0;
+        padding: 1rem 1.5rem;
+        background-color: var(--background-tertiary);
+        border-radius: .5rem;
+        border: 1px solid var(--background-tertiary);
 
+        .commenterDetail {
+            .commentDele {
+                color: var(--text-assitive);
+                span {
+                    color: var(--status-alert);
+                }
+            }
+        }
         #commenterTitle {
             padding-bottom: .5rem;
         }
         #commenterCategory {
-            color: var(--light-text-assitive);
+            color: var(--text-assitive);
             padding-bottom: 2rem;
         }
     }

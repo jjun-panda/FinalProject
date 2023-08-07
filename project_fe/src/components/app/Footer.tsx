@@ -1,23 +1,40 @@
 import { Link } from 'react-router-dom';
 import '../css/Footer.css'
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 export default function Footer() {
 
     function clickme() {
         window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
     }
+	const [darkMode, setDarkMode] = useState(false);
+
+	useEffect(() => {
+		const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+		setDarkMode(prefersDark.matches);
+
+		const handleChangeDarkMode = (event: MediaQueryListEvent) => {
+		setDarkMode(event.matches);
+		};
+		prefersDark.addEventListener('change', handleChangeDarkMode);
+
+		return () => {
+		prefersDark.removeEventListener('change', handleChangeDarkMode);
+		};
+	}, []);
     
     return (
     <div className="footerContainer">
         <div className="footerMain">
             <div className="footerTop">
                 <Link to='/'>
-                    <img
-                    src="https://jjundesign.gabia.io/components/jjun_logo_f.svg"
+                    <p className={`logoImg ${darkMode ? 'dark-mode' : ''}`} />
+
+                    {/* <img
+                    src={logo}
                     alt="logo"
-                    width={100}
-                />
+                    height={32}
+                /> */}
                 </Link>
                 <div >
                     <svg

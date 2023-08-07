@@ -3,17 +3,20 @@
   max-width: 48rem;
   width: 100%;
   margin: 0 auto;
-  border-bottom: 1px solid var(--light-line-normal);
+  border-bottom: 1px solid var(--line-normal);
 }
 
 .commentTitle {
   margin-bottom: 0.5rem;
 }
+.commentTitle span {
+  padding-left: 0.5rem;
+}
 
 #commenterTextbox {
   padding: 1rem 1.5rem;
   background-color: var(--white);
-  border: 1px solid var(--light-line-normal);
+  border: 1px solid var(--line-normal);
   border-radius: 0.5rem;
 }
 #commenterTextbox #commenterProfile {
@@ -51,10 +54,10 @@
   align-items: center;
 }
 #commenterTextbox #commenterProfile .spaceBetween #commenterProfileLeft #commenterProfiName .nickName {
-  color: var(--light-text-normal);
+  color: var(--text-normal);
 }
 #commenterTextbox #commenterProfile .spaceBetween #commenterProfileLeft #commenterProfiName .mail {
-  color: var(--light-text-assitive);
+  color: var(--text-assitive);
 }
 #commenterTextbox #commenterProfile .spaceBetween #commenterProfileRight Button {
   min-width: 15rem;
@@ -67,15 +70,16 @@
 }
 #commenterTextbox .textBox textarea {
   border: none;
+  background-color: var(--white);
+  color: var(--text-normal);
 }
 
 #commenterList {
-  padding: 1rem 1.5rem;
-  background-color: var(--light-background-tertiary);
-  border-radius: 0.5rem;
   margin-top: 1rem;
+  display: grid;
 }
 #commenterList #commenterProfile {
+  padding: 1rem 0;
   text-decoration: none;
   display: block;
   padding-bottom: 0.5rem;
@@ -85,6 +89,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 0 0.5rem;
 }
 #commenterList #commenterProfile .spaceBetween #commenterProfileLeft {
   display: flex;
@@ -110,21 +115,46 @@
   align-items: baseline;
 }
 #commenterList #commenterProfile .spaceBetween #commenterProfileLeft #commenterProfiName .nickName {
-  color: var(--light-text-normal);
+  color: var(--text-normal);
 }
 #commenterList #commenterProfile .spaceBetween #commenterProfileLeft #commenterProfiName .mail {
-  color: var(--light-text-assitive);
+  color: var(--text-assitive);
 }
-#commenterList #commenterProfile .spaceBetween #commenterProfileRight Button {
-  min-width: 15rem;
+#commenterList #commenterProfile .spaceBetween #commenterProfileRight .menu {
+  display: flex;
+  gap: 0.5rem;
+  cursor: pointer;
+  color: var(--text-assitive);
+}
+#commenterList #commenterProfile .spaceBetween #commenterProfileRight .menu a.updateToggle, #commenterList #commenterProfile .spaceBetween #commenterProfileRight .menu a.deleteComment {
+  color: var(--text-assitive);
+}
+#commenterList #commenterProfile .spaceBetween #commenterProfileRight .menu a.updateToggle:hover, #commenterList #commenterProfile .spaceBetween #commenterProfileRight .menu a.updateToggle:active, #commenterList #commenterProfile .spaceBetween #commenterProfileRight .menu a.deleteComment:hover, #commenterList #commenterProfile .spaceBetween #commenterProfileRight .menu a.deleteComment:active {
+  text-decoration: underline;
+}
+#commenterList .commentBox {
+  background-color: var(--white);
+  color: var(--text-normal);
+  padding: 1rem 1.5rem;
+  border-radius: 0.5rem;
+  min-height: 100%;
 }
 #commenterList #commenterDescription {
-  padding: 0;
+  padding: 1rem 1.5rem;
+  background-color: var(--background-tertiary);
+  border-radius: 0.5rem;
+  border: 1px solid var(--background-tertiary);
+}
+#commenterList #commenterDescription .commenterDetail .commentDele {
+  color: var(--text-assitive);
+}
+#commenterList #commenterDescription .commenterDetail .commentDele span {
+  color: var(--status-alert);
 }
 #commenterList #commenterDescription #commenterTitle {
   padding-bottom: 0.5rem;
 }
 #commenterList #commenterDescription #commenterCategory {
-  color: var(--light-text-assitive);
+  color: var(--text-assitive);
   padding-bottom: 2rem;
 }

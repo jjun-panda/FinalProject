@@ -1,5 +1,20 @@
 @import '../../assets/scss/mixin';
 
+select {
+    background: url(../../assets/images/icon/ico_arrow_down.svg) no-repeat calc(100% - 1rem) 50%;
+    display: inline-flex;
+    gap: 0.5rem;
+    border-radius: 0.25rem;
+    border: 1px solid var(--line-normal);
+    width: 100%;
+    font-size: 1rem;
+    height: 3rem;
+    padding: 0 1rem;
+    -webkit-appearance: none;
+    width: 100%;
+    color: var(--text-normal);
+}
+
 .modal {
     position: fixed;
     top: 0;
@@ -33,11 +48,11 @@
         }
 
         .titleModal {
-            color: var(--light-text-normal);
+            color: var(--text-normal);
         }
         .textModal {
             margin: .5rem 0 1rem;
-            color: var(--light-text-assitive);
+            color: var(--text-assitive);
         }
 
         Button {
@@ -46,8 +61,11 @@
         .modalPassword {
             margin-bottom: 1rem;
         }
+        .modalBill {
+            margin-bottom: 1rem;
+        }
         .textBox {
-            background-color: var(--light-background-primary);
+            background-color: var(--background-primary);
             border-radius: .25rem;
             height: 3rem;
             padding: 0 1rem;
@@ -65,7 +83,7 @@
                 font-weight: 700;
                 color: var(--white);
                 cursor: pointer;
-                background-color: var(--light-primary-normal);
+                background-color: var(--primary-normal);
                 border: none;
                 border-radius: 4px;
                 outline: none;
@@ -74,14 +92,14 @@
                 max-width: 10rem;
 
                 &:hover {
-                    background-color: var(--light-primary-strong);
+                    background-color: var(--primary-strong);
                 }
                 +.cance {
-                    border: 1px solid var(--light-primary-normal);
+                    border: 1px solid var(--primary-normal);
                     background-color: var(--white);
-                    color: var(--light-primary-normal);
+                    color: var(--primary-normal);
                     &:hover {
-                        background-color: var(--light-primary-assistive);
+                        background-color: var(--primary-assistive);
                     }
                 }
             }
@@ -90,23 +108,23 @@
 }
 
 .todoBtn {
-    border: 1px solid var(--light-text-normal);
+    border: 1px solid var(--text-normal);
     border-radius: .5rem;
     height: 2rem;
     padding: 0 1rem;
     background-color: var(--white);
-    color: var(--light-text-normal);
+    color: var(--text-normal);
     font-size: .875rem;
-    transition: all 0.1s ease;
+    transition: all .1s ease;
 
     &:hover {
-        background-color: var(--light-primary-normal);
+        background-color: var(--primary-normal);
         color: var(--white);
-        border: 1px solid var(--light-primary-normal);
+        border: 1px solid var(--primary-normal);
     }
 
     &:active {
-        background-color: var(--light-primary-strong);
+        background-color: var(--primary-strong);
     }
 }
 .flex {

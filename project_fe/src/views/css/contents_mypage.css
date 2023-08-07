@@ -9,7 +9,7 @@
 }
 #contentsMypageTum .contentsSebTitle {
   margin-bottom: 1rem;
-  color: var(--light-text-alternative);
+  color: var(--text-alternative);
 }
 #contentsMypageTum #contentsCards {
   display: flex;
@@ -17,6 +17,7 @@
 }
 #contentsMypageTum #contentsCards #contentsBox {
   display: block;
+  border-radius: 0.5rem;
   width: 25%;
 }
 #contentsMypageTum #contentsCards #contentsBox #contentsImg {
@@ -32,10 +33,11 @@
   border-radius: 0.5rem;
 }
 #contentsMypageTum #contentsCards #contentsBox #contentsText .category {
-  color: var(--light-primary-normal);
+  color: var(--primary-normal);
   padding: 0.25rem 0.5rem;
-  background-color: var(--light-primary-alternarive);
+  background-color: var(--primary-alternarive);
   border-radius: 1rem;
+  font-weight: 700;
 }
 #contentsMypageTum #contentsCards #contentsBox #contentsText .title {
   display: -webkit-box;
@@ -47,4 +49,4 @@
   -webkit-line-clamp: 2;
   height: 52px;
   margin-top: 0.25rem;
-}/*# sourceMappingURL=contents_mypage.css.map */
+}

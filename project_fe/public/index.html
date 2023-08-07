@@ -4,16 +4,21 @@
     <meta charset="utf-8" />
     <meta
     name="viewport"
-    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densitydpi=medium-dpi"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"
     />
-    <meta name="theme-color" content="#FFFFFF" />
+    <!-- <meta name="theme-color" content="#FFFFFF" /> -->
 
     <link rel="icon" href="http://www.jjuns-c.com/img/JUN-logo.png" sizes="192x192" />
     <link rel="apple-touch-icon-precomposed" href="http://www.jjuns-c.com/img/JUN-logo_icon.png" />
     <meta property="og:image" content="http://www.jjuns-c.com/img/ogimg.jpg" />
     <meta name="title" content="Design System with JJUN" />
     <meta name="author" content="InnoCo" />
-
+    <script>
+      const htmlElement = document.documentElement;
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      htmlElement.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
+    </script>
+    <link rel="stylesheet" href="../src/assets/css/common.css">
     <!-- <meta
       name="description"
       content="Start your next React project with Berry admin template. It build with Reactjs, Material-UI, Redux, and Hook for faster web development."

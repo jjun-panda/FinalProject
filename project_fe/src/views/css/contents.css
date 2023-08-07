@@ -7,9 +7,43 @@
 #contentsMainTum .contentsTitle {
   margin-bottom: 0.25rem;
 }
-#contentsMainTum .contentsSebTitle {
+#contentsMainTum .contentsText {
+  display: flex;
   margin-bottom: 1rem;
-  color: var(--light-text-alternative);
+  justify-content: space-between;
+}
+#contentsMainTum .contentsText .contentsSebTitle {
+  color: var(--text-alternative);
+}
+#contentsMainTum .contentsText .updateToggle {
+  border: 1px solid var(--line-normal);
+  padding: 0 0.875rem;
+  border-radius: 1rem;
+  transition: all 0.3s ease;
+}
+#contentsMainTum .contentsText .updateToggle:hover {
+  background-color: var(--primary-normal);
+  border: 1px solid var(--primary-normal);
+  color: var(--white);
+}
+#contentsMainTum .contentsGroup {
+  position: relative;
+}
+#contentsMainTum .contentsGroup .contentsSebgroup {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  row-gap: 2rem;
+}
+#contentsMainTum .contentsGroup .contentsSebgroup .contentsTrgroup {
+  position: relative;
+  height: auto;
+  transition: margin 0.5s;
+  float: left;
+  border: 0px solid;
+  width: calc(25% - 0.75rem);
+  flex: 0 0 calc(25% - 0.75rem);
+  max-width: calc(25% - 0.75rem);
 }
 #contentsMainTum #contentsCards {
   display: flex;
@@ -17,10 +51,12 @@
 }
 #contentsMainTum #contentsCards #contentsBox {
   display: block;
-  width: 25%;
+  border-radius: 0.5rem;
 }
 #contentsMainTum #contentsCards #contentsBox #contentsImg {
   position: relative;
+  display: flex;
+  margin-bottom: 0.5rem;
 }
 #contentsMainTum #contentsCards #contentsBox #contentsImg img {
   width: 100%;
@@ -32,19 +68,20 @@
   border-radius: 0.5rem;
 }
 #contentsMainTum #contentsCards #contentsBox #contentsText .category {
-  color: var(--light-primary-normal);
+  color: var(--primary-normal);
   padding: 0.25rem 0.5rem;
-  background-color: var(--light-primary-alternarive);
+  background-color: var(--primary-alternarive);
   border-radius: 1rem;
+  font-weight: 700;
 }
 #contentsMainTum #contentsCards #contentsBox #contentsText .title {
   display: -webkit-box;
-  max-height: 52px;
+  max-height: 3.25rem;
   overflow: hidden;
   text-overflow: ellipsis;
   word-break: break-all;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
-  height: 52px;
+  height: 3.25rem;
   margin-top: 0.25rem;
 }

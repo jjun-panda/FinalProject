@@ -1,21 +1,35 @@
 import { Link } from "react-router-dom";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../context/AuthProvider";
 import '../css/Header.css';
 
 
-
 export default function Header() {
 	const { auth, setAuth } = useContext(AuthContext);
+	const [darkMode, setDarkMode] = useState(false);
+
+	useEffect(() => {
+		const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+		setDarkMode(prefersDark.matches);
+
+		const handleChangeDarkMode = (event: MediaQueryListEvent) => {
+		setDarkMode(event.matches);
+		};
+		prefersDark.addEventListener('change', handleChangeDarkMode);
+
+		return () => {
+		prefersDark.removeEventListener('change', handleChangeDarkMode);
+		};
+	}, []);
 
 	return (
 		<div className="nav">
 			<div className="container">
 				<div className="gridHeader header">
 					<Link to="/">
-						<div className="logo title24x">
-						<img src="https://jjundesign.gabia.io/components/jjun_logo_f.svg" alt="logo"  width={100}/>
-						</div>
+						<span className="logoText caption">즐겨라, 혁신과 공존 함께!</span>
+						<p className={`logoImg ${darkMode ? 'dark-mode' : ''}`} />
+							{/* <img src={logoImg} alt="logo"  height={24}/> */}
 					</Link>
 					<ul className="menu">
 
@@ -23,29 +37,31 @@ export default function Header() {
 						(auth) ?
 							<>
 								{/* 회원 정보 */}
-								<li className="nav-item">
-									<span className="nav-link"> {auth} 님 반갑습니다 <i className="fab fa-ello"></i> &nbsp; </span>
-								</li>
-								
+								{
+									(localStorage.getItem("email") === "admin") ?
+									<>
+										<span className="body14x admin box">관리자 모드</span>	
+									</>
+									:
+									<>
+										<span className="body16x">{auth}님 반갑습니다</span>	
+									</>
+								}
+
 								{/*마이페이지 */}
-								<li className="nav-item">
-									<Link className="nav-link" to="/MyPageDetail" ><i className="fas fa-my-page"></i>마이페이지</Link>
-								</li>
+								<Link className="body16x" to="/user/detail" >마이페이지</Link>
+								<span>/</span>
 
 								{/* 로그아웃 */}
-								<li className="nav-item">
-									<Link className="nav-link" to="/logout"><i className="fas fa-sign-out-alt"></i>로그아웃</Link>
-								</li>
+								<Link className="body16x" to="/logout">로그아웃</Link>
 								
 							</>
 							:
 							<>
 								{/* 로그인 / 회원가입 */}
-								<li className="nav-item">
-									<Link className="nav-link" to="/login">로그인</Link>
-									<span style={{padding: '0 .25rem'}}>/</span>
-									<Link className="nav-link" to="/signup">회원가입</Link>
-								</li>
+								<Link className="body16x" to="/login">로그인</Link>
+								<span>/</span>
+								<Link className="body16x" to="/signup">회원가입</Link>
 							</>
 					}
 

@@ -104,15 +104,22 @@ section {
   display: block;
 }
 
+html, body, #theme{
+  background-color: var(--white);
+  color: var(--text-normal);
+}
+
 html {
-  color: var(--light-text-normal);
+  overflow-y: scroll;
 }
 
 body {
+  margin: 0;
   line-height: 1.6;
 }
+
 a {
-  height: 100%;
+  // height: 100%;
   display: inline-flex;
 }
 ol,
@@ -142,28 +149,28 @@ hr {
   margin: 2rem 0;
   border: 0;
   height: 1px;
-  background-color: var(--light-line-normal);
+  background-color: var(--line-normal);
 }
 
 mark {
-  background: var(--light-primary-normal);
+  background: var(--primary-normal);
   color: var(--white);
 }
 
 ::selection {
-  background: var(--light-primary-normal);
+  background: var(--primary-normal);
   color: var(--white);
 }
 
 pre {
-  background-color: var(--light-text-normal);
+  background-color: var(--text-normal);
   padding: 16px;
   margin: 0;
   border-radius: 8px;
 }
 
 code {
-  color: var(--light-text-dlsable);
+  color: var(--text-dlsable);
 }
 
 * {
@@ -171,20 +178,11 @@ code {
   word-break: keep-all;
 }
 
-html {
-  overflow-y: scroll;
-  background-color: var(--wh);
-}
-
-body {
-  margin: 0;
-}
-
 a,
 a:hover,
 a:active,
 a:visited {
-  color: var(--light-text-normal);
+  color: var(--text-normal);
   text-decoration: none;
 }
 
@@ -227,14 +225,51 @@ a:visited {
 
 textarea {
   display: inline-flex;
-  min-height: 3rem;
+  min-height: 1rem;
   padding: 0.5rem 0.75rem;
   align-items: center;
   gap: 0.5rem;
   border-radius: 0.25rem;
-  border: 1px solid var(--light-line-normal);
+  border: 1px solid var(--line-normal);
   width: 100%;
   font-size: 1rem;
   -webkit-appearance: none;
   resize: none;
 }
+@keyframes rotateAnimation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.themeMode {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  background-color: var(--white);
+  border: none;
+  box-shadow: 0 2px 15px var(--shaow-nomal);
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+svg {
+  fill: var(--line-strong);
+  transition: fill 0.3s ease;
+}
+
+select:focus, input:focus, textarea:focus, button:focus {
+  outline: none;
+  box-shadow: 0px 0px 0px 3px rgba(37, 67, 148, 0.4);
+}
+
+// * {
+//   transition: all .1s ease;
+// }
