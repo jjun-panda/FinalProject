@@ -26,10 +26,11 @@ export default function NotFound() {
 const Section = styled.div`
   width: 100%;
   text-align: center;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  margin-top: 5rem;
+  // position: absolute;
+  // top: 50%;
+  // left: 50%;
+  // transform: translate(-50%, -50%);
 `;
 const ErrorImage = styled.img`
   width:40rem;

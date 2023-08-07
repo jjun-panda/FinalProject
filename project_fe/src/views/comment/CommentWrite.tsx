@@ -4,10 +4,9 @@ import { useNavigate } from "react-router-dom";
 
 import { HttpHeadersContext } from "../../context/HttpHeadersProvider";
 import Button from "../../components/Button";
-import Comment from "./Comment"
-import React from "react";
 import { AuthContext } from "../../context/AuthProvider";
 import user from "../../assets/images/user.svg"
+import { detectBadWords } from "../../utils/BadWords";
 
 interface CommnetWriteProps {
 	seq: number;
@@ -15,6 +14,22 @@ interface CommnetWriteProps {
 
 function CommentWrite(props: CommnetWriteProps) {
 	const { auth, setAuth } = useContext(AuthContext);
+	const [badWords, setBadWords] = useState<string[]>([]);
+
+	const fetchBadWords =  async () => {
+
+		await axios.get('http://localhost:8888/badWords/list', )
+		.then((resp) => {
+			setBadWords(resp.data);
+		})
+		.catch((err) => {
+			console.log(err);
+		});
+	}
+
+	useEffect(() => {
+		fetchBadWords();
+	}, []);
 
 	const getBoardDetail = async () => {
 
@@ -42,10 +57,18 @@ function CommentWrite(props: CommnetWriteProps) {
 	const navigate = useNavigate();
 
 	const [content, setContent] = useState("");
-
+	
 	const chageContent = (event: ChangeEvent<HTMLTextAreaElement>) => {
-		setContent(event.target.value);
-	}
+		const commentValue = event.target.value;
+
+		// 댓글 내용에 욕설이 있는지 감지
+		const containsBadWord = detectBadWords(commentValue, badWords);
+		if (containsBadWord) {
+			alert("비속어 및 욕설이 감지되었습니다.");
+			return;
+		}
+		setContent(commentValue);
+	};
 
 	const createComment = async() => {
 
@@ -66,32 +89,31 @@ function CommentWrite(props: CommnetWriteProps) {
 
 		}).catch((err) => {
 			console.log(err);
-
 		});
 	}
 
 	return (
 		<>
 		<div id='commenterTextbox'>
-			<div id="commenterProfile">
-				<div className="spaceBetween">
-					<div id='commenterProfileLeft'>
-					{
-						(auth) ? // 로그인한 사용자만 댓글 작성 가능
-						<>
+			{
+				(auth) ? // 로그인한 사용자만 댓글 작성 가능
+				<>
+				<div id="commenterProfile">
+					<div className="spaceBetween">
+						<div id='commenterProfileLeft'>
 							<div id="commenterProfileImg">
 								<img alt="댓글자" src={user}/>
 							</div>
 							<div id="commenterProfiName">
 								<div className='bodyB14x nickName'>{email}</div>
 							</div>
-						</>
-						:
-						null
-					}
+						</div>
 					</div>
 				</div>
-			</div>
+				</>
+				:
+				null
+			}
 			<div className='textBox'>
 				{
 					(auth) ? // 로그인한 사용자만 댓글 작성 가능
@@ -101,7 +123,6 @@ function CommentWrite(props: CommnetWriteProps) {
 							title="댓글"
 							id="commentTextarea"
 							rows={2}
-							cols={30}
 							maxLength={300}
 							value={content} 
 							onChange={chageContent}
@@ -116,7 +137,7 @@ function CommentWrite(props: CommnetWriteProps) {
 						title="댓글"
 						id="commentTextarea"
 						rows={1}
-						onChange={chageContent}
+						// onChange={chageContent}
 						placeholder='댓글을 작성하시려면 로그인이 필요합니다.'
 					></textarea>
 				}

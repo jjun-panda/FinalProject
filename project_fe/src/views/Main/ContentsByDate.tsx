@@ -3,6 +3,7 @@ import { useState, useEffect, ChangeEvent } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import React from "react";
 import bgImg from "../../assets/images/bg.png"
+import maskDate from "../../components/maskDate";
 
 export default function ContentsTrend() {
 
@@ -41,7 +42,11 @@ export default function ContentsTrend() {
         <div id='contentsCards'>
             {
                 sortByDate.slice(0, 4).map((board, idx) => (
-                    <TableRow obj={board} key={idx} cnt={idx + 1} />
+                    <div className="contentsTrgroup">
+                        <div id='contentsCards'>
+                        <TableRow obj={board} key={idx} cnt={idx + 1} />
+                        </div>
+                    </div>
                 ))
             }
         </div>
@@ -57,6 +62,8 @@ interface Board {
 	del: number;
 	readCount: number;
 	writeDate: string;
+	fileImg: string;
+	category: string;
 }
 
 interface TableRowProps {
@@ -79,13 +86,13 @@ function TableRow(props: TableRowProps) {
                     </div>
                     <div id='contentsText'>
                         <span className="category tag10x">
-                            카테고리
+                            {board.category}
                         </span>
                         <p className="title bodyB16x">
                             {board.title}
                         </p>
                         <div className="caption">
-                            <span>{board.writeDate}</span>・<span>조회수 {board.readCount}</span>
+                            <span>{maskDate({ writeDate: board.writeDate})}</span>・<span>조회수 {board.readCount}</span>
                         </div>
                     </div>
                 </Link>
@@ -99,13 +106,22 @@ function TableRow(props: TableRowProps) {
                     </div>
                     <div id='contentsText'>
                         <span className="category tag10x">
-                            카테고리
+                            {board.category}
                         </span>
                         <p className="title bodyB16x">
-                            삭제된 글 입니다.
+                            {
+								(localStorage.getItem("email") === "admin") ?
+								<>
+									<span className="admin">[삭제된 글] {board.title}</span>	
+								</>
+								:
+								<>
+									삭제된 글 입니다.	
+								</>
+							}
                         </p>
                         <div className="caption">
-                            <span>{board.writeDate}</span>・<span>조회수 {board.readCount}</span>
+                            <span>{maskDate({ writeDate: board.writeDate})}</span>・<span>조회수 {board.readCount}</span>
                         </div>
                     </div>
                 </Link>

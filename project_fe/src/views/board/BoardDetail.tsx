@@ -15,6 +15,7 @@ import ContentsTrend from "./ContentsTrend";
 import React from "react";
 import user from "../../assets/images/user.svg"
 import bgImg from "../../assets/images/bg.png"
+import maskDate from "../../components/maskDate";
 // import ContentsTrend from './contentsTrend'
 
 interface Board {
@@ -24,6 +25,8 @@ interface Board {
 	email: string;
 	writeDate: string;
 	readCount: number;
+	fileImg: string;
+	category: string;
 }
 
 export default function BoardDetail() {
@@ -39,7 +42,7 @@ export default function BoardDetail() {
 
 		await axios.get(`http://localhost:8888/board/${seq}`, {params: {readerEmail: auth ? auth : ""}})
 		.then((resp) => {
-			console.log(resp);
+			console.log(resp.data);
 
 			setBoard(resp.data.board);
 		})
@@ -74,12 +77,9 @@ export default function BoardDetail() {
 		seq: board.seq,
 		email: board.email,
 		title: board.title,
-		content: board.content
-	}
-
-	const parentBoard = {
-		email: board.email,
-		title: board.title
+		content: board.content,
+		fileImg: board.fileImg,
+		category: board.category
 	}
 
 	return (
@@ -109,15 +109,29 @@ export default function BoardDetail() {
                 <p id="articleTitle" className='title32x'>
 					{board.title}
                 </p>
-                <p id="articleCategory" className='body14x'>
-                    &#123; 카테고리 &#125; ∙ <time>{board.writeDate}</time> ∙ 조회수 <span>{board.readCount}</span>
-                </p>
+				<div className="articleRight">
+					<p id="articleCategory" className='body14x'>
+						<Link to={`/board/list/${board.category}`}>{board.category}</Link> ∙ <time title={board.writeDate}>{maskDate({ writeDate: board.writeDate})}</time> ∙ 조회수 <span>{board.readCount}</span>
+					</p>
+					{
+						/* 자신이 작성한 게시글인 경우에만 수정 삭제 가능 */
+						(localStorage.getItem("email") == board.email) ?
+							<>
+								<div className="menu caption">
+									<Link  className="updateToggle caption"  to="/board/update" state={{ board: updateBoard }}>수정</Link>
+									<span>|</span>
+									<Link  className="deleteComment caption" to="/board/list"  onClick={deleteBoard}>삭제</Link>
+								</div>
+							</>
+						:
+						null
+					}
+				</div>
+				<div className='body16x' id="articleDetail" dangerouslySetInnerHTML={{ __html: board.content }} />
 
-                <div className='body16x' id="articleDetail">
-                    <p>
+                {/* <div className='body16x' id="articleDetail">
 						{board.content}
-                    </p>
-                </div>
+                </div> */}
             </section>
 		</article>
 
@@ -165,37 +179,20 @@ export default function BoardDetail() {
 
 		{/* 댓글 */}
         <div id="comments">
-            <p className='title24x commentTitle'>댓글</p>
-
-            {/* 댓글 작성 */}
-			<CommentWrite seq={Number(seq)} />
-			
             {/* 댓글 리스트 */}
 			<CommentList seq={Number(seq)} />
         </div>
 
-			<div className="my-3 d-flex justify-content-end">
-				{
-					/* 자신이 작성한 게시글인 경우에만 수정 삭제 가능 */
-					(localStorage.getItem("email") == board.email) ?
-						<>
-							<Link className="btn btn-outline-secondary"  to="/board/update" state={{ board: updateBoard }}><i className="fas fa-edit"></i> 수정</Link> &nbsp;
-							<button className="btn btn-outline-danger"  onClick={deleteBoard}><i className="fas fa-trash-alt"></i> 삭제</button>
-						</>
-					:
-					null
-				}
-
-			</div>
-
-			<div className="my-3 d-flex justify-content-center">
-				<Link className="btn btn-outline-secondary" to="/board/list"><i className="fas fa-list"></i> 글목록</Link>
-			</div>
-
 		{/* 다른 콘텐츠 보기 */}
         <div id='contentsBodyTum'>
             <p className='title24x contentsTitle'>인기 콘텐츠</p>
-            <ContentsTrend />
+			<div id='contentsCards'>
+				<div className="contentsGroup">
+					<div className="contentsSebgroup">
+						<ContentsTrend />
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 	);

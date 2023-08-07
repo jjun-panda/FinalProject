@@ -3,23 +3,23 @@ import '../css/modal.css';
 import Button from '../../components/Button';
 import { AuthContext } from '../../context/AuthProvider';
 import axios from 'axios';
-import { useLocation, useNavigate } from 'react-router-dom';
-import { HttpHeadersContext } from '../../context/HttpHeadersProvider';
+import { useNavigate } from 'react-router-dom';
 
-export default function UpdateMember() {
-  //const { headers, setHeaders } = useContext(HttpHeadersContext);
+interface memberInfo {
+	name : string;
+  phone : string;
+  email : string;
+  pwd : string;
+}
+
+interface UpdateMemberProps {
+  member: memberInfo;
+}
+
+export default function UpdateMember({ member }: UpdateMemberProps) {
   const { auth, setAuth } = useContext(AuthContext);
 
-
-
   const navigate = useNavigate();
-  
-  // const location = useLocation();
-  // const { member } = location.state;
-
-  // const [pwd, setPwd] = useState(member.pwd);
-  // const [name, setName] = useState(member.name);
-  // const [phone, setPhone] = useState(member.phone);
 
   const [isOpen, setIsOpen] = useState(false);
   const openModal = () => {
@@ -29,22 +29,22 @@ export default function UpdateMember() {
     setIsOpen(false);
   };
 
-  const [pwd, setPwd] = useState('');
-  const [name, setName] = useState('');
-  const [phone, setPhone] = useState('');
+  const [pwd, setPwd] = useState(member.pwd);
+  const [name, setName] = useState(member.name);
+  const [phone, setPhone] = useState(member.phone);
+  const [newPwd, setNewPwd] = useState('');
   
-
- 
 
   const updateMember = async () => { 
     
     const userData = {
       email: auth,
-      pwd,
-      name,
-      phone
+      pwd: pwd,
+      newPwd: newPwd,
+      name: name,
+      phone: phone
     };
-    setIsOpen(false);
+    // setIsOpen(false);
     await axios.post("http://localhost:8888/user/updateMember",  userData)
     
       .then((resp) => {
@@ -71,8 +71,18 @@ export default function UpdateMember() {
 
             <div className="form-valid">
               <div>
+                <div className="mail-input">
+                  <input type="email" name='email' value={auth} readOnly />
+                </div>
+              </div>
+              <div>
                 <div className="pw-input">
-                  <input type="password" name="pwd" placeholder="비밀번호를 입력해주세요" required onChange={e => setPwd(e.target.value)} />
+                  <input type="password" name="pwd" placeholder="기존 비밀번호를 입력해주세요" required onChange={e => setPwd(e.target.value)} />
+                </div>
+              </div>
+              <div>
+                <div className="pw-input">
+                  <input type="password" name="newPwd" placeholder="새 비밀번호를 입력해주세요" required onChange={e => setNewPwd(e.target.value)} />
                 </div>
               </div>
             </div>
@@ -80,12 +90,12 @@ export default function UpdateMember() {
             <div className="form-valid">
               <div>
                 <div className="mail-input">
-                  <input type="text" name='name' placeholder="이름을 입력해주세요" required onChange={e => setName(e.target.value)}/>
+                  <input type="text" name='name' value={name} placeholder="이름을 입력해주세요" required onChange={e => setName(e.target.value)}/>
                 </div>
               </div>
               <div>
                 <div className="mail-input">
-                  <input type="text" name='phone' placeholder='핸드폰 번호를 입력해주세요' required onChange={e => setPhone(e.target.value)}/>
+                  <input type="text" name='phone' value={phone} placeholder='핸드폰 번호를 입력해주세요' required onChange={e => setPhone(e.target.value)}/>
                 </div>
               </div>
             </div>

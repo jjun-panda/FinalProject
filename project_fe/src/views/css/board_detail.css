@@ -22,7 +22,7 @@
   margin-top: 1.5rem;
   padding-bottom: 1.5rem;
   position: relative;
-  border-bottom: 1px solid var(--light-line-normal);
+  border-bottom: 1px solid var(--line-normal);
 }
 #content #articleProfile .spaceBetween {
   display: flex;
@@ -51,27 +51,57 @@
   margin-left: 0.5rem;
 }
 #content #articleProfile .spaceBetween #articleProfileLeft #articleProfiName .nickName {
-  color: var(--light-text-normal);
+  color: var(--text-normal);
 }
 #content #articleProfile .spaceBetween #articleProfileLeft #articleProfiName .mail {
-  color: var(--light-text-assitive);
+  color: var(--text-assitive);
 }
 #content #articleProfile .spaceBetween #articleProfileRight Button {
   min-width: 15rem;
 }
 #content #articleDescription {
   padding: 1.5rem;
-  border-bottom: 1px solid var(--light-line-normal);
+  border-bottom: 1px solid var(--line-normal);
 }
 #content #articleDescription #articleTitle {
   padding-bottom: 0.5rem;
 }
-#content #articleDescription #articleCategory {
-  color: var(--light-text-assitive);
+#content #articleDescription .articleRight {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+#content #articleDescription .articleRight #articleCategory {
+  color: var(--text-assitive);
   padding-bottom: 2rem;
+}
+#content #articleDescription .articleRight #articleCategory a {
+  color: var(--text-assitive);
+  transition: all 0.3s ease;
+}
+#content #articleDescription .articleRight #articleCategory a:hover, #content #articleDescription .articleRight #articleCategory a:active {
+  color: var(--text-normal);
+  text-decoration: underline;
+}
+#content #articleDescription .articleRight .menu {
+  display: flex;
+  gap: 0.5rem;
+  cursor: pointer;
+  color: var(--text-assitive);
+}
+#content #articleDescription .articleRight .menu a.updateToggle, #content #articleDescription .articleRight .menu a.deleteComment {
+  color: var(--text-assitive);
+}
+#content #articleDescription .articleRight .menu a.updateToggle:hover, #content #articleDescription .articleRight .menu a.updateToggle:active, #content #articleDescription .articleRight .menu a.deleteComment:hover, #content #articleDescription .articleRight .menu a.deleteComment:active {
+  text-decoration: underline;
 }
 #content #articleDescription #articleDetail p {
   line-height: 1.6;
+}
+#content #articleDescription #articleDetail img {
+  width: calc(100% - 2rem);
+  display: flex;
+  margin: auto;
 }
 
 #donation {
@@ -79,7 +109,7 @@
   max-width: 48rem;
   width: 100%;
   margin: 0 auto;
-  border-bottom: 1px solid var(--light-line-normal);
+  border-bottom: 1px solid var(--line-normal);
 }
 #donation .donationTitle {
   margin-bottom: 0.5rem;
@@ -87,13 +117,13 @@
 #donation .donationType {
   display: flex;
   gap: 1rem;
-  color: var(--light-text-assitive);
+  color: var(--text-assitive);
   margin-top: 1rem;
 }
 #donation .donationType .donationBox {
   padding: 0.5rem 1rem;
   background-color: var(--white);
-  border: 1px solid var(--light-line-normal);
+  border: 1px solid var(--line-normal);
   border-radius: 0.5rem;
   display: flex;
   gap: 0.5rem;

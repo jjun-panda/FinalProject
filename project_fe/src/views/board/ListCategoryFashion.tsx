@@ -8,10 +8,22 @@ import '../../components/css/paging.css'
 import Paging from "../../components/paging";
 import maskDate from "../../components/maskDate";
 
-function BoardList() {
-	const item_page = 9;
+type BoardItem = {
+	seq: number;
+	title: string;
+	content: string;
+	email: string;
+	del: number;
+	readCount: number;
+	writeDate: string;
+	fileImg: string;
+	category: string;
+};
 
-	const [boardList, setBoardList] = useState([]);
+function ListCategoryFashion() {
+	const category_name = "멋의 패션";
+	const item_page = 9;
+	const [boardList, setBoardList] = useState<BoardItem[]>([]);
 
 	// 검색용 Hook
 	const [choiceVal, setChoiceVal] = useState("");
@@ -22,7 +34,7 @@ function BoardList() {
 	const [totalCnt, setTotalCnt] = useState(0);
 
 	// Link 용 (함수) 
-	let navigate = useNavigate();
+	const navigate = useNavigate();
 
 	/* [GET /board]: 게시글 목록 */
 	const getBoardList = async (choice: string, search: string, page: number) => {
@@ -51,6 +63,15 @@ function BoardList() {
 		}
 	}, [location]);
 
+	useEffect(() => {
+		const filteredBoardList = filterByCategory(boardList);
+		setTotalCnt(filteredBoardList.length);
+	
+		const startIndex = (page - 1) * item_page;
+		const endIndex = Math.min(startIndex + item_page, filteredBoardList.length);
+		setCurrentPageList(filteredBoardList.slice(startIndex, endIndex));
+	}, [boardList, page]);
+	
 	const changeChoice = (event: ChangeEvent<HTMLSelectElement>) => { setChoiceVal(event.target.value); }
 	const changeSearch = (event: ChangeEvent<HTMLInputElement>) => { setSearchVal(event.target.value); }
 	const search = () => {
@@ -62,14 +83,20 @@ function BoardList() {
 
 	const changePage = (page: number) => {
 		setPage(page);
-		getBoardList(choiceVal, searchVal, page);
 		navigate("/board/list", { state: { gotoTop: true } });
-	}
+	};
+
+	const filterByCategory = (boardList: BoardItem[]): BoardItem[] => {
+		return boardList.filter((board) => board.category === category_name);
+	};
+	
+	const [currentPageList, setCurrentPageList] = useState<BoardItem[]>([]);
+
+	const filteredBoardList = filterByCategory(boardList);
+	const totalFilteredCnt = filteredBoardList.length;
 
 	
-
 	return (
-
 		<div id="body">
 			<div id='contentsListTum'>
 				<div className="navigatorMain">
@@ -77,7 +104,7 @@ function BoardList() {
 						<p className="naviTitle bodyB24x">카테고리</p>
 						<ul className="naviator">
 							<li className="menuWrapper">
-								<Link className="menu body18x checked" to="/board/list">전체</Link>
+								<Link className="menu body18x" to="/board/list">전체</Link>
 							</li>
 							<li className="menuWrapper">
 								<Link className="menu body18x" to="/board/list/life">슬기로운 라이프</Link>
@@ -95,7 +122,7 @@ function BoardList() {
 								<Link className="menu body18x" to="/board/list/art">미술의 감성</Link>
 							</li>
 							<li className="menuWrapper">
-								<Link className="menu body18x" to="/board/list/fashion">멋의 패션</Link>
+								<Link className="menu body18x checked" to="/board/list/fashion">멋의 패션</Link>
 							</li>
 						</ul>
 						<Link className="writeBtn" to="/board/write">글쓰기</Link>
@@ -104,8 +131,8 @@ function BoardList() {
 				<div className="boardBox">
 					<div id='contentsHeader'>
 						<div>
-							<p className="title24x">전체 게시물</p>
-							<p className="body16x">{totalCnt}개의 게시물이 있습니다</p>
+							<p className="title24x">{category_name}</p>
+							<p className="body16x">{filteredBoardList.length}개의 게시물이 있습니다</p>
 						</div>
 						<div className="searchMain">
 							<div className="customBox">
@@ -125,21 +152,27 @@ function BoardList() {
 
 					<div id='contentsCards'>
 						<div className="contentsGroup">
+							<p className="contentsBox body14x">스타일리시한 패션 아이템과 유행을 선도하는 패션 트렌드를 엿보는 재미로운 패션 컨텐츠를 만나보세요.<br/>멋진 스타일과 자신만의 패션 감각으로 세상을 더 화려하게 빛나게 해봅시다!</p>
 							<div className="contentsSebgroup">
-								{
-									boardList.length > 0 ? (
-										boardList.map(function (board, idx) {
+							{
+									filteredBoardList.length > 0 ? (
+										filteredBoardList.map(function (board, idx) {
+											if (board.category === category_name) {
 											return <TableRow obj={board} key={idx} cnt={idx + 1} />;
-										})
+										} else {
+											return null;
+										}
+									})
 									) : (
-										<p>해당 게시물이 존재하지 않습니다.</p>
-									)
-								}
+									<p>해당 게시물이 존재하지 않습니다.</p>
+								)
+							}
+								
 							</div>
 						</div>
 					</div>
 					{
-						boardList.length > 0 ? 
+						filteredBoardList.length > 0 ? 
 						<Paging page={page} item_page={item_page} totalCnt={totalCnt} changePage={changePage} />
 						:
 						null
@@ -166,7 +199,7 @@ interface TableRowProps {
 	obj: Board;
 	cnt: number;
 }
-/* 글 목록 테이블 행 컴포넌트 */
+/* 글 목록 컴포넌트 */
 function TableRow(props: TableRowProps) {
 	const board = props.obj;
 
@@ -272,4 +305,4 @@ function Arrow(props: ArrowProps) {
 	);
 }
 
-export default BoardList;
+export default ListCategoryFashion;

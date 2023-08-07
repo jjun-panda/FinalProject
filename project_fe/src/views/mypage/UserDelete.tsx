@@ -2,10 +2,10 @@ import { useContext, useState } from 'react';
 import '../css/modal.css';
 import Button from '../../components/Button';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider';
 
-export default function DeleteMember() {
+export default function UserDelete() {
   const [isOpen, setIsOpen] = useState(false);
   const openModal = () => {
     setIsOpen(true);
@@ -38,18 +38,9 @@ export default function DeleteMember() {
   }
 
 
-
-  interface MyPage {
-    name: string;
-    phone: string;
-    email: string;
-    pwd: string;
-  }
-
-
   return (
     <>
-      <Button size='Large' onClick={openModal}>탈퇴</Button>
+      <Link className="menu body18x" to="" onClick={openModal}>회원탈퇴</Link>
       {isOpen && (
         <div className="modal">
           <div className="modalContent">

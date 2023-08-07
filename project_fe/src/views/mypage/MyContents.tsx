@@ -5,6 +5,7 @@ import React from "react";
 import bgImg from "../../assets/images/bg.png"
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthProvider";
+import maskDate from "../../components/maskDate";
 
 
 export default function ContentsTrend() {
@@ -60,6 +61,8 @@ interface Board {
   del: number;
   readCount: number;
   writeDate: string;
+	fileImg: string;
+	category: string;
 }
 
 interface TableRowProps {
@@ -90,13 +93,13 @@ function TableRow(props: TableRowProps) { //위에 데이터를 받음
                     </div>
                     <div id='contentsText'>
                       <span className="category tag10x">
-                        카테고리
+                        {board.category}
                       </span>
                       <p className="title bodyB16x">
                         {board.title}
                       </p>
                       <div className="caption">
-                        <span>{board.writeDate}</span>・<span>조회수 {board.readCount}</span>
+                        <span>{maskDate({ writeDate: board.writeDate})}</span>・<span>조회수 {board.readCount}</span>
                       </div>
                     </div>
                   </Link>
@@ -111,13 +114,22 @@ function TableRow(props: TableRowProps) { //위에 데이터를 받음
                     </div>
                     <div id='contentsText'>
                       <span className="category tag10x">
-                        카테고리
+                        {board.category}
                       </span>
                       <p className="title bodyB16x">
-                        삭제된 글 입니다.
+                      {
+                        (localStorage.getItem("email") === "admin") ?
+                        <>
+                          <span className="admin">[삭제된 글] {board.title}</span>	
+                        </>
+                        :
+                        <>
+                          삭제된 글 입니다.	
+                        </>
+                      }
                       </p>
                       <div className="caption">
-                        <span>{board.writeDate}</span>・<span>조회수 {board.readCount}</span>
+                        <span>{maskDate({ writeDate: board.writeDate})}</span>・<span>조회수 {board.readCount}</span>
                       </div>
                     </div>
                   </Link>
