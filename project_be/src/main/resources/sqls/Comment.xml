@@ -55,6 +55,10 @@
 		WHERE seq = #{seq}
 	</update>
 
+	<!-- 비속어 리스트 조회 -->
+	<select id="getBadWords" resultType="String">
+	    SELECT word FROM bad_word_entity
+	</select>
 </mapper>
 
 
