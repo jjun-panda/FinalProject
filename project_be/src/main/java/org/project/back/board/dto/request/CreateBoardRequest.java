@@ -6,6 +6,9 @@ public class CreateBoardRequest {
     private String title;
     private String content;
 
+	private String fileImg;
+	private String category;
+
     public String getEmail() {
         return email;
     }
@@ -28,5 +31,21 @@ public class CreateBoardRequest {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public String getFileImg() {
+        return fileImg;
+    }
+
+    public void setFileImg(String fileImg) {
+        this.fileImg = fileImg;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 }

@@ -8,10 +8,15 @@ public class UpdateBoardParam {
     private String title;
     private String content;
 
+	private String fileImg;
+	private String category;
+
     public UpdateBoardParam(Integer seq, UpdateBoardRequest req) {
         this.seq = seq;
         this.title = req.getTitle();
         this.content = req.getContent();
+        this.fileImg = req.getFileImg();
+        this.category = req.getCategory();
     }
 
     public Integer getSeq() {
@@ -36,6 +41,22 @@ public class UpdateBoardParam {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public String getFileImg() {
+        return fileImg;
+    }
+
+    public void setFileImg(String fileImg) {
+        this.fileImg = fileImg;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 
 }

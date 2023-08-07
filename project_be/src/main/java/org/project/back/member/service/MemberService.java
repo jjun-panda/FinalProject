@@ -31,8 +31,10 @@ public class MemberService {
 	private final JwtTokenUtil jwtTokenUtil;
 	private final UserDetailsService userDetailsService;
 
-	public MemberService(MemberDao dao, PasswordEncoder encoder, AuthenticationManager authenticationManager,
-			JwtTokenUtil jwtTokenUtil, UserDetailsService userDetailsService) {
+	public MemberService(MemberDao dao, PasswordEncoder encoder,
+			AuthenticationManager authenticationManager,
+			JwtTokenUtil jwtTokenUtil,
+			UserDetailsService userDetailsService) {
 		this.dao = dao;
 		this.encoder = encoder;
 		this.authenticationManager = authenticationManager;
@@ -123,7 +125,7 @@ public class MemberService {
 		return dao.deleteMemberByEmail(email);
 	}
 	
-	/* 맴버 이메일이 존재하는지 확인 후 업데이트   */
+	/* 맴버 이메일이 존재하는지 확인 후 업데이트 */
 	public Integer updateMember(Member member) {
 		Integer result = dao.isExistUserEmail(member.getEmail());
 		if (result == 0) {

@@ -40,9 +40,9 @@ public class WebSecurityConfig {
             .cors()
             .and()
             .authorizeRequests()
-            .antMatchers(HttpMethod.POST, "/board", "/comment").authenticated()
-            .antMatchers(HttpMethod.PATCH, "/board", "/comment").authenticated()
-            .antMatchers(HttpMethod.DELETE, "/board", "/comment").authenticated()
+            .antMatchers(HttpMethod.POST, "/board", "/comment", "/member").authenticated()
+            .antMatchers(HttpMethod.PATCH, "/board", "/comment", "/member").authenticated()
+            .antMatchers(HttpMethod.DELETE, "/board", "/comment", "/member").authenticated()
             .anyRequest().permitAll();
 
         http.exceptionHandling().authenticationEntryPoint(jwtAuthenticationEntryPoint)

@@ -9,10 +9,15 @@ public class CreateBoardParam {
     private String title;
     private String content;
 
+	private String fileImg;
+	private String category;
+
     public CreateBoardParam(CreateBoardRequest req) {
         this.email = req.getEmail();
         this.title = req.getTitle();
         this.content = req.getContent();
+        this.fileImg = req.getFileImg();
+        this.category = req.getCategory();
     }
 
     public Integer getSeq() {
@@ -45,5 +50,26 @@ public class CreateBoardParam {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public String getFileImg() {
+        return fileImg;
+    }
+    // 사용자가 파일을 첨부한 경우
+    public void setFileImg(String fileImg) {
+        this.fileImg = fileImg;
+    }
+
+    // 사용자가 파일을 첨부하지 않은 경우
+    public void setFileImgToNull() {
+        this.fileImg = null;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 }

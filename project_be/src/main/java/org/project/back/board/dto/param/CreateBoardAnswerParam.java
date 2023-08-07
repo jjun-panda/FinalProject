@@ -10,11 +10,16 @@ public class CreateBoardAnswerParam {
     private String title;
     private String content;
 
+	private String fileImg;
+	private String category;
+
     public CreateBoardAnswerParam(Integer parentSeq, CreateBoardRequest req) {
         this.parentSeq = parentSeq;
         this.email = req.getEmail();
         this.title = req.getTitle();
         this.content = req.getContent();
+        this.fileImg = req.getFileImg();
+        this.category = req.getCategory();
     }
 
     public Integer getSeq() {
@@ -55,5 +60,21 @@ public class CreateBoardAnswerParam {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public String getFileImg() {
+        return fileImg;
+    }
+
+    public void setFileImg(String fileImg) {
+        this.fileImg = fileImg;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 }

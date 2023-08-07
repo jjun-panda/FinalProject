@@ -15,11 +15,15 @@ public class Board {
 	
 	private int del;
 	private int readCount; // 조회수
+
+	private String fileImg;
+	private String category;
+
 	
 	public Board() {
 	}
 
-	public Board(int seq, String email, int ref, int step, int depth, String title, String content, String writeDate, int del,
+	public Board(int seq, String email, int ref, int step, int depth, String title, String content, String writeDate, String fileImg, String category, int del,
 			int readCount) {
 		super();
 		this.seq = seq;
@@ -32,13 +36,17 @@ public class Board {
 		this.writeDate = writeDate;
 		this.del = del;
 		this.readCount = readCount;
+		this.fileImg = fileImg;
+		this.category = category;
 	}
 
-	public Board(String email, String title, String content) {
+	public Board(String email, String title, String content, String fileImg, String category) {
 		super();
 		this.email = email;
 		this.title = title;
 		this.content = content;
+		this.fileImg = fileImg;
+		this.category = category;
 	}
 
 	public int getSeq() {
@@ -121,10 +129,27 @@ public class Board {
 		this.readCount = readCount;
 	}
 
+	public String getFileImg() {
+		return fileImg;
+	}
+
+	public void setFileImg(String fileImg) {
+		this.fileImg = fileImg;
+	}
+
+	public String getCategory() {
+		return category;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
+	}
+
 	@Override
 	public String toString() {
 		return "BoardDto [seq=" + seq + ", email=" + email + ", ref=" + ref + ", step=" + step + ", depth=" + depth + ", title="
 				+ title + ", content=" + content + ", writeDate=" + writeDate + ", del=" + del + ", readCount=" + readCount
+				+ ", fileImg=" + fileImg + ", category=" + category
 				+ "]";
 	}
 	
