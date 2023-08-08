@@ -1,0 +1,1554 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/variable/pretendardvariable.css");
+:root {
+  --palette-primary-50: #f2edff;
+  --palette-primary-100: #e3d9ff;
+  --palette-primary-200: #c6b4ff;
+  --palette-primary-300: #aa8eff;
+  --palette-primary-400: #8d69ff;
+  --palette-primary-600: #5a36cc;
+  --palette-primary-500: #7143ff;
+  --palette-primary-700: #442899;
+  --palette-primary-800: #2d1b66;
+  --palette-primary-900: #170d33;
+  --palette-secondary-50: #ebfff8;
+  --palette-secondary-100: #d4fff0;
+  --palette-secondary-200: #a9ffe1;
+  --palette-secondary-400: #53ffc3;
+  --palette-secondary-300: #7effd2;
+  --palette-secondary-500: #28ffb4;
+  --palette-secondary-600: #20cc90;
+  --palette-secondary-700: #18996c;
+  --palette-secondary-800: #106648;
+  --palette-secondary-900: #083324;
+  --palette-positive-50: #e8f9f0;
+  --palette-positive-100: #d6f9e6;
+  --palette-positive-200: #adf4cd;
+  --palette-positive-400: #5be89c;
+  --palette-positive-300: #84eeb5;
+  --palette-positive-500: #32e283;
+  --palette-positive-600: #28b569;
+  --palette-positive-700: #1e884f;
+  --palette-positive-800: #145b34;
+  --palette-positive-900: #0a2d1a;
+  --palette-warning-50: #fff7e5;
+  --palette-warning-200: #ffdf99;
+  --palette-warning-100: #ffefcc;
+  --palette-warning-300: #ffce66;
+  --palette-warning-500: #ffae00;
+  --palette-warning-400: #ffbe33;
+  --palette-warning-700: #996800;
+  --palette-warning-600: #cc8b00;
+  --palette-warning-900: #332300;
+  --palette-warning-800: #664600;
+  --palette-alert-50: #ffeceb;
+  --palette-alert-100: #ffd9d7;
+  --palette-alert-200: #ffb2ae;
+  --palette-alert-300: #ff8c86;
+  --palette-alert-400: #ff655d;
+  --palette-alert-500: #ff3f35;
+  --palette-alert-600: #cc322a;
+  --palette-alert-700: #992620;
+  --palette-alert-800: #661915;
+  --palette-alert-900: #330d0b;
+  --palette-inform-50: #e8f8ff;
+  --palette-inform-100: #cef0ff;
+  --palette-inform-200: #9de1ff;
+  --palette-inform-300: #6cd3ff;
+  --palette-inform-400: #3bc4ff;
+  --palette-inform-500: #0ab5ff;
+  --palette-inform-600: #0891cc;
+  --palette-inform-700: #066d99;
+  --palette-inform-800: #044866;
+  --palette-inform-900: #022433;
+  --palette-gray-50: #fafafa;
+  --palette-gray-100: #f4f4f4;
+  --palette-gray-200: #e9e9e9;
+  --palette-gray-300: #c3c3c3;
+  --palette-gray-400: #a7a7a7;
+  --palette-gray-500: #828282;
+  --palette-gray-600: #626262;
+  --palette-gray-700: #494949;
+  --palette-gray-800: #272727;
+  --palette-gray-900: #1e1e1e;
+}
+
+[data-theme=light] {
+  --black: #000;
+  --white: #fff;
+  --whiteHalf: rgba(255, 255, 255, .5);
+  --primary-normal: #2952BE;
+  --primary-strong: #214298;
+  --primary-heavy: #193172;
+  --primary-assistive: #7F97D8;
+  --primary-alternarive: #D4DCF2;
+  --interaction-primary-hover: rgba(33, 66, 152, 0.2);
+  --interaction-primary-pressed: rgba(25, 49, 114, 0.32);
+  --secondary-normal: #28ffb4;
+  --secondary-strong: #20cc90;
+  --secondary-heavy: #18996c;
+  --secondary-assistive: #d4fff0;
+  --secondary-alternative: #7effd2;
+  --interaction-secondary-hover: rgba(32, 204, 144, 0.05);
+  --interaction-secondary-pressed: rgba(24, 153, 108, 0.08);
+  --status-success: #32e283;
+  --status-inform: #0ab5ff;
+  --status-warning: #ffae00;
+  --status-alert: #ff3f35;
+  --status-success-bg: #e8f9f0;
+  --status-inform-bg: #E8F8FF;
+  --status-warning-bg: #fff7e5;
+  --status-alert-bg: #ffeceb;
+  --text-normal: #272727;
+  --text-strong: #1e1e1e;
+  --text-heavy: #000;
+  --text-dlsable: #c3c3c3;
+  --text-assitive: #828282;
+  --text-alternative: #494949;
+  --background-primary: #f5f4f7;
+  --background-secondary: #fff;
+  --background-tertiary: #fafafa;
+  --background-maincolor: #f1f5ff;
+  --fill-primary: #f4f4f4;
+  --fill-alternative: #dedede;
+  --fill-disable: #ccc;
+  --filter-low: rgba(0, 0, 0, 0.4);
+  --filter-high: rgba(0, 0, 0, 0.6);
+  --filter-carousel: rgba(0, 0, 0, 0.1);
+  --line-normal: #e9e9e9;
+  --line-strong: #a7a7a7;
+  --line-disable: #ccc;
+  --line-alternative: #f4f4f4;
+  --shaow-nomal: rgba(122, 122, 122, .5);
+}
+[data-theme=light] .logoImg {
+  background-image: url("../images/logo.svg");
+}
+
+[data-theme=dark] {
+  --black: #fff;
+  --white: #272727;
+  --whiteHalf: rgba(39, 39, 39, .5);
+  --primary-normal: #2e54b9;
+  --primary-strong: #254394;
+  --primary-heavy: #1c336f;
+  --primary-assistive: #8399d3;
+  --primary-alternarive: #d6ddf0;
+  --interaction-primary-hover: rgba(37, 67, 148, 0.2);
+  --interaction-primary-pressed: rgba(28, 51, 111, 0.32);
+  --secondary-normal: #26f2ab;
+  --secondary-strong: #1ebf87;
+  --secondary-heavy: #168c63;
+  --secondary-assistive: #c9f2e4;
+  --secondary-alternative: #78f2c7;
+  --interaction-secondary-pressed: rgba(22, 140, 99, 0.08);
+  --interaction-secondary-hover: rgba(30, 191, 135, 0.05);
+  --status-success: #2fd67c;
+  --status-warning: #f2a500;
+  --status-alert: #f23c32;
+  --status-inform: #09acf2;
+  --status-success-bg: #ddede4;
+  --status-inform-bg: #dcecf2;
+  --status-warning-bg: #f2ebda;
+  --status-alert-bg: #f2e0df;
+  --text-normal: #d8d8d8;
+  --text-strong: #e1e1e1;
+  --text-heavy: #fff;
+  --text-dlsable: #3c3c3c;
+  --text-assitive: #7d7d7d;
+  --text-alternative: #b6b6b6;
+  --background-primary: #0f0f0f;
+  --background-secondary: #1e1e1e;
+  --background-tertiary: #343434;
+  --background-maincolor: rgba(241, 245, 255, .05);
+  --fill-primary: #343434;
+  --fill-alternative: #444;
+  --fill-disable: #333;
+  --filter-low: rgba(255, 255, 255, 0.2);
+  --filter-high: rgba(255, 255, 255, 0.4);
+  --filter-carousel: rgba(255, 255, 255, 0.1);
+  --line-normal: #494949;
+  --line-strong: #626262;
+  --line-disable: #333;
+  --line-alternative: #343434;
+  --shaow-nomal: rgba(5, 5, 5, .5);
+}
+[data-theme=dark] .dark-mode.logoImg {
+  background-image: url("../images/logo_dark.svg");
+}
+
+.title72x {
+  font-family: "Pretendard Variable";
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: -0.025rem;
+  font-variant-numeric: tabular-nums;
+  font-size: 4.5rem;
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+.title64x {
+  font-family: "Pretendard Variable";
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: -0.025rem;
+  font-variant-numeric: tabular-nums;
+  font-size: 4rem;
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+.title56x {
+  font-family: "Pretendard Variable";
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: -0.025rem;
+  font-variant-numeric: tabular-nums;
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+.title48x {
+  font-family: "Pretendard Variable";
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: -0.025rem;
+  font-variant-numeric: tabular-nums;
+  font-size: 3rem;
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+.title40x {
+  font-family: "Pretendard Variable";
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: -0.025rem;
+  font-variant-numeric: tabular-nums;
+  font-size: 2.5rem;
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+.title32x {
+  font-family: "Pretendard Variable";
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: -0.025rem;
+  font-variant-numeric: tabular-nums;
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+.title24x {
+  font-family: "Pretendard Variable";
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: -0.025rem;
+  font-variant-numeric: tabular-nums;
+  font-size: 1.5rem;
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+.title20x {
+  font-family: "Pretendard Variable";
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: -0.025rem;
+  font-variant-numeric: tabular-nums;
+  font-size: 1.25rem;
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+.title18x {
+  font-family: "Pretendard Variable";
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: -0.025rem;
+  font-variant-numeric: tabular-nums;
+  font-size: 1.125rem;
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+.title16x {
+  font-family: "Pretendard Variable";
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: -0.025rem;
+  font-variant-numeric: tabular-nums;
+  font-size: 1rem;
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+.title14x {
+  font-family: "Pretendard Variable";
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: -0.025rem;
+  font-variant-numeric: tabular-nums;
+  font-size: 0.875rem;
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+.title12x {
+  font-family: "Pretendard Variable";
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: -0.025rem;
+  font-variant-numeric: tabular-nums;
+  font-size: 0.75rem;
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+.title10x {
+  font-family: "Pretendard Variable";
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: -0.025rem;
+  font-variant-numeric: tabular-nums;
+  font-size: 0.625rem;
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+.bodyB72x {
+  font-family: "Pretendard Variable";
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: -0.025rem;
+  font-variant-numeric: tabular-nums;
+  font-size: 4.5rem;
+  font-weight: 700;
+  line-height: 1.6;
+}
+
+.bodyB64x {
+  font-family: "Pretendard Variable";
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: -0.025rem;
+  font-variant-numeric: tabular-nums;
+  font-size: 4rem;
+  font-weight: 700;
+  line-height: 1.6;
+}
+
+.bodyB56x {
+  font-family: "Pretendard Variable";
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: -0.025rem;
+  font-variant-numeric: tabular-nums;
+  font-size: 3.5rem;
+  font-weight: 700;
+  line-height: 1.6;
+}
+
+.bodyB48x {
+  font-family: "Pretendard Variable";
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: -0.025rem;
+  font-variant-numeric: tabular-nums;
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1.6;
+}
+
+.bodyB40x {
+  font-family: "Pretendard Variable";
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: -0.025rem;
+  font-variant-numeric: tabular-nums;
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.6;
+}
+
+.bodyB32x {
+  font-family: "Pretendard Variable";
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: -0.025rem;
+  font-variant-numeric: tabular-nums;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.6;
+}
+
+.bodyB24x {
+  font-family: "Pretendard Variable";
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: -0.025rem;
+  font-variant-numeric: tabular-nums;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.6;
+}
+
+.bodyB20x {
+  font-family: "Pretendard Variable";
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: -0.025rem;
+  font-variant-numeric: tabular-nums;
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.6;
+}
+
+.bodyB18x {
+  font-family: "Pretendard Variable";
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: -0.025rem;
+  font-variant-numeric: tabular-nums;
+  font-size: 1.125rem;
+  font-weight: 700;
+  line-height: 1.6;
+}
+
+.bodyB16x {
+  font-family: "Pretendard Variable";
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: -0.025rem;
+  font-variant-numeric: tabular-nums;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.6;
+}
+
+.bodyB14x {
+  font-family: "Pretendard Variable";
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: -0.025rem;
+  font-variant-numeric: tabular-nums;
+  font-size: 0.875rem;
+  font-weight: 700;
+  line-height: 1.6;
+}
+
+.bodyB12x {
+  font-family: "Pretendard Variable";
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: -0.025rem;
+  font-variant-numeric: tabular-nums;
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1.6;
+}
+
+.bodyB10x {
+  font-family: "Pretendard Variable";
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: -0.025rem;
+  font-variant-numeric: tabular-nums;
+  font-size: 0.625rem;
+  font-weight: 700;
+  line-height: 1.6;
+}
+
+.body72x {
+  font-family: "Pretendard Variable";
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: -0.025rem;
+  font-variant-numeric: tabular-nums;
+  font-size: 4.5rem;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.body64x {
+  font-family: "Pretendard Variable";
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: -0.025rem;
+  font-variant-numeric: tabular-nums;
+  font-size: 4rem;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.body56x {
+  font-family: "Pretendard Variable";
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: -0.025rem;
+  font-variant-numeric: tabular-nums;
+  font-size: 3.5rem;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.body48x {
+  font-family: "Pretendard Variable";
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: -0.025rem;
+  font-variant-numeric: tabular-nums;
+  font-size: 3rem;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.body40x {
+  font-family: "Pretendard Variable";
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: -0.025rem;
+  font-variant-numeric: tabular-nums;
+  font-size: 2.5rem;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.body32x {
+  font-family: "Pretendard Variable";
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: -0.025rem;
+  font-variant-numeric: tabular-nums;
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.body24x {
+  font-family: "Pretendard Variable";
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: -0.025rem;
+  font-variant-numeric: tabular-nums;
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.body20x {
+  font-family: "Pretendard Variable";
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: -0.025rem;
+  font-variant-numeric: tabular-nums;
+  font-size: 1.25rem;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.body18x {
+  font-family: "Pretendard Variable";
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: -0.025rem;
+  font-variant-numeric: tabular-nums;
+  font-size: 1.125rem;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.body16x {
+  font-family: "Pretendard Variable";
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: -0.025rem;
+  font-variant-numeric: tabular-nums;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.body14x {
+  font-family: "Pretendard Variable";
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: -0.025rem;
+  font-variant-numeric: tabular-nums;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.body12x {
+  font-family: "Pretendard Variable";
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: -0.025rem;
+  font-variant-numeric: tabular-nums;
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.body10x {
+  font-family: "Pretendard Variable";
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: -0.025rem;
+  font-variant-numeric: tabular-nums;
+  font-size: 0.625rem;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.tag72x {
+  font-family: "Pretendard Variable";
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: -0.025rem;
+  font-variant-numeric: tabular-nums;
+  font-size: 4.5rem;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.tag64x {
+  font-family: "Pretendard Variable";
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: -0.025rem;
+  font-variant-numeric: tabular-nums;
+  font-size: 4rem;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.tag56x {
+  font-family: "Pretendard Variable";
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: -0.025rem;
+  font-variant-numeric: tabular-nums;
+  font-size: 3.5rem;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.tag48x {
+  font-family: "Pretendard Variable";
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: -0.025rem;
+  font-variant-numeric: tabular-nums;
+  font-size: 3rem;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.tag40x {
+  font-family: "Pretendard Variable";
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: -0.025rem;
+  font-variant-numeric: tabular-nums;
+  font-size: 2.5rem;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.tag32x {
+  font-family: "Pretendard Variable";
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: -0.025rem;
+  font-variant-numeric: tabular-nums;
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.tag24x {
+  font-family: "Pretendard Variable";
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: -0.025rem;
+  font-variant-numeric: tabular-nums;
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.tag20x {
+  font-family: "Pretendard Variable";
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: -0.025rem;
+  font-variant-numeric: tabular-nums;
+  font-size: 1.25rem;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.tag18x {
+  font-family: "Pretendard Variable";
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: -0.025rem;
+  font-variant-numeric: tabular-nums;
+  font-size: 1.125rem;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.tag16x {
+  font-family: "Pretendard Variable";
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: -0.025rem;
+  font-variant-numeric: tabular-nums;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.tag14x {
+  font-family: "Pretendard Variable";
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: -0.025rem;
+  font-variant-numeric: tabular-nums;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.tag12x {
+  font-family: "Pretendard Variable";
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: -0.025rem;
+  font-variant-numeric: tabular-nums;
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.tag10x {
+  font-family: "Pretendard Variable";
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: -0.025rem;
+  font-variant-numeric: tabular-nums;
+  font-size: 0.625rem;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.button72x {
+  font-family: "Pretendard Variable";
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: -0.025rem;
+  font-variant-numeric: tabular-nums;
+  font-size: 4.5rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.button64x {
+  font-family: "Pretendard Variable";
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: -0.025rem;
+  font-variant-numeric: tabular-nums;
+  font-size: 4rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.button56x {
+  font-family: "Pretendard Variable";
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: -0.025rem;
+  font-variant-numeric: tabular-nums;
+  font-size: 3.5rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.button48x {
+  font-family: "Pretendard Variable";
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: -0.025rem;
+  font-variant-numeric: tabular-nums;
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.button40x {
+  font-family: "Pretendard Variable";
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: -0.025rem;
+  font-variant-numeric: tabular-nums;
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.button32x {
+  font-family: "Pretendard Variable";
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: -0.025rem;
+  font-variant-numeric: tabular-nums;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.button24x {
+  font-family: "Pretendard Variable";
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: -0.025rem;
+  font-variant-numeric: tabular-nums;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.button20x {
+  font-family: "Pretendard Variable";
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: -0.025rem;
+  font-variant-numeric: tabular-nums;
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.button18x {
+  font-family: "Pretendard Variable";
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: -0.025rem;
+  font-variant-numeric: tabular-nums;
+  font-size: 1.125rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.button16x {
+  font-family: "Pretendard Variable";
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: -0.025rem;
+  font-variant-numeric: tabular-nums;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.button14x {
+  font-family: "Pretendard Variable";
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: -0.025rem;
+  font-variant-numeric: tabular-nums;
+  font-size: 0.875rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.button12x {
+  font-family: "Pretendard Variable";
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: -0.025rem;
+  font-variant-numeric: tabular-nums;
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.button10x {
+  font-family: "Pretendard Variable";
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: -0.025rem;
+  font-variant-numeric: tabular-nums;
+  font-size: 0.625rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.field72x {
+  font-family: "Pretendard Variable";
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: -0.025rem;
+  font-variant-numeric: tabular-nums;
+  font-size: 4.5rem;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.field64x {
+  font-family: "Pretendard Variable";
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: -0.025rem;
+  font-variant-numeric: tabular-nums;
+  font-size: 4rem;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.field56x {
+  font-family: "Pretendard Variable";
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: -0.025rem;
+  font-variant-numeric: tabular-nums;
+  font-size: 3.5rem;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.field48x {
+  font-family: "Pretendard Variable";
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: -0.025rem;
+  font-variant-numeric: tabular-nums;
+  font-size: 3rem;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.field40x {
+  font-family: "Pretendard Variable";
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: -0.025rem;
+  font-variant-numeric: tabular-nums;
+  font-size: 2.5rem;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.field32x {
+  font-family: "Pretendard Variable";
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: -0.025rem;
+  font-variant-numeric: tabular-nums;
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.field24x {
+  font-family: "Pretendard Variable";
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: -0.025rem;
+  font-variant-numeric: tabular-nums;
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.field20x {
+  font-family: "Pretendard Variable";
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: -0.025rem;
+  font-variant-numeric: tabular-nums;
+  font-size: 1.25rem;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.field18x {
+  font-family: "Pretendard Variable";
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: -0.025rem;
+  font-variant-numeric: tabular-nums;
+  font-size: 1.125rem;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.field16x {
+  font-family: "Pretendard Variable";
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: -0.025rem;
+  font-variant-numeric: tabular-nums;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.field14x {
+  font-family: "Pretendard Variable";
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: -0.025rem;
+  font-variant-numeric: tabular-nums;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.field12x {
+  font-family: "Pretendard Variable";
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: -0.025rem;
+  font-variant-numeric: tabular-nums;
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.field10x {
+  font-family: "Pretendard Variable";
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: -0.025rem;
+  font-variant-numeric: tabular-nums;
+  font-size: 0.625rem;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.checkbox72x {
+  font-family: "Pretendard Variable";
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: -0.025rem;
+  font-variant-numeric: tabular-nums;
+  font-size: 4.5rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.checkbox64x {
+  font-family: "Pretendard Variable";
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: -0.025rem;
+  font-variant-numeric: tabular-nums;
+  font-size: 4rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.checkbox56x {
+  font-family: "Pretendard Variable";
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: -0.025rem;
+  font-variant-numeric: tabular-nums;
+  font-size: 3.5rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.checkbox48x {
+  font-family: "Pretendard Variable";
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: -0.025rem;
+  font-variant-numeric: tabular-nums;
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.checkbox40x {
+  font-family: "Pretendard Variable";
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: -0.025rem;
+  font-variant-numeric: tabular-nums;
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.checkbox32x {
+  font-family: "Pretendard Variable";
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: -0.025rem;
+  font-variant-numeric: tabular-nums;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.checkbox24x {
+  font-family: "Pretendard Variable";
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: -0.025rem;
+  font-variant-numeric: tabular-nums;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.checkbox20x {
+  font-family: "Pretendard Variable";
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: -0.025rem;
+  font-variant-numeric: tabular-nums;
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.checkbox18x {
+  font-family: "Pretendard Variable";
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: -0.025rem;
+  font-variant-numeric: tabular-nums;
+  font-size: 1.125rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.checkbox16x {
+  font-family: "Pretendard Variable";
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: -0.025rem;
+  font-variant-numeric: tabular-nums;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.checkbox14x {
+  font-family: "Pretendard Variable";
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: -0.025rem;
+  font-variant-numeric: tabular-nums;
+  font-size: 0.875rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.checkbox12x {
+  font-family: "Pretendard Variable";
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: -0.025rem;
+  font-variant-numeric: tabular-nums;
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.checkbox10x {
+  font-family: "Pretendard Variable";
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: -0.025rem;
+  font-variant-numeric: tabular-nums;
+  font-size: 0.625rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.caption {
+  font-family: "Pretendard Variable";
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: -0.025rem;
+  font-variant-numeric: tabular-nums;
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1.25;
+}
+
+html, a, p, span {
+  font-family: "Pretendard Variable";
+  font-stretch: normal;
+  font-style: normal;
+  font-variant-numeric: tabular-nums;
+  font-weight: 400;
+}
+
+button, b, strong {
+  font-family: "Pretendard Variable";
+  font-stretch: normal;
+  font-style: normal;
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+}
+
+* {
+  font-family: "Pretendard Variable", -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+}
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  word-break: keep-all;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+html, body, #theme {
+  background-color: var(--white);
+  color: var(--text-normal);
+}
+
+html {
+  overflow-y: scroll;
+}
+
+body {
+  margin: 0;
+  line-height: 1.6;
+}
+
+a {
+  display: inline-flex;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+hr {
+  margin: 2rem 0;
+  border: 0;
+  height: 1px;
+  background-color: var(--line-normal);
+}
+
+mark {
+  background: var(--primary-normal);
+  color: var(--white);
+}
+
+::-moz-selection {
+  background: var(--primary-normal);
+  color: var(--white);
+}
+
+::selection {
+  background: var(--primary-normal);
+  color: var(--white);
+}
+
+pre {
+  background-color: var(--text-normal);
+  padding: 16px;
+  margin: 0;
+  border-radius: 8px;
+}
+
+code {
+  color: var(--text-dlsable);
+}
+
+* {
+  box-sizing: border-box;
+  word-break: keep-all;
+}
+
+a,
+a:hover,
+a:active,
+a:visited {
+  color: var(--text-normal);
+  text-decoration: none;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+:global(#root) {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+#body {
+  padding-top: 4rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.nav,
+.footer {
+  flex: none;
+}
+
+.body {
+  position: relative;
+  flex-grow: 1;
+}
+
+.mobile {
+  display: none;
+}
+@media (max-width: 767px) {
+  .mobile {
+    display: block;
+  }
+}
+
+textarea {
+  display: inline-flex;
+  min-height: 1rem;
+  padding: 0.5rem 0.75rem;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 0.25rem;
+  border: 1px solid var(--line-normal);
+  width: 100%;
+  font-size: 1rem;
+  -webkit-appearance: none;
+  resize: none;
+}
+
+@keyframes rotateAnimation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.themeMode {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  background-color: var(--white);
+  border: none;
+  box-shadow: 0 2px 15px var(--shaow-nomal);
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+svg {
+  fill: var(--line-strong);
+  transition: fill 0.3s ease;
+}
+
+select:focus, input:focus, textarea:focus, button:focus {
+  outline: none;
+  box-shadow: 0px 0px 0px 3px rgba(37, 67, 148, 0.4);
+}
+
+*:disabled, .disabled, #disabled {
+  cursor: no-drop;
+}
+
+[type=email], [type=password], [type=text] {
+  display: inline-flex;
+  height: 3rem;
+  padding: 0.5rem 0.75rem;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 0.25rem;
+  border: 1px solid var(--line-normal);
+  width: 100%;
+  font-size: 1rem;
+  background-color: var(--white);
+  color: var(--text-normal);
+}
+[type=email]:-moz-read-only, [type=password]:-moz-read-only, [type=text]:-moz-read-only {
+  color: var(--text-assitive);
+  background-color: var(--fill-primary);
+}
+[type=email]:read-only, [type=password]:read-only, [type=text]:read-only {
+  color: var(--text-assitive);
+  background-color: var(--fill-primary);
+}
+[type=email]:disabled, [type=password]:disabled, [type=text]:disabled {
+  color: var(--text-dlsable);
+  background-color: var(--fill-alternative);
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
+h3 {
+  font-size: 1.125rem;
+}
+
+h4 {
+  font-size: 1rem;
+}
+
+h5 {
+  font-size: 0.875rem;
+}
+
+h6 {
+  font-size: 0.625rem;
+}
+
+.admin {
+  color: var(--status-alert);
+  font-weight: 700;
+}
+.admin.box {
+  background-color: var(--status-alert-bg);
+  color: var(--status-alert);
+  padding: 0 1rem;
+  border-radius: 1rem;
+  height: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

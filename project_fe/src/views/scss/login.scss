@@ -1,0 +1,196 @@
+@import '../../assets/scss/mixin';
+
+// 로그인 폼
+#loginRequired {
+    display: block;
+    min-height: 80vh;
+    position: relative;
+
+    .loginForm {
+        max-width: 22.5rem;
+        width: 100%;
+        margin: auto;
+        padding: 5rem 0 0 ;
+        background-color: var(--white);
+        
+        .titleWrap {
+            margin-bottom: 2rem;
+            .logo {
+                padding-bottom: 1rem;
+                .logoText {
+                    color: var(--primary-normal);
+                    font-weight: 700;
+                }
+                .logoImg{
+                    width: 8rem;
+                    height: 0;
+                    padding-top: 20%;
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                    position: relative;
+                }
+            }
+        }
+        .form-valid {
+            display: flex;
+            gap: .5rem;
+            flex-direction: column;
+            padding-bottom: 1rem;
+
+            .mail-input, .pw-input {
+                position: relative;
+                display: flex;
+                align-items: center;
+
+                svg {
+                    left: 0.875rem;
+                    position: absolute;
+                }
+
+                .pwShowBtn {
+                    width: 32px;
+                    height: 32px;
+                    position: absolute;
+                    right: 14px;
+                    top: 14px;
+                    background-image: url(https://cdn.fassto.ai/resources/img-hp/icon-eyes.png);
+                    background-size: 64px 32px;
+                    background-repeat: no-repeat;
+                    cursor: pointer;
+                }
+            }
+        }
+        .login-submitBtn {
+            Button {
+                width: 100%
+            }
+        }
+    }
+}
+
+// 비밀번호 변경 또는 회원가입 링크
+.loginLinkWrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 1.5rem;
+    margin-top: 1rem;
+
+    .findPw {
+        position: relative;
+
+        a {
+            color: var(--text-alternative);
+            cursor: pointer;
+        }
+    }
+    .signUp {
+        position: relative;
+
+        span {
+            padding-right: .25rem;
+        }
+
+        a {
+            color: var(--text-alternative);
+            cursor: pointer;
+
+            &:hover {
+                transition: all .3s ease;
+                color: var(--primary-normal);
+            }
+        }
+    }
+}
+
+// 약관
+.wrapTerm {
+    background-color: var(--fill-primary);
+    padding: 1rem;
+    border-radius: .5rem;
+    margin: 1rem 0 0;
+
+    .termTxt {
+        word-break: keep-all;
+        color: var(--text-assitive);
+        text-align: center;
+
+        span {
+            text-underline-position: under;
+
+            a {
+                color: var(--text-assitive);
+                :hover, :active {
+                    color: var(--text-alternative);
+                }
+            }
+        }
+    }
+}
+
+.loginHrContainer {
+    align-items: center;
+    display: flex;
+    margin: 2rem 0;
+
+    .loginHr {
+        border-bottom: 1px solid var(--line-normal);
+        flex: 1 1;
+    }
+    p {
+        padding: 0 1rem;
+        color: var(--text-assitive);
+    }
+}
+#snsLogin {
+    display: flex;
+    align-items: center;
+    // justify-content: space-between;
+    padding: 0 1rem;
+    gap: 2rem;
+    // flex-direction: column;
+    justify-content: center;
+    .snsBtn {
+        display: flex;
+        gap: 1rem;
+        // flex-direction: column;
+        // width: 100%;
+        justify-content: center;
+
+        a {
+            // width: 3rem;
+            height: 3rem;
+            // width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: .25rem;
+
+            &.googleBtn {
+                background-color: var(--white)
+                p {
+                    color: var(--black);
+                    padding-right: .5rem;
+                }
+            }
+
+            &.naverBtn {
+                background-color: #00C73C;
+                p {
+                    color: var(--white);
+                    padding-right: .5rem;
+                }
+            }
+
+            &.kakaoBtn {
+                background-color: #FEE500;
+                p {
+                    color: #191600;
+                    padding-right: .5rem;
+                }
+            }
+
+            
+        }
+    }
+}

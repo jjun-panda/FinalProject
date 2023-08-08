@@ -1,0 +1,210 @@
+// simple color
+$black: var(--black);
+$white: var(--white);
+
+// ---------- ver.light ---------- 
+// primary color
+$l-pri-no: var(--primary-normal);
+$l-pri-st: var(--primary-strong);
+$l-pri-he: var(--primary-heavy);
+$l-pri-as: var(--primary-assistive);
+$l-pri-al: var(--primary-alternarive);
+$l-i-pri-ho: var(--interaction-primary-hover);
+$l-i-pri-pr: var(--interaction-primary-pressed);
+
+// secondary color
+$l-sec-no: var(--secondary-normal);
+$l-sec-st: var(--secondary-strong);
+$l-sec-he: var(--secondary-heavy);
+$l-sec-as: var(--secondary-assistive);
+$l-sec-al: var(--secondary-alternative);
+$l-i-sec-ho: var(--interaction-secondary-hover);
+$l-i-sec-pr: var(--interaction-secondary-pressed);
+
+// status color
+$l-status-su: var(--status-success);
+$l-status-in: var(--status-inform);
+$l-status-wa: var(--status-warning);
+$l-status-al: var(--status-alert);
+$l-status-su-bg: var(--status-success-bg);
+$l-status-in-bg: var(--status-inform-bg);
+$l-status-wa-bg: var(--status-warning-bg);
+$l-status-al-bg: var(--status-alert-bg);
+
+// text color
+$l-text-no: var(--text-normal);
+$l-text-st: var(--text-strong);
+$l-text-he: var(--text-heavy);
+$l-text-dl: var(--text-dlsable);
+$l-text-as: var(--text-assitive);
+$l-text-al: var(--text-alternative);
+
+// backgroung color
+$l-bg-pr: var(--background-primary);
+$l-bg-se: var(--background-second);
+$l-bg-te: var(--background-tertiary);
+
+// fill color
+$l-fill-pr: var(--fill-primary);
+$l-fill-al: var(--fill-alternative);
+$l-fill-di: var(--fill-disable);
+
+// filter color
+$l-filter-lo: var(--filter-low);
+$l-filter-hi: var(--filter-high);
+$l-filter-ca: var(--filter-carousel);
+
+// line color
+$l-line-no: var(--line-normal);
+$l-line-st: var(--line-strong);
+$l-line-di: var(--line-disable);
+$l-line-al: var(--line-alternative);
+
+// ---------- ver.dark ---------- 
+// primary color
+$d-pri-no: var(--dark-primary-normal);
+$d-pri-st: var(--dark-primary-strong);
+$d-pri-he: var(--dark-primary-heavy);
+$d-pri-as: var(--dark-primary-assistive);
+$d-pri-al: var(--dark-primary-alternarive);
+$d-i-pri-ho: var(--dark-interaction-primary-hover);
+$d-i-pri-pr: var(--dark-interaction-primary-pressed);
+
+// secondary color
+$d-sec-no: var(--dark-secondary-normal);
+$d-sec-st: var(--dark-secondary-strong);
+$d-sec-he: var(--dark-secondary-heavy);
+$d-sec-as: var(--dark-secondary-assistive);
+$d-sec-al: var(--dark-secondary-alternative);
+$d-i-sec-ho: var(--dark-interaction-secondary-pressed);
+$d-i-sec-pr: var(--dark-interaction-secondary-hover);
+
+// status color
+$d-status-su: var(--dark-status-success);
+$d-status-in: var(--dark-status-warning);
+$d-status-wa: var(--dark-status-alert);
+$d-status-al: var(--dark-status-inform);
+$d-status-su-bg: var(--dark-status-success-bg);
+$d-status-in-bg: var(--dark-status-inform-bg);
+$d-status-wa-bg: var(--dark-status-warning-bg);
+$d-status-al-bg: var(--dark-status-alert-bg);
+
+// text color
+$d-text-no: var(--dark-text-normal);
+$d-text-st: var(--dark-text-strong);
+$d-text-he: var(--dark-text-heavy);
+$d-text-dl: var(--dark-text-dlsable);
+$d-text-as: var(--dark-text-assitive);
+$d-text-al: var(--dark-text-alternative);
+
+// backgroung color
+$d-bg-pr: var(--dark-background-primary);
+$d-bg-se: var(--dark-background-secondary);
+$d-bg-te: var(--dark-background-tertiary);
+
+// fill color
+$d-fill-pr: var(--dark-fill-primary);
+$d-fill-al: var(--dark-fill-alternative);
+$d-fill-di: var(--dark-fill-disable);
+
+// filter color
+$d-filter-lo: var(--dark-filter-low);
+$d-filter-hi: var(--dark-filter-high);
+$d-filter-ca: var(--dark-filter-carousel);
+
+// line color
+$d-line-no: var(--dark-line-normal);
+$d-line-st: var(--dark-line-strong);
+$d-line-di: var(--dark-line-disable);
+$d-line-al: var(--dark-line-alternative);
+
+// ---------- palette ----------
+$pr-50: var(--primary-50);
+$pr-100: var(--primary-100);
+$pr-200: var(--primary-200);
+$pr-300: var(--primary-300);
+$pr-400: var(--primary-400);
+$pr-500: var(--primary-500);
+$pr-600: var(--primary-600);
+$pr-700: var(--primary-700);
+$pr-800: var(--primary-800);
+$pr-900: var(--primary-900);
+$se-50: var(--secondary-50);
+$se-100: var(--secondary-100);
+$se-200: var(--secondary-200);
+$se-300: var(--secondary-300);
+$se-400: var(--secondary-400);
+$se-500: var(--secondary-500);
+$se-600: var(--secondary-600);
+$se-700: var(--secondary-700);
+$se-800: var(--secondary-800);
+$se-900: var(--secondary-900);
+$po-50: var(--positive-50);
+$po-100: var(--positive-100);
+$po-200: var(--positive-200);
+$po-300: var(--positive-300);
+$po-400: var(--positive-400);
+$po-500: var(--positive-500);
+$po-600: var(--positive-600);
+$po-700: var(--positive-700);
+$po-800: var(--positive-800);
+$po-900: var(--positive-900);
+$wa-50: var(--warning-50);
+$wa-100: var(--warning-100);
+$wa-200: var(--warning-200);
+$wa-300: var(--warning-300);
+$wa-400: var(--warning-400);
+$wa-500: var(--warning-500);
+$wa-600: var(--warning-600);
+$wa-700: var(--warning-700);
+$wa-800: var(--warning-800);
+$wa-900: var(--warning-900);
+$al-50: var(--alert-50);
+$al-100: var(--alert-100);
+$al-200: var(--alert-200);
+$al-300: var(--alert-300);
+$al-400: var(--alert-400);
+$al-500: var(--alert-500);
+$al-600: var(--alert-600);
+$al-700: var(--alert-700);
+$al-800: var(--alert-800);
+$al-900: var(--alert-900);
+$in-50: var(--inform-50);
+$in-100: var(--inform-100);
+$in-200: var(--inform-200);
+$in-300: var(--inform-300);
+$in-400: var(--inform-400);
+$in-500: var(--inform-500);
+$in-600: var(--inform-600);
+$in-700: var(--inform-700);
+$in-800: var(--inform-800);
+$in-900: var(--inform-900);
+$gr-50: var(--gray-50);
+$gr-100: var(--gray-100);
+$gr-200: var(--gray-200);
+$gr-300: var(--gray-300);
+$gr-400: var(--gray-400);
+$gr-500: var(--gray-500);
+$gr-600: var(--gray-600);
+$gr-700: var(--gray-700);
+$gr-800: var(--gray-800);
+$gr-900: var(--gray-900);
+
+// $palette: (
+//     "$pr": "primary",
+//     "$se": "secondary",
+//     "$po": "positive",
+//     "$wa": "warning",
+//     "$al": "alert",
+//     "$in": "inform",
+//     "$gr": "gray"
+// );
+
+// $paletteNum: 50, 100, 200, 300, 400, 500, 600, 700, 800, 900;
+
+// @each $name, $fullName in $palette {
+//     @each $num in $paletteNum {
+//         #{$name}-#{$num}: var('--#{$fullName}-#{$num}');
+//     }
+// }
+

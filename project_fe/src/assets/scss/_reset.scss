@@ -1,0 +1,316 @@
+@import './mixin';
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  word-break: keep-all;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+html, body, #theme{
+  background-color: var(--white);
+  color: var(--text-normal);
+}
+
+html {
+  overflow-y: scroll;
+}
+
+body {
+  margin: 0;
+  line-height: 1.6;
+}
+
+a {
+  // height: 100%;
+  display: inline-flex;
+}
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+hr {
+  margin: 2rem 0;
+  border: 0;
+  height: 1px;
+  background-color: var(--line-normal);
+}
+
+mark {
+  background: var(--primary-normal);
+  color: var(--white);
+}
+
+::selection {
+  background: var(--primary-normal);
+  color: var(--white);
+}
+
+pre {
+  background-color: var(--text-normal);
+  padding: 16px;
+  margin: 0;
+  border-radius: 8px;
+}
+
+code {
+  color: var(--text-dlsable);
+}
+
+* {
+  box-sizing: border-box;
+  word-break: keep-all;
+}
+
+a,
+a:hover,
+a:active,
+a:visited {
+  color: var(--text-normal);
+  text-decoration: none;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh
+}
+
+:global(#root) {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+#body {
+  padding-top: 4rem;
+  display: flex;
+  flex-direction: column;
+  // align-items: center;
+}
+
+.nav,
+.footer {
+  flex: none;
+}
+
+.body {
+  position: relative;
+  flex-grow: 1;
+}
+
+.mobile {
+  display: none;
+
+  @include mobile {
+    display: block;
+  }
+}
+
+textarea {
+  display: inline-flex;
+  min-height: 1rem;
+  padding: 0.5rem 0.75rem;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 0.25rem;
+  border: 1px solid var(--line-normal);
+  width: 100%;
+  font-size: 1rem;
+  -webkit-appearance: none;
+  resize: none;
+}
+@keyframes rotateAnimation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.themeMode {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  background-color: var(--white);
+  border: none;
+  box-shadow: 0 2px 15px var(--shaow-nomal);
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+svg {
+  fill: var(--line-strong);
+  transition: fill 0.3s ease;
+}
+
+select:focus, input:focus, textarea:focus, button:focus {
+  outline: none;
+  box-shadow: 0px 0px 0px 3px rgba(37, 67, 148, 0.4);
+}
+
+*:disabled, .disabled, #disabled {
+  cursor: no-drop;
+}
+
+[type=email], [type=password], [type=text]{
+  display: inline-flex;
+  height: 3rem;
+  padding: 0.5rem 0.75rem;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 0.25rem;
+  border: 1px solid var(--line-normal);
+  width: 100%;
+  font-size: 1rem;
+  background-color: var(--white);
+  color: var(--text-normal);
+  &:read-only {
+      color: var(--text-assitive);
+      background-color: var(--fill-primary);
+  }
+  &:disabled {
+      color: var(--text-dlsable);
+      background-color: var(--fill-alternative);
+  }
+}
+
+h1 {
+  font-size: 2rem;
+}
+h2 {
+  font-size: 1.5rem;
+}
+h3 {
+  font-size: 1.125rem;
+}
+h4 {
+  font-size: 1rem;
+}
+h5 {
+  font-size: .875rem;
+}
+h6 {
+  font-size: .625rem;
+}

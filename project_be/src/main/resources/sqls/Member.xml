@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="org.project.back.member.dao.MemberDao">
+
+<!-- 이메일 찾기 -->
+<select id="findByEmail" parameterType="String" resultType="org.project.back.member.domain.Member">
+
+SELECT phone, name, pwd, email
+	FROM member
+	WHERE email=#{email}
+
+</select>
+
+<!-- 이메일이 존재 하는지 확인 -->
+<select id="isExistUserEmail" parameterType="String" resultType="java.lang.Integer">
+	SELECT count(*)
+	FROM member
+	WHERE email = #{email}
+</select>
+
+<!-- 이메일 업데이트 -->
+<update id="updateMemberByEmail" parameterType="org.project.back.member.domain.Member" >
+	UPDATE member
+	SET phone = #{phone}, name =#{name}, pwd =#{pwd}
+	WHERE email = #{email}
+</update>
+
+<!-- 이메일 삭제 -->
+<delete id="deleteMemberByEmail" parameterType="String">
+	DELETE FROM member 
+	WHERE email =#{email}
+</delete>
+
+<insert id="createMember" parameterType="org.project.back.member.domain.Member">
+	INSERT INTO member(phone, pwd, name, email)
+	VALUES(#{phone}, #{pwd}, #{name}, #{email})
+</insert>
+
+<!--<select id="login" parameterType="org.project.back.member.domain.Member"-->
+<!--	resultType="org.project.back.member.domain.Member">-->
+<!--	select phone, name, email-->
+<!--	from member-->
+<!--	where email=#{email} and pwd=#{pwd}-->
+<!--</select>-->
+
+</mapper>
+
+
+

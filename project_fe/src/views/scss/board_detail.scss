@@ -1,0 +1,168 @@
+#content {
+    padding-top: 3rem;
+    max-width: 50rem;
+    width: 100%;
+    margin: 0 auto;
+
+    #articleImg {
+        position: relative;
+
+        img {
+            width: 100%;
+            aspect-ratio: 16/9;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 1rem;
+        }
+    }
+
+    #articleProfile {
+        text-decoration: none;
+        display: block;
+        margin-top: 1.5rem;
+        padding-bottom: 1.5rem;
+        position: relative;
+        border-bottom: 1px solid var(--line-normal);
+
+        .spaceBetween {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            #articleProfileLeft {
+                display: flex;
+                align-items: center;
+                #articleProfileImg {
+                    display: flex;
+                    align-items: center;
+
+                    img {
+                        width: 2.75rem;
+                        height: 2.75rem;
+                        -o-object-fit: cover;
+                        object-fit: cover;
+                        border-radius: 50%;
+                        -webkit-border-radius: 50%;
+                        -moz-border-radius: 50%;
+                    }
+                }
+
+                #articleProfiName {
+                    display: inline-block;
+                    margin-left: .5rem;
+
+                    .nickName{
+                        color: var(--text-normal);
+                    }
+                    .mail{
+                        color: var(--text-assitive);
+                    }
+                }
+            }
+            #articleProfileRight {
+                Button {
+                    min-width: 15rem;
+                }
+            }
+
+
+        }
+        
+        
+    }
+
+    #articleDescription {
+        padding: 1.5rem;
+        border-bottom: 1px solid var(--line-normal);
+        #articleTitle {
+            padding-bottom: .5rem;
+        }
+        .articleRight {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            #articleCategory {
+                color: var(--text-assitive);
+                padding-bottom: 2rem;
+                a {
+                    color: var(--text-assitive);
+                    transition: all .3s ease;
+                    &:hover, &:active {
+                        color: var(--text-normal);
+                        text-decoration: underline;
+                    }
+                }
+            }
+            .menu {
+                display: flex;
+                gap: .5rem;
+                cursor: pointer;
+                color: var(--text-assitive);
+
+                a{
+                    &.updateToggle, &.deleteComment {
+                        color: var(--text-assitive);
+                        &:hover, &:active {
+                            text-decoration:underline;
+                        }
+                    }
+                }
+            }
+        }
+        #articleDetail{
+            p {
+                line-height: 1.6;
+            }
+            img {
+                width: calc(100% - 2rem);
+                display: flex;
+                margin: auto;
+            }
+            
+        }
+    }
+}
+
+// 기부
+#donation {
+    padding: 3rem 0;
+    max-width: 48rem;
+    width: 100%;
+    margin: 0 auto;
+    border-bottom: 1px solid var(--line-normal);
+
+    .donationTitle {
+        margin-bottom: .5rem;
+    }
+    .donationType {
+        display: flex;
+        gap: 1rem;
+        color: var(--text-assitive);
+        margin-top: 1rem;
+        .donationBox {
+            padding: .5rem 1rem;
+            background-color: var(--white);
+            border: 1px solid var(--line-normal);
+            border-radius: .5rem;
+            display: flex;
+            gap: .5rem;
+            align-items: center;
+            width: 100%;
+
+            img {
+                width: 3rem;
+                height: 3rem;
+            }
+        }
+    }
+    .donationInfo {
+        display: flex;
+        gap: .5rem;
+        margin-top: 1rem;
+        flex-direction: column;
+
+        .box {
+            padding: .5rem;
+        }
+    }
+}

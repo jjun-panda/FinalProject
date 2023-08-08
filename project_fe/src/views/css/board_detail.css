@@ -1,0 +1,145 @@
+#content {
+  padding-top: 3rem;
+  max-width: 50rem;
+  width: 100%;
+  margin: 0 auto;
+}
+#content #articleImg {
+  position: relative;
+}
+#content #articleImg img {
+  width: 100%;
+  aspect-ratio: 16/9;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+  border-radius: 1rem;
+}
+#content #articleProfile {
+  text-decoration: none;
+  display: block;
+  margin-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  position: relative;
+  border-bottom: 1px solid var(--line-normal);
+}
+#content #articleProfile .spaceBetween {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+#content #articleProfile .spaceBetween #articleProfileLeft {
+  display: flex;
+  align-items: center;
+}
+#content #articleProfile .spaceBetween #articleProfileLeft #articleProfileImg {
+  display: flex;
+  align-items: center;
+}
+#content #articleProfile .spaceBetween #articleProfileLeft #articleProfileImg img {
+  width: 2.75rem;
+  height: 2.75rem;
+  -o-object-fit: cover;
+  object-fit: cover;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+}
+#content #articleProfile .spaceBetween #articleProfileLeft #articleProfiName {
+  display: inline-block;
+  margin-left: 0.5rem;
+}
+#content #articleProfile .spaceBetween #articleProfileLeft #articleProfiName .nickName {
+  color: var(--text-normal);
+}
+#content #articleProfile .spaceBetween #articleProfileLeft #articleProfiName .mail {
+  color: var(--text-assitive);
+}
+#content #articleProfile .spaceBetween #articleProfileRight Button {
+  min-width: 15rem;
+}
+#content #articleDescription {
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--line-normal);
+}
+#content #articleDescription #articleTitle {
+  padding-bottom: 0.5rem;
+}
+#content #articleDescription .articleRight {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+#content #articleDescription .articleRight #articleCategory {
+  color: var(--text-assitive);
+  padding-bottom: 2rem;
+}
+#content #articleDescription .articleRight #articleCategory a {
+  color: var(--text-assitive);
+  transition: all 0.3s ease;
+}
+#content #articleDescription .articleRight #articleCategory a:hover, #content #articleDescription .articleRight #articleCategory a:active {
+  color: var(--text-normal);
+  text-decoration: underline;
+}
+#content #articleDescription .articleRight .menu {
+  display: flex;
+  gap: 0.5rem;
+  cursor: pointer;
+  color: var(--text-assitive);
+}
+#content #articleDescription .articleRight .menu a.updateToggle, #content #articleDescription .articleRight .menu a.deleteComment {
+  color: var(--text-assitive);
+}
+#content #articleDescription .articleRight .menu a.updateToggle:hover, #content #articleDescription .articleRight .menu a.updateToggle:active, #content #articleDescription .articleRight .menu a.deleteComment:hover, #content #articleDescription .articleRight .menu a.deleteComment:active {
+  text-decoration: underline;
+}
+#content #articleDescription #articleDetail p {
+  line-height: 1.6;
+}
+#content #articleDescription #articleDetail img {
+  width: calc(100% - 2rem);
+  display: flex;
+  margin: auto;
+}
+
+#donation {
+  padding: 3rem 0;
+  max-width: 48rem;
+  width: 100%;
+  margin: 0 auto;
+  border-bottom: 1px solid var(--line-normal);
+}
+#donation .donationTitle {
+  margin-bottom: 0.5rem;
+}
+#donation .donationType {
+  display: flex;
+  gap: 1rem;
+  color: var(--text-assitive);
+  margin-top: 1rem;
+}
+#donation .donationType .donationBox {
+  padding: 0.5rem 1rem;
+  background-color: var(--white);
+  border: 1px solid var(--line-normal);
+  border-radius: 0.5rem;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  width: 100%;
+}
+#donation .donationType .donationBox img {
+  width: 3rem;
+  height: 3rem;
+}
+#donation .donationInfo {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  flex-direction: column;
+}
+#donation .donationInfo .box {
+  padding: 0.5rem;
+}

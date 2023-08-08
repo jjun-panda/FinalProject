@@ -1,0 +1,52 @@
+#contentsMypageTum {
+  padding: 3rem 0;
+  max-width: 75rem;
+  width: 100%;
+  margin: 0 auto;
+}
+#contentsMypageTum .contentsTitle {
+  margin-bottom: 0.25rem;
+}
+#contentsMypageTum .contentsSebTitle {
+  margin-bottom: 1rem;
+  color: var(--text-alternative);
+}
+#contentsMypageTum #contentsCards {
+  display: flex;
+  gap: 1rem;
+}
+#contentsMypageTum #contentsCards #contentsBox {
+  display: block;
+  border-radius: 0.5rem;
+  width: 25%;
+}
+#contentsMypageTum #contentsCards #contentsBox #contentsImg {
+  position: relative;
+}
+#contentsMypageTum #contentsCards #contentsBox #contentsImg img {
+  width: 100%;
+  aspect-ratio: 16/9;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+  border-radius: 0.5rem;
+}
+#contentsMypageTum #contentsCards #contentsBox #contentsText .category {
+  color: var(--primary-normal);
+  padding: 0.25rem 0.5rem;
+  background-color: var(--primary-alternarive);
+  border-radius: 1rem;
+  font-weight: 700;
+}
+#contentsMypageTum #contentsCards #contentsBox #contentsText .title {
+  display: -webkit-box;
+  max-height: 52px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  height: 52px;
+  margin-top: 0.25rem;
+}

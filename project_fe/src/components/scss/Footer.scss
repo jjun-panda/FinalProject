@@ -1,0 +1,92 @@
+@import '../../assets/scss/mixin';
+
+.footerContainer {
+    background-color: var(--background-primary);
+    color: var(--text-alternative);
+    padding: 5rem 0;
+    position: relative;
+    text-align: left;
+    color: var(--text-assitive);
+
+    a {
+        color: var(--text-assitive);
+
+        &:hover {
+            transform: all .3s ease;
+            color: var(--text-normal);
+        }
+    }
+
+    .footerMain {
+        max-width: 64rem;
+        width: 100%;
+        margin: 0 auto;
+
+        .footerTop {
+            border-bottom: 1px solid var(--line-normal);
+            display: flex;
+            justify-content: space-between;
+            margin: 0 auto 1.25rem;
+            padding-bottom: 1.25rem;
+
+            img {
+                filter: grayscale(100%) brightness(100%);
+            }
+            .logoImg{
+                width: 10rem;
+                height: 0;
+                padding-top: 20%;
+                background-size: contain;
+                background-repeat: no-repeat;
+                position: relative;
+                filter: opacity(.5);
+            
+                // &::before {
+                //     content: "혁신과 공존 함께!";
+                //     vertical-align: super;
+                //     font-size: 0.75rem;
+                //     font-weight: 700;
+                //     color: var(--primary-normal);
+                //     // margin-left: .25rem;
+                //     position: absolute;
+                //     // top: -75%;
+                //     // left: 0;
+                // }
+            }
+        }
+
+        .footerMain {
+            display: flex;
+            margin: 0 auto;
+
+            .footerLeft {
+                width: calc(100% - 15rem);
+                display: flex;
+                flex-direction: column;
+                justify-content: space-evenly;
+
+                .menuList {
+                    display: flex;
+                    gap: 2rem;
+                }
+            }
+            .teamInfo {
+                margin-top: 1rem;
+                display: flex;
+                min-width: 100%;
+                flex-wrap: wrap;
+                row-gap: 0rem;
+                -moz-column-gap: .625rem;
+                column-gap: 0.625rem;
+            }
+            .footerRight {
+                .contact {
+                    width: 15rem;
+                }
+            }
+        }
+        .footerBottom {
+            margin-top: .5rem;
+        }
+    }
+}

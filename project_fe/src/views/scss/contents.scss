@@ -1,0 +1,99 @@
+@import '../../assets/scss/mixin';
+
+// 다른 콘텐츠 보기
+#contentsMainTum {
+    padding: 3rem 0;
+    max-width: 75rem;
+    width: 100%;
+    margin: 0 auto;
+
+    .contentsTitle {
+        margin-bottom: .25rem;
+    }
+    .contentsText {
+        display: flex;
+        margin-bottom: 1rem;
+        justify-content: space-between;
+        .contentsSebTitle {
+            color: var(--text-alternative);
+        }
+        .updateToggle {
+            border: 1px solid var(--line-normal);
+            padding: 0 .875rem;
+            border-radius: 1rem;
+            transition: all .3s ease;
+            &:hover {
+                background-color: var(--primary-normal);
+                border: 1px solid var(--primary-normal);
+                color: var(--white);
+            }
+        }
+    }
+    .contentsGroup {
+        position: relative;
+        .contentsSebgroup {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            row-gap: 2rem;
+            .contentsTrgroup {
+                position: relative;
+                height: auto;
+                transition: margin 0.5s;
+                float: left;
+                // margin: .5rem;
+                // gap: 1rem;
+                border: 0px solid;
+                width: calc(100%/4 - (1rem - 1rem/4));
+                -ms-flex: 0 0 calc(100%/4 - (1rem - 1rem/4));
+                flex: 0 0 calc(100%/4 - (1rem - 1rem/4));
+                max-width: calc(100%/4 - (1rem - 1rem/4));
+            }
+        }
+    }
+    #contentsCards{
+        display: flex;
+        gap: 1rem;
+
+        #contentsBox {
+            display: block;
+            border-radius: .5rem;
+            // width: calc(100%/4);
+            // flex:calc(100%/3);
+
+            #contentsImg {
+                position: relative;
+                display: flex;
+                margin-bottom: .5rem;
+
+                img {
+                    width: 100%;
+                    aspect-ratio: 16/9;
+                    object-fit: cover;
+                    object-position: center;
+                    border-radius: .5rem;
+                }
+            }
+            #contentsText {
+                .category {
+                    color: var(--primary-normal);
+                    padding: 0.25rem 0.5rem;
+                    background-color: var(--primary-alternarive);
+                    border-radius: 1rem;
+                    font-weight: 700;
+                }
+                .title {
+                    display: -webkit-box;
+                    max-height:3.25rem;
+                    overflow:hidden;
+                    text-overflow: ellipsis;
+                    word-break:break-all;
+                    -webkit-box-orient:vertical;
+                    -webkit-line-clamp:2;
+                    height: 3.25rem;
+                    margin-top: .25rem;
+                }
+            }
+        }
+    }
+}

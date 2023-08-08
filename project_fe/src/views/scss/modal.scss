@@ -1,0 +1,176 @@
+@import '../../assets/scss/mixin';
+
+select {
+    background: url(../../assets/images/icon/ico_arrow_down.svg) no-repeat calc(100% - 1rem) 50%;
+    display: inline-flex;
+    gap: 0.5rem;
+    border-radius: 0.25rem;
+    border: 1px solid var(--line-normal);
+    width: 100%;
+    font-size: 1rem;
+    height: 3rem;
+    padding: 0 1rem;
+    -webkit-appearance: none;
+    width: 100%;
+    color: var(--text-normal);
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+
+    .modalContent {
+        background-color: var(--white);
+        max-width: 25rem;
+        width: 100%;
+        padding: 2.5rem 1.25rem;
+        border-radius: .5rem;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        &.ws20 {
+            max-width: 20rem;
+        }
+        .modalIcon {
+            width: 64px;
+            margin-bottom: 0.5rem;
+        }
+
+        .titleModal {
+            color: var(--text-normal);
+        }
+        .textModal {
+            margin: .5rem 0 1rem;
+            color: var(--text-assitive);
+        }
+
+        Button {
+            width: 100%;
+        }
+        .modalPassword {
+            margin-bottom: 1rem;
+        }
+        .modalBill {
+            margin-bottom: 1rem;
+        }
+        .textBox {
+            background-color: var(--background-primary);
+            border-radius: .25rem;
+            height: 3rem;
+            padding: 0 1rem;
+            border: 0;
+            font-size: 1rem;
+            width: 15rem;
+            margin-bottom: 1rem;
+        }
+        .twoBtn {
+            display: flex;
+            gap: .5rem;
+            button {
+                padding: 0 1rem;
+                font-size: 1rem;
+                font-weight: 700;
+                color: var(--white);
+                cursor: pointer;
+                background-color: var(--primary-normal);
+                border: none;
+                border-radius: 4px;
+                outline: none;
+                height: 2.5rem;
+                min-width: 6rem;
+                max-width: 10rem;
+
+                &:hover {
+                    background-color: var(--primary-strong);
+                }
+                +.cance {
+                    border: 1px solid var(--primary-normal);
+                    background-color: var(--white);
+                    color: var(--primary-normal);
+                    &:hover {
+                        background-color: var(--primary-assistive);
+                    }
+                }
+            }
+        }
+    }
+}
+
+.todoBtn {
+    border: 1px solid var(--text-normal);
+    border-radius: .5rem;
+    height: 2rem;
+    padding: 0 1rem;
+    background-color: var(--white);
+    color: var(--text-normal);
+    font-size: .875rem;
+    transition: all .1s ease;
+
+    &:hover {
+        background-color: var(--primary-normal);
+        color: var(--white);
+        border: 1px solid var(--primary-normal);
+    }
+
+    &:active {
+        background-color: var(--primary-strong);
+    }
+}
+.flex {
+    display: flex;
+}
+.listBtn {
+    display: flex;
+    width: 1.5rem;
+    height: 1.5rem;
+    align-items: center;
+    justify-content: center;
+
+    .checkIcon {
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+    .imgIcon {
+        width: 1.25rem;
+        height: 1.25rem;
+        // transition: ease .8s;
+        opacity: .1;
+        &:hover {
+            opacity: .5;
+        }
+    }
+}
+
+@include tablet {
+    .modal {
+        padding: 0 1rem;
+
+        .modalContent {
+            .twoBtn {
+                width: 100%;
+                button {
+                    height: 3.5rem;
+                    width: 100%;
+                    max-width: none;
+                }
+            }
+            .textModal {
+                +.textBox {
+                    width: calc(100% - 2rem);
+                    height: 3.5rem;
+                }
+            }
+        }
+    }
+}

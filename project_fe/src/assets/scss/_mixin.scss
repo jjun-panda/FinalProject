@@ -1,0 +1,29 @@
+@import './variables';
+
+//  ~ 모바일(세로)
+@mixin mobileMini {
+    @media (max-width: #{$mobileMini - 1px}) {
+        @content;
+    }
+}
+
+// ~ 모바일(가로)
+@mixin mobile {
+    @media (max-width: #{$mobile - 1px}) {
+        @content;
+    }
+}
+
+// ~ 태블릿
+@mixin tablet {
+    @media (max-width: #{$tablet - 1px}) {
+        @content;
+    }
+}
+
+// ~ 미니컴퓨터
+@mixin pcMini {
+    @media (max-width: #{$pcMini - 1px}) {
+        @content;
+    }
+}
