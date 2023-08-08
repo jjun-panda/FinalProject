@@ -66,7 +66,12 @@ export default function BoardList() {
 		navigate("/board/list", { state: { gotoTop: true } });
 	}
 
-	
+	const handleKeyUp = (e: React.KeyboardEvent) => {
+		if(e.key === 'Enter') {
+			search();
+		}
+	}
+
 
 	return (
 
@@ -117,7 +122,7 @@ export default function BoardList() {
 								</select>
 							</div>
 							<div className="searchBox">
-								<input type="text" className="form-control" placeholder="검색어" value={searchVal} onChange={changeSearch} />
+								<input type="text" className="form-control" placeholder="검색어" value={searchVal} onChange={changeSearch} onKeyUp={handleKeyUp} />
 							</div>
 							<Button size="Medium" type="button" className="searchButton" onClick={search}><i className="fas fa-search"></i> 검색</Button>
 						</div>

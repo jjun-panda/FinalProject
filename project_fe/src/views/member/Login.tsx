@@ -76,6 +76,13 @@ export default function Login() {
 		prefersDark.removeEventListener('change', handleChangeDarkMode);
 		};
 	}, []);
+
+	const handleKeyUp = (e: React.KeyboardEvent) => {
+		if(e.key === 'Enter') {
+			login();
+		}
+	};
+
 	return (
 		<>
 			<div id="loginRequired">
@@ -103,7 +110,7 @@ export default function Login() {
 								<input type="email" value={email} onChange={changeEmail} placeholder="이메일을 입력해주세요" required />
 							</div>
 							<div className="pw-input">
-								<input type="password" value={pwd} onChange={changePwd} name="password" placeholder="비밀번호를 입력해주세요" required />
+								<input type="password" value={pwd} onChange={changePwd} onKeyUp={handleKeyUp} name="password" placeholder="비밀번호를 입력해주세요" required />
 							</div>
 						</div>
 						<div className="login-submitBtn">
