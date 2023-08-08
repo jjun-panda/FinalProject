@@ -91,6 +91,10 @@
     margin-top: 1rem;
     display: grid;
     
+    .disabled {
+        color: var(--status-alert) !important;
+        background-color:var(--status-alert-bg) !important;
+    }
     #commenterProfile {
         padding: 1rem 0;
         text-decoration: none;
@@ -142,7 +146,7 @@
                     gap: .5rem;
                     cursor: pointer;
                     color: var(--text-assitive);
-
+                    
                     a{
                         &.updateToggle, &.deleteComment {
                             color: var(--text-assitive);
@@ -155,6 +159,7 @@
             }
         }
     }
+    
     .commentBox {
         background-color: var(--white);
         color: var(--text-normal);

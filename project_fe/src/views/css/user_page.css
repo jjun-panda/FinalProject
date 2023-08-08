@@ -16,6 +16,40 @@
   left: 0;
   top: 7rem;
 }
+#contentsUserTum .navigatorMain .navigatorWrapper .profilBox {
+  border: 1px solid var(--line-normal);
+  border-radius: 2rem;
+  width: 15rem;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+  gap: 0.25rem;
+}
+#contentsUserTum .navigatorMain .navigatorWrapper .profilBox img {
+  width: 10rem;
+  height: 10rem;
+  border-radius: 50%;
+}
+#contentsUserTum .navigatorMain .navigatorWrapper .naviator {
+  padding: 1.5rem;
+  display: grid;
+  gap: 0.25rem;
+}
+#contentsUserTum .navigatorMain .navigatorWrapper .naviator .menuWrapper {
+  border-radius: 0.25rem;
+}
+#contentsUserTum .navigatorMain .navigatorWrapper .naviator .menuWrapper:hover, #contentsUserTum .navigatorMain .navigatorWrapper .naviator .menuWrapper:active {
+  background-color: var(--background-maincolor);
+}
+#contentsUserTum .navigatorMain .navigatorWrapper .naviator .menuWrapper a {
+  display: block;
+  padding: 0.25rem 1rem;
+}
+#contentsUserTum .navigatorMain .navigatorWrapper .naviator hr {
+  margin: 1rem 0;
+}
 #contentsUserTum .navigatorMain .navigatorWrapper .writeBtn {
   margin-top: 2rem;
   background-color: var(--primary-alternarive);
@@ -44,11 +78,13 @@
 }
 #contentsUserTum .boardBox {
   width: 100%;
+  min-height: 100vh;
 }
 #contentsUserTum #contentsHeader {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
+  align-items: flex-end;
 }
 #contentsUserTum #contentsHeader .searchMain {
   display: inline-flex;
@@ -168,25 +204,40 @@
 #contentsUserTum #contentsUser .contentsGroup {
   padding-left: 2rem;
   max-width: 30rem;
+  text-align: right;
 }
 #contentsUserTum #contentsUser .contentsGroup .form-valid {
   display: flex;
   gap: 1rem;
   flex-direction: column;
+  padding-bottom: 1rem;
+  text-align: left;
 }
-#contentsUserTum #contentsUser .contentsGroup .form-valid .formTwo {
-  display: flex;
-  gap: 2rem;
-}
-#contentsUserTum #contentsUser .contentsGroup .form-valid .formTwo .formBox {
-  max-width: 20rem;
+#contentsUserTum #contentsUser .contentsGroup .form-valid .formBox {
+  max-width: 30rem;
   width: 100%;
 }
+#contentsUserTum #contentsUser .contentsGroup .form-valid .formBox .formTit {
+  padding-bottom: 0.25rem;
+  color: var(--text-alternative);
+}
 #contentsUserTum #contentsUser .contentsGroup .form-valid .info {
-  margin-top: 0.25rem;
+  padding-top: 0.25rem;
   color: var(--status-warning);
 }
+#contentsUserTum #contentsUser .contentsGroup .form-valid .pw-input [type=password]:first-child {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+#contentsUserTum #contentsUser .contentsGroup .form-valid .pw-input [type=password]:last-child {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-top: 0;
+}
 #contentsUserTum #contentsUser .contentsGroup .form-valid .message {
-  margin-top: 0.25rem;
+  padding-top: 0.25rem;
   color: var(--primary-normal);
+}
+#contentsUserTum #contentsUser .contentsGroup .form-valid .message.mixMassage {
+  padding-top: 0;
 }

@@ -5,7 +5,7 @@ import React from "react";
 import bgImg from "../../assets/images/bg.png"
 import maskDate from "../../components/maskDate";
 
-export default function ContentsTrend() {
+export default function ContentsByDate() {
 
     const [boardList, setBoardList] = useState<Board[]>([]);
 
@@ -16,28 +16,27 @@ export default function ContentsTrend() {
     const sortByDate = boardList.slice().sort((a, b) => {
         return new Date(b.writeDate).getTime() - new Date(a.writeDate).getTime();
     });
-    
-	/* [GET /board]: 게시글 목록 */
-	const getBoardList = async (choice: string, search: string, page: number) => {
 
-		await axios.get("http://localhost:8888/board", { params: { "choice": choice, "search": search, "page": page } })
-			.then((resp) => {
-				console.log(resp.data);
+    /* [GET /board]: 게시글 목록 */
+    const getBoardList = async (choice: string, search: string, page: number) => {
 
-				setBoardList(resp.data.boardList);
-				setTotalCnt(resp.data.pageCnt);
-			})
-			.catch((err) => {
-				console.log(err);
+        await axios.get("http://localhost:8888/board", { params: { "choice": choice, "search": search, "page": page } })
+            .then((resp) => {
+                console.log(resp.data);
 
-			});
-	}
+                setBoardList(resp.data.boardList);
+                setTotalCnt(resp.data.pageCnt);
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    }
 
-	useEffect(() => {
-		getBoardList("", "", 1);
-	}, []);
+    useEffect(() => {
+        getBoardList("", "", 1);
+    }, []);
 
-	return (
+    return (
         <>
         <div id='contentsCards'>
             {
@@ -51,7 +50,7 @@ export default function ContentsTrend() {
             }
         </div>
         </>
-	);
+    );
 }
 
 interface Board {
@@ -67,14 +66,14 @@ interface Board {
 }
 
 interface TableRowProps {
-	obj: Board;
-	cnt: number;
+    obj: Board;
+    cnt: number;
 }
 /* 글 목록 테이블 행 컴포넌트 */
 function TableRow(props: TableRowProps) {
-	const board = props.obj;
+    const board = props.obj;
 
-	return (
+    return (
         <>
         {
             (board.del == 0) ?
@@ -128,5 +127,5 @@ function TableRow(props: TableRowProps) {
             </>	
         }
         </>
-	);
+    );
 }

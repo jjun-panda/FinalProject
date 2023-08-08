@@ -73,18 +73,16 @@ interface TableRowProps {
 function TableRow(props: TableRowProps) { //위에 데이터를 받음
   const { auth, setAuth } = useContext(AuthContext); //여기부터 추가됨. auth부분은 사용자의 인증 상태를 나타내는 변수
 
-  const board = props.obj; 
+  const board = props.obj;
 
   return (
     <>
-
       {
         //로그인한 이메일 과 게시판 이메일 같으면 (삼항연산자)
         (auth === board.email) ?
           <>
             {
-
-              (board.del === 0) ? 
+              (board.del === 0) ?
                 // 삭제되지 않은 게시글
                 <>
                   <Link to={{ pathname: `/board/detail/${board.seq}` }} id='contentsBox'>
@@ -104,7 +102,6 @@ function TableRow(props: TableRowProps) { //위에 데이터를 받음
                     </div>
                   </Link>
                 </>
-
                 :
                 // 삭제된 게시글
                 <>

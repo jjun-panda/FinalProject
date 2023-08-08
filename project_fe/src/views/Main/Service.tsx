@@ -17,54 +17,55 @@ import cauegory6 from '../../assets/images/category/category_6.svg'
 export default function Service() {
 
     return (
-    <>
-        <div id='body'>
-            {/* 맨 상단 */}
-            <div className="containerBody">
-                <div className="containerContext">
-                    <p className="bodyB56x"><span className="title56x titleBG">&nbsp;당신의 관심&nbsp;</span>은 무엇인가요?</p>
-                    <div className="contextWrapper">
-                        <p className='body20x'>다양한 분야에서의 자랑스러운 재능을 타인과 공유함으로써 후원과 재능기부를 유도하는 기능을 강화하고, 이와 연계해서 굿즈 판매 및 실시간으로 목표 금액의 달성 상황을 시각화하여 사용자에게 제공하고 있습니다.</p>
+        <>
+            <div id='body'>
+                {/* 맨 상단 */}
+                <div className="containerBody">
+                    <div className="containerContext">
+                        <p className="bodyB56x"><span className="title56x titleBG">&nbsp;당신의 관심&nbsp;</span>은 무엇인가요?</p>
+                        <div className="contextWrapper">
+                            <p className='body20x'>다양한 분야에서의 자랑스러운 재능을 타인과 공유함으로써 후원과 재능기부를 유도하는 기능을 강화하고, 이와 연계해서 굿즈 판매 및 실시간으로 목표 금액의 달성 상황을 시각화하여 사용자에게 제공하고 있습니다.</p>
+                        </div>
                     </div>
-                </div>
-                <div className="containerCategory">
-                    <div className="sebCategories">
-                        <Link className="sebCategory" tabIndex={0} role="link" to="/board/list/life">
-                            <div className="imageBox">
-                                <img src={cauegory1} style={{width:'100%'}} />
-                            </div>
-                            <p className="bodyB16x">슬기로운 라이프</p>
-                        </Link>
-                        <Link className="sebCategory" tabIndex={0} role="link" to="/board/list/music">
-                            <div className="imageBox">
-                                <img src={cauegory2} style={{width:'100%'}} />
-                            </div>
-                            <p className="bodyB16x">아름다운 음악</p>
-                        </Link>
-                        <Link className="sebCategory" tabIndex={0} role="link" to="/board/list/cooking">
-                            <div className="imageBox">
-                                <img src={cauegory3} style={{width:'100%'}} />
-                            </div>
-                            <p className="bodyB16x">맛있는 요리</p>
-                        </Link>
-                        <Link className="sebCategory" tabIndex={0} role="link" to="/board/list/design_dev">
-                            <div className="imageBox">
-                                <img src={cauegory4} style={{width:'100%'}} />
-                            </div>
-                            <p className="bodyB16x">디자인 & 개발</p>
-                        </Link>
-                        <Link className="sebCategory" tabIndex={0} role="link" to="/board/list/art">
-                            <div className="imageBox">
-                                <img src={cauegory5} style={{width:'100%'}} />
-                            </div>
-                            <p className="bodyB16x">미술의 감성</p>
-                        </Link>
-                        <Link className="sebCategory" tabIndex={0} role="link" to="/board/list/fashion">
-                            <div className="imageBox">
-                                <img src={cauegory6} style={{width:'100%'}} />
-                            </div>
-                            <p className="bodyB16x">멋의 패션</p>
-                        </Link>
+                    <div className="containerCategory">
+                        <div className="sebCategories">
+                            <Link className="sebCategory" tabIndex={0} role="link" to="/">
+                                <div className="imageBox">
+                                    <img src={cauegory1} style={{ width: '100%' }} />
+                                </div>
+                                <p className="bodyB16x">슬기로운 라이프</p>
+                            </Link>
+                            <Link className="sebCategory" tabIndex={0} role="link" to="/">
+                                <div className="imageBox">
+                                    <img src={cauegory2} style={{ width: '100%' }} />
+                                </div>
+                                <p className="bodyB16x">아름다운 음악</p>
+                            </Link>
+                            <Link className="sebCategory" tabIndex={0} role="link" to="/">
+                                <div className="imageBox">
+                                    <img src={cauegory3} style={{ width: '100%' }} />
+                                </div>
+                                <p className="bodyB16x">맛의 승부! 요리</p>
+                            </Link>
+                            <Link className="sebCategory" tabIndex={0} role="link" to="/">
+                                <div className="imageBox">
+                                    <img src={cauegory4} style={{ width: '100%' }} />
+                                </div>
+                                <p className="bodyB16x">디자인 & 개발</p>
+                            </Link>
+                            <Link className="sebCategory" tabIndex={0} role="link" to="/">
+                                <div className="imageBox">
+                                    <img src={cauegory5} style={{ width: '100%' }} />
+                                </div>
+                                <p className="bodyB16x">미술의 감성</p>
+                            </Link>
+                            <Link className="sebCategory" tabIndex={0} role="link" to="/">
+                                <div className="imageBox">
+                                    <img src={cauegory6} style={{ width: '100%' }} />
+                                </div>
+                                <p className="bodyB16x">멋의 패션</p>
+                            </Link>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -141,8 +142,7 @@ export default function Service() {
                     </div>
                 </div>
             </div>
-        </div>
-    </>
+        </>
     );
 }
 

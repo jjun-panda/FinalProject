@@ -8,7 +8,7 @@ import '../../components/css/paging.css'
 import Paging from "../../components/paging";
 import maskDate from "../../components/maskDate";
 
-function BoardList() {
+export default function BoardList() {
 	const item_page = 9;
 
 	const [boardList, setBoardList] = useState([]);
@@ -177,7 +177,7 @@ function TableRow(props: TableRowProps) {
 	return (
 		<>
 		{
-			(board.del == 0) ?
+			(board.del === 0) ?
 			// 삭제되지 않은 게시글
 			<>
 				<div className="contentsTrgroup">
@@ -247,29 +247,3 @@ function TableRow(props: TableRowProps) {
 		</>
 	);
 }
-
-interface ArrowProps {
-	depth: number;
-}
-
-const tap = "\u00A0\u00A0\u00A0\u00A0";
-function Arrow(props: ArrowProps) {
-	const depth = props.depth;
-
-	if (depth === 0) {
-		return null;
-	}
-
-	const taps = [];
-	for(let i = 0; i < depth; i++) {
-		taps.push(tap);
-	}
-
-	return (
-		<>
-			{taps} <i className="fas fa-long-arrow-alt-right"></i>
-		</> 
-	);
-}
-
-export default BoardList;

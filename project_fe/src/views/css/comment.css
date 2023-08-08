@@ -78,6 +78,10 @@
   margin-top: 1rem;
   display: grid;
 }
+#commenterList .disabled {
+  color: var(--status-alert) !important;
+  background-color: var(--status-alert-bg) !important;
+}
 #commenterList #commenterProfile {
   padding: 1rem 0;
   text-decoration: none;

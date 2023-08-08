@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import './assets/css/common.css';
 import RouterLayOut from './router/Router';
+import React from 'react';
 
 function App() {
   // SpringBoot 연결 상태를 저장하는 상태 변수
@@ -17,6 +18,7 @@ function App() {
     const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
     htmlElement.setAttribute('data-theme', newTheme);
     setDarkMode(!darkMode);
+    localStorage.setItem('userDarkModePreference', newTheme); // 사용자 모드 설정 저장
     let degree = 0;
     const intervalId = setInterval(() => {
       degree += 3;
@@ -45,15 +47,11 @@ function App() {
   }, []);
 
   useEffect(() => {
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const htmlElement = document.documentElement;
-    const currentTheme = htmlElement.getAttribute('data-theme');
-    if (currentTheme === null) {
-      const newTheme = prefersDark ? 'dark' : 'light';
-      htmlElement.setAttribute('data-theme', newTheme);
-      setDarkMode(prefersDark);
-    } else {
-      setDarkMode(currentTheme === 'dark');
+    const userModePreference = localStorage.getItem('userDarkModePreference');
+    if (userModePreference === 'dark' || userModePreference === 'light') {
+      const htmlElement = document.documentElement;
+      htmlElement.setAttribute('data-theme', userModePreference);
+      setDarkMode(userModePreference === 'dark');
     }
   }, []);
 

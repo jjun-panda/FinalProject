@@ -20,14 +20,22 @@
   margin-bottom: 0.25rem;
 }
 #contentsListTum .navigatorMain .navigatorWrapper ul.naviator {
-  border-top: 1px solid var(--text-normal);
-  padding: 1rem 0 1rem 0.5rem;
   width: 10rem;
-  display: flex;
-  flex-direction: column;
+  padding-top: 1rem;
+  display: grid;
   gap: 0.25rem;
 }
-#contentsListTum .navigatorMain .navigatorWrapper .menuWrapper a.checked {
+#contentsListTum .navigatorMain .navigatorWrapper ul.naviator .menuWrapper {
+  border-radius: 0.25rem;
+}
+#contentsListTum .navigatorMain .navigatorWrapper ul.naviator .menuWrapper:hover, #contentsListTum .navigatorMain .navigatorWrapper ul.naviator .menuWrapper:active {
+  background-color: var(--background-maincolor);
+}
+#contentsListTum .navigatorMain .navigatorWrapper ul.naviator .menuWrapper a {
+  display: block;
+  padding: 0.25rem 1rem;
+}
+#contentsListTum .navigatorMain .navigatorWrapper ul.naviator .menuWrapper a.checked {
   color: var(--primary-normal);
   font-weight: 700;
 }
@@ -37,12 +45,12 @@
   border: none;
   border-radius: 0.25rem;
   color: var(--primary-normal);
-  font-size: 0.875rem;
+  font-size: 1rem;
   font-weight: 700;
   cursor: pointer;
   padding: 0 1rem;
-  height: 2rem;
-  min-width: 4rem;
+  height: 3rem;
+  min-width: 10rem;
   max-width: 25rem;
   text-rendering: auto;
   justify-content: center;

@@ -74,7 +74,6 @@ function CommentList(props: CommentListProps) {
 			}
 			
 		</>
-
 	);
 }
 

@@ -10,33 +10,33 @@ export default function ContentsTrend() {
 
     const [boardList, setBoardList] = useState<Board[]>([]);
 
-	// Paging
-	const [totalCnt, setTotalCnt] = useState(0);
+    // Paging
+    const [totalCnt, setTotalCnt] = useState(0);
 
     // 게시물의 조회수 상위순
     const sortByViews = boardList.slice().sort((a, b) => b.readCount - a.readCount);
 
-	/* [GET /board]: 게시글 목록 */
-	const getBoardList = async (choice: string, search: string, page: number) => {
+    /* [GET /board]: 게시글 목록 */
+    const getBoardList = async (choice: string, search: string, page: number) => {
 
-		await axios.get("http://localhost:8888/board", { params: { "choice": choice, "search": search, "page": page } })
-			.then((resp) => {
-				console.log(resp.data);
+        await axios.get("http://localhost:8888/board", { params: { "choice": choice, "search": search, "page": page } })
+            .then((resp) => {
+                console.log(resp.data);
 
-				setBoardList(resp.data.boardList);
-				setTotalCnt(resp.data.pageCnt);
-			})
-			.catch((err) => {
-				console.log(err);
+                setBoardList(resp.data.boardList);
+                setTotalCnt(resp.data.pageCnt);
+            })
+            .catch((err) => {
+                console.log(err);
 
-			});
-	}
+            });
+    }
 
-	useEffect(() => {
-		getBoardList("", "", 1);
-	}, []);
+    useEffect(() => {
+        getBoardList("", "", 1);
+    }, []);
 
-	return (
+    return (
         <>
                 {
                     sortByViews.slice(0, 3).map((board, idx) => (
@@ -49,7 +49,7 @@ export default function ContentsTrend() {
                     ))
                 }
         </>
-	);
+    );
 }
 
 interface Board {
@@ -65,14 +65,14 @@ interface Board {
 }
 
 interface TableRowProps {
-	obj: Board;
-	cnt: number;
+    obj: Board;
+    cnt: number;
 }
 /* 글 목록 테이블 행 컴포넌트 */
 function TableRow(props: TableRowProps) {
-	const board = props.obj;
+    const board = props.obj;
 
-	return (
+    return (
         <>
         {
             (board.del == 0) ?
@@ -126,5 +126,5 @@ function TableRow(props: TableRowProps) {
             </>	
         }
         </>
-	);
+    );
 }

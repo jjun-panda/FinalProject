@@ -37,6 +37,11 @@ const Button = styled.button<ButtonProps>`
   &:active {
     background-color: var(--primary-heavy);
   }
+  &:disabled {
+    color: var(--text-dlsable);
+    background-color: var(--fill-alternative);
+    cursor: no-drop;
+  }
 `;
 
 export default Button;

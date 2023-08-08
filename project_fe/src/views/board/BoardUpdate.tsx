@@ -70,9 +70,9 @@ export default function BoardUpdate() {
 			category: category, 
 		}
 
-		await axios.patch(`http://localhost:8888/board/${board.seq}`, req, {headers: headers})
-		.then((resp) => {
-			console.log(resp.data);
+		await axios.patch(`http://localhost:8888/board/${board.seq}`, req, { headers: headers })
+			.then((resp) => {
+				console.log(resp.data);
 
 			if (resp.data.updatedRecordCount === 1) {
 				alert("게시글을 수정했습니다");

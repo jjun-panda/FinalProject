@@ -4,6 +4,7 @@ import Button from '../../components/Button';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider';
+import React from 'react';
 
 export default function UserDelete() {
   const [isOpen, setIsOpen] = useState(false);
@@ -13,8 +14,6 @@ export default function UserDelete() {
   const cancelModal = () => {
     setIsOpen(false);
   };
-
-
 
   const { auth, setAuth } = useContext(AuthContext);
 

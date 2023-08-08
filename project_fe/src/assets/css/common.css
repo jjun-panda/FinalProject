@@ -1484,6 +1484,60 @@ select:focus, input:focus, textarea:focus, button:focus {
   box-shadow: 0px 0px 0px 3px rgba(37, 67, 148, 0.4);
 }
 
+*:disabled, .disabled, #disabled {
+  cursor: no-drop;
+}
+
+[type=email], [type=password], [type=text] {
+  display: inline-flex;
+  height: 3rem;
+  padding: 0.5rem 0.75rem;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 0.25rem;
+  border: 1px solid var(--line-normal);
+  width: 100%;
+  font-size: 1rem;
+  background-color: var(--white);
+  color: var(--text-normal);
+}
+[type=email]:-moz-read-only, [type=password]:-moz-read-only, [type=text]:-moz-read-only {
+  color: var(--text-assitive);
+  background-color: var(--fill-primary);
+}
+[type=email]:read-only, [type=password]:read-only, [type=text]:read-only {
+  color: var(--text-assitive);
+  background-color: var(--fill-primary);
+}
+[type=email]:disabled, [type=password]:disabled, [type=text]:disabled {
+  color: var(--text-dlsable);
+  background-color: var(--fill-alternative);
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
+h3 {
+  font-size: 1.125rem;
+}
+
+h4 {
+  font-size: 1rem;
+}
+
+h5 {
+  font-size: 0.875rem;
+}
+
+h6 {
+  font-size: 0.625rem;
+}
+
 .admin {
   color: var(--status-alert);
   font-weight: 700;

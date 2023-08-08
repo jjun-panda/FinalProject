@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../context/AuthProvider";
 import '../css/Header.css';
 
@@ -49,11 +49,11 @@ export default function Header() {
 								}
 
 								{/*마이페이지 */}
-								<Link className="body16x" to="/user/detail" >마이페이지</Link>
-								<span>/</span>
+								<Link className="bodyB14x" to="/user/detail" >마이페이지</Link>
+								{/* <span>/</span> */}
 
 								{/* 로그아웃 */}
-								<Link className="body16x" to="/logout">로그아웃</Link>
+								{/* <Link className="body16x" to="/logout">로그아웃</Link> */}
 								
 							</>
 							:

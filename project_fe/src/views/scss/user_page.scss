@@ -16,6 +16,41 @@
             display: block;
             left: 0;
             top: 7rem;
+            .profilBox {
+                border: 1px solid var(--line-normal);
+                border-radius: 2rem;
+                width: 15rem;
+                padding: 2rem;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                margin: auto;
+                gap: .25rem;
+                img {
+                    width: 10rem;
+                    height: 10rem;
+                    border-radius: 50%;
+                }
+            }
+            .naviator {
+                padding: 1.5rem;
+                display: grid;
+                gap: 0.25rem;
+                .menuWrapper {
+                    border-radius: .25rem;
+                    &:hover, &:active {
+                        background-color: var(--background-maincolor);
+                    }
+                    a {
+                        display: block;
+                        padding: .25rem 1rem;
+                    }
+                }
+                hr {
+                    margin: 1rem 0;
+                }
+            }
+            
             .writeBtn {
                 margin-top: 2rem;
                 background-color: var(--primary-alternarive);
@@ -46,11 +81,13 @@
     }
     .boardBox {
         width: 100%;
+        min-height: 100vh;
     }
     #contentsHeader{
         display: flex;
         justify-content: space-between;
-        margin-bottom: 2rem;
+        margin-bottom: 1rem;
+        align-items: flex-end;
         .searchMain {
             display: inline-flex;
             justify-content: flex-end;
@@ -187,30 +224,47 @@
         .contentsGroup {
             padding-left: 2rem;
             max-width: 30rem;
+            text-align: right;
             // 회원정보 수정
             .form-valid {
-                
                 display: flex;
                 gap: 1rem;
                 flex-direction: column;
+                padding-bottom: 1rem;
+                text-align: left;
                 
-                .formTwo {
-                    display: flex;
-                    gap: 2rem;
-                    .formBox {
-                        max-width: 20rem;
-                        width: 100%;
+                .formBox {
+                    max-width: 30rem;
+                    width: 100%;
+
+                    .formTit {
+                        padding-bottom: .25rem;
+                        color: var(--text-alternative);
                     }
                 }
 
                 .info {
-                    margin-top: .25rem;
+                    padding-top: .25rem;
                     color: var(--status-warning);
                 }
-
+                .pw-input [type=password] {
+                    &:first-child {
+                        border-bottom-left-radius: 0 ;
+                        border-bottom-right-radius: 0;
+                    }
+                    &:last-child {
+                        border-top-left-radius: 0 ;
+                        border-top-right-radius: 0;
+                        border-top: 0;
+                    }
+                }
                 .message {
-                    margin-top: .25rem;
+                    padding-top: .25rem;
                     color: var(--primary-normal);
+                
+                    &.mixMassage {
+                        padding-top: 0;
+                    }
                 }
             }
         }

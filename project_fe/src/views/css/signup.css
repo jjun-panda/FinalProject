@@ -1,15 +1,3 @@
-[type=email], [type=password], [type=text] {
-  display: inline-flex;
-  height: 3rem;
-  padding: 0.5rem 0.75rem;
-  align-items: center;
-  gap: 0.5rem;
-  border-radius: 0.25rem;
-  border: 1px solid var(--line-normal);
-  width: 100%;
-  font-size: 1rem;
-}
-
 #signupRequired {
   display: block;
   min-height: 80vh;
@@ -25,6 +13,21 @@
 #signupRequired .signupForm .titleWrap {
   margin-bottom: 2rem;
 }
+#signupRequired .signupForm .titleWrap .logo {
+  padding-bottom: 1rem;
+}
+#signupRequired .signupForm .titleWrap .logo .logoText {
+  color: var(--primary-normal);
+  font-weight: 700;
+}
+#signupRequired .signupForm .titleWrap .logo .logoImg {
+  width: 8rem;
+  height: 0;
+  padding-top: 20%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: relative;
+}
 #signupRequired .signupForm .form-valid {
   display: flex;
   gap: 0.5rem;
@@ -32,7 +35,7 @@
   padding-bottom: 1rem;
 }
 #signupRequired .signupForm .form-valid .message {
-  margin-top: 0.25rem;
+  padding-top: 0.25rem;
   color: var(--primary-normal);
 }
 #signupRequired .signupForm .form-valid .mail-input, #signupRequired .signupForm .form-valid .pw-input, #signupRequired .signupForm .form-valid .txt-input {

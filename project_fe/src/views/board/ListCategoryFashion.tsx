@@ -204,7 +204,7 @@ function TableRow(props: TableRowProps) {
 	const board = props.obj;
 
 	const delBoard = () => {
-		alert("삭제된 글로 확인이 불가능합니다");		
+		alert("삭제된 글은 확인이 불가능합니다");		
 	};
 
 	return (
@@ -240,7 +240,7 @@ function TableRow(props: TableRowProps) {
 					<div className="contentsTrgroup">
 						<Link to={{ pathname: `/board/detail/${board.seq}` }} id='contentsBox'>
 							<div id="contentsImg">
-								<img src={bgImg} alt="" />
+								<img src={bgImg} alt="" style={{filter: "grayscale(1)"}}/>
 							</div>
 							<div id='contentsText'>
 								<span className="category tag10x">
@@ -259,7 +259,7 @@ function TableRow(props: TableRowProps) {
 					<div className="contentsTrgroup">
 						<Link to='#' id='contentsBox' onClick={delBoard}>
 							<div id="contentsImg">
-								<img src={bgImg} alt="" />
+								<img src={bgImg} alt="" style={{filter: "grayscale(1)"}}/>
 							</div>
 							<div id='contentsText'>
 								<span className="category tag10x">
@@ -281,28 +281,5 @@ function TableRow(props: TableRowProps) {
 	);
 }
 
-interface ArrowProps {
-	depth: number;
-}
-
-const tap = "\u00A0\u00A0\u00A0\u00A0";
-function Arrow(props: ArrowProps) {
-	const depth = props.depth;
-
-	if (depth === 0) {
-		return null;
-	}
-
-	const taps = [];
-	for(let i = 0; i < depth; i++) {
-		taps.push(tap);
-	}
-
-	return (
-		<>
-			{taps} <i className="fas fa-long-arrow-alt-right"></i>
-		</> 
-	);
-}
 
 export default ListCategoryFashion;

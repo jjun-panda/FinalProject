@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import '../css/modal.css';
 import Button from '../../components/Button';
 import { AuthContext } from '../../context/AuthProvider';
@@ -25,6 +25,7 @@ export default function UpdateMember({ member }: UpdateMemberProps) {
   const openModal = () => {
     setIsOpen(true);
   };
+
   const cancelModal = () => {
     setIsOpen(false);
   };
@@ -58,7 +59,6 @@ export default function UpdateMember({ member }: UpdateMemberProps) {
       }).catch((err) => {
         console.log(err);
       });
-
   }
 
   return (

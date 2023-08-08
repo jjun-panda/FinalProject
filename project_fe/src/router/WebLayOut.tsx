@@ -6,9 +6,9 @@ import Footer from '../components/app/Footer';
 const WebLayOut = () => {
     return (
         <>
-        <Header />
-        <Outlet />
-        <Footer />
+            <Header />
+            <Outlet />
+            <Footer />
         </>
     );
 };

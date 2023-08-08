@@ -1,5 +1,5 @@
 import axios from "axios";
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import { Link } from 'react-router-dom';
 
@@ -8,14 +8,14 @@ import Button from "../../components/Button";
 import React from "react";
 
 export default function SignUp() {
-	
+
 	// 사용자 정보
 	const [email, setEmail] = useState('');
 	const [pwd, setPwd] = useState('');
 	const [checkPwd, setCheckPwd] = useState('');
 	const [name, setName] = useState('');
 	const [phone, setPhone] = useState('');
-	
+
 	const navigate = useNavigate();
 
 	// 유효성검사
@@ -95,34 +95,34 @@ export default function SignUp() {
 		}
 	};
 
-const onChangeUserPhoneNumber = (getNumber: any) => {
-	const currentUserPhoneNumber = String(getNumber);
-	setPhone(currentUserPhoneNumber);
-	const userPhoneNumberRegExp = /^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$/;
-	// 1,6,7,8,9 중 하나 // 0-9 => 3글자 or 4글자 // 0-9 => 4글자  
-	console.log(userPhoneNumberRegExp.test(currentUserPhoneNumber));
+	const onChangeUserPhoneNumber = (getNumber: any) => {
+		const currentUserPhoneNumber = String(getNumber);
+		setPhone(currentUserPhoneNumber);
+		const userPhoneNumberRegExp = /^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$/;
+		// 1,6,7,8,9 중 하나 // 0-9 => 3글자 or 4글자 // 0-9 => 4글자  
+		console.log(userPhoneNumberRegExp.test(currentUserPhoneNumber));
 
-	if (!userPhoneNumberRegExp.test(currentUserPhoneNumber)) {
-		setUserPhoneNumberMessage("올바른 형식이 아닙니다.");
-		setIsUserPhoneNumber(false);
-	} else if((userPhoneNumberRegExp.test(currentUserPhoneNumber)) ){
-		setUserPhoneNumberMessage("");
-		setIsUserPhoneNumber(true);
-	}
-	setPhone(getNumber);
-};
+		if (!userPhoneNumberRegExp.test(currentUserPhoneNumber)) {
+			setUserPhoneNumberMessage("올바른 형식이 아닙니다.");
+			setIsUserPhoneNumber(false);
+		} else if ((userPhoneNumberRegExp.test(currentUserPhoneNumber))) {
+			setUserPhoneNumberMessage("");
+			setIsUserPhoneNumber(true);
+		}
+		setPhone(getNumber);
+	};
 
-const addHyphen = (event: { target: { value: any; }; }) => {
-	const currentNumber = event.target.value;
-	setUserPhoneNumber(currentNumber);
-	if (currentNumber.length == 3 || currentNumber.length == 8) {
-		setUserPhoneNumber(currentNumber + "-");
-		// 01012345678 or 010-1234-5678 똑같이 해주는거 
-		onChangeUserPhoneNumber(currentNumber + "-");
-	} else {
-		onChangeUserPhoneNumber(currentNumber);
-	}
-};
+	const addHyphen = (event: { target: { value: any; }; }) => {
+		const currentNumber = event.target.value;
+		setUserPhoneNumber(currentNumber);
+		if (currentNumber.length == 3 || currentNumber.length == 8) {
+			setUserPhoneNumber(currentNumber + "-");
+			// 01012345678 or 010-1234-5678 똑같이 해주는거 
+			onChangeUserPhoneNumber(currentNumber + "-");
+		} else {
+			onChangeUserPhoneNumber(currentNumber);
+		}
+	};
 
 	/* 이메일 중복 체크 */
 	const checkEmailDuplicate = async () => {
@@ -171,8 +171,21 @@ const addHyphen = (event: { target: { value: any; }; }) => {
 			}
 		});
 	}
+	const [darkMode, setDarkMode] = useState(false);
 
+	useEffect(() => {
+		const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+		setDarkMode(prefersDark.matches);
 
+		const handleChangeDarkMode = (event: MediaQueryListEvent) => {
+		setDarkMode(event.matches);
+		};
+		prefersDark.addEventListener('change', handleChangeDarkMode);
+
+		return () => {
+		prefersDark.removeEventListener('change', handleChangeDarkMode);
+		};
+	}, []);
 	return (
 		<>
 		<div id="signupRequired">
@@ -180,9 +193,10 @@ const addHyphen = (event: { target: { value: any; }; }) => {
 				{/* 타이틀 */}
 				<div className="titleWrap">
 					<Link to="/">
-					<div className="mobile-logo">
-						<img src="https://jjundesign.gabia.io/components/jjun_logo_f.svg" alt="logo"  width={150}/>
-					</div>
+						<div className="logo">
+							<span className="logoText caption">즐겨라, 혁신과 공존 함께!</span>
+							<p className={`logoImg ${darkMode ? 'dark-mode' : ''}`} />
+						</div>
 					</Link>
 					<div className="bodyB32x">
 						처음 오셨나요?

@@ -258,34 +258,32 @@ function UpdateMember({ member }: UpdateMemberProps) {
         <div className="form-valid">
             {/* 이메일 & 비밀번호 입력 */}
                 <div className="formBox">
-                    <p className="bodyB16x">이메일 주소</p>
+                    <p className="formTit bodyB14x">이메일 주소</p>
                     <div className="mail-input">
                         <input type="email" value={auth} placeholder="이메일을 입력해주세요" readOnly />
                     </div>
                     <span className="info caption">* 이메일주소 변경은 관리자에게 문의해주세요</span>
                 </div>
                 <div className="formBox">
-                    <p className="bodyB16x">비밀번호</p>
+                    <p className="formTit bodyB14x">비밀번호</p>
                     <div className="pw-input">
                         <input type="password" value={member.pwd} onChange={onChangePasswordCheck} name="password" placeholder="기존비밀번호를 입력해주세요" required />
-                    </div>
-                    <div className="pw-input">
                         <input type="password" value={newPwd} onChange={onChangeNewPasswordCheck} name="password" placeholder="새 비밀번호를 입력해주세요" required />
                     </div>
                     <p className="message body14x">{userPasswordCheckMessage}</p>
-                    <p className="message body14x">{userNewPasswordCheckMessage}</p>
+                    <p className="message mixMassage body14x">{userNewPasswordCheckMessage}</p>
                 </div>
             
             {/* 이름 & 연락처 입력 */}
             <div>
-                <p className="bodyB16x">이름</p>
+                <p className="formTit bodyB14x">이름</p>
                 <div className="txt-input">
                     <input type="text" value={member.name} onChange={onChangeNickName} placeholder="이름을 입력해주세요" required />
                 </div>
                 <p className="message body14x">{userNicknameMessage}</p>
             </div>	
             <div>
-                <p className="bodyB16x">연락처</p>
+                <p className="formTit bodyB14x">연락처</p>
                 <div className="txt-input">
                     <input type="text" value={member.phone} onChange={onChangeUserPhoneNumber} placeholder="휴대폰번호를 입력해주세요" required />
                 </div>

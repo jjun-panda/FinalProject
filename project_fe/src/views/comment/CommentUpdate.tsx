@@ -8,6 +8,7 @@ import maskEmail from "../../components/maskEmail";
 import maskDate from "../../components/maskDate";
 import { detectBadWords } from "../../utils/BadWords";
 import Button from "../../components/Button";
+import React from "react";
 
 interface Comment {
 	seq: number;
@@ -27,6 +28,18 @@ function CommentUpdate(props: CommentProps) {
 	const [badWords, setBadWords] = useState<string[]>([]);
 	const {headers, setHeaders} = useContext(HttpHeadersContext);
 	const comment = props.obj;
+	const [consecutiveBadWordsCount, setConsecutiveBadWordsCount] = useState(0);
+	const [isCommentingDisabled, setIsCommentingDisabled] = useState<boolean>(
+		localStorage.getItem("isCommentingDisabled") === "true" || false
+	);
+	useEffect(() => {
+		if (isCommentingDisabled) {
+			setTimeout(() => {
+			setIsCommentingDisabled(false);
+			localStorage.removeItem("isCommentingDisabled");
+		  }, 5 * 60 * 1000); // 5분 동안 댓글 작성 비활성화
+		}
+	}, [isCommentingDisabled]);
 
 	const fetchBadWords =  async () => {
 
@@ -49,15 +62,30 @@ function CommentUpdate(props: CommentProps) {
 
 	const [content, setContent] = useState(comment.content);
 	const updateContent = (event: ChangeEvent<HTMLTextAreaElement>) => {
-		const updatedValue = event.target.value;
-	
+		const commentValue = event.target.value;
+
 		// 댓글 내용에 욕설이 있는지 감지
-		const containsBadWord = detectBadWords(updatedValue, badWords);
+		const containsBadWord = detectBadWords(commentValue, badWords);
 		if (containsBadWord) {
-			alert("비속어 및 욕설이 감지되었습니다.");
+			setConsecutiveBadWordsCount(prevCount => prevCount + 1);
+			// console.log(consecutiveBadWordsCount);
+
+			if (consecutiveBadWordsCount + 1 >= 3) {
+				setIsCommentingDisabled(true);
+				localStorage.setItem("isCommentingDisabled", "true"); // 로컬 스토리지에 저장
+				setTimeout(() => {
+					setIsCommentingDisabled(false);
+					localStorage.removeItem("isCommentingDisabled");
+					setConsecutiveBadWordsCount(0);
+			  	}, 5 * 60 * 1000); // 5분 동안 댓글 작성 비활성화
+				alert("5분 동안 댓글 작성 불가능합니다.");
+			} else {
+				alert("비속어 및 욕설이 감지되었습니다.");
+			}
 			return;
 		}
-		setContent(updatedValue);
+		// setConsecutiveBadWordsCount(0);
+		setContent(commentValue);
 	};
 
 	/* 댓글 수정 */
@@ -83,8 +111,6 @@ function CommentUpdate(props: CommentProps) {
 
 		updateToggle();
 	}
-
-	console.log(comment.content)
 
 	/* 댓글 삭제 */
 	const deleteComment = async () => {
@@ -125,13 +151,18 @@ function CommentUpdate(props: CommentProps) {
 						<div id='commenterProfileRight'>
 							{
 								/* 자신이 작성한 댓글인 경우에만 수정 삭제 가능 */
-								(localStorage.getItem("email") == comment.email || "admin") ?
+								(localStorage.getItem("email") === comment.email || localStorage.getItem("email") === "admin") ?
 								<>
 									{
 										show ?
 										<>
 										<div className="menu caption">
-											<a className="updateToggle caption" onClick={updateComment}>수정 완료</a>
+										{
+											isCommentingDisabled ?
+												null
+											: 
+												<a className="updateToggle caption" onClick={updateComment}>수정 완료</a>
+										}
 										</div>
 										</>
 										:
@@ -157,17 +188,27 @@ function CommentUpdate(props: CommentProps) {
 						show ?
 							<>
 								{/* 하단 영역 (댓글 내용 + 댓글 내용 편집 창) */}
-								<textarea 
-									className="commentBox body14x" 
-									title="댓글"
-									id="commentTextarea"
-									rows={1}
-									maxLength={300}
-									value={content} 
-									onChange={updateContent}
-									placeholder='댓글은 최대 300자까지 작성 가능합니다. 다양한 의견이 서로 존중될 수 있도록 다른 사람에게 불쾌감을 주는 욕설, 혐오,
-									비하의 표현이나 타인의 권리를 침해하는 내용은 주의해주세요.'
-								></textarea>
+								{
+									isCommentingDisabled ?
+										<textarea 
+											className="commentBox body14x disabled" 
+											value='5분동안 수정 불가능합니다 :/'
+											rows={1}
+											disabled={isCommentingDisabled}
+										></textarea>
+										: 
+										<textarea 
+											className="commentBox body14x" 
+											title="댓글"
+											id="commentTextarea"
+											rows={1}
+											maxLength={300}
+											value={content} 
+											onChange={updateContent}
+											placeholder='댓글은 최대 300자까지 작성 가능합니다.'
+											disabled={isCommentingDisabled}
+										></textarea>
+								}
 							</>
 						:
 							<>

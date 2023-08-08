@@ -9,7 +9,9 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -54,7 +56,8 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         } else {
             System.out.println("JwtAuthenticationFilter: request that do not require authorization.");
         }
-        if (userId != null && SecurityContextHolder.getContext().getAuthentication() == null) {
+        
+        if (userId != null && SecurityContextHolder.getContext().getAuthentication() != null) {
 
             UserDetails userDetails = userDetailsService.loadUserByUsername(userId);
 

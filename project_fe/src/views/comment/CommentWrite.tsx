@@ -7,6 +7,7 @@ import Button from "../../components/Button";
 import { AuthContext } from "../../context/AuthProvider";
 import user from "../../assets/images/user.svg"
 import { detectBadWords } from "../../utils/BadWords";
+import React from "react";
 
 interface CommnetWriteProps {
 	seq: number;
@@ -15,6 +16,18 @@ interface CommnetWriteProps {
 function CommentWrite(props: CommnetWriteProps) {
 	const { auth, setAuth } = useContext(AuthContext);
 	const [badWords, setBadWords] = useState<string[]>([]);
+	const [consecutiveBadWordsCount, setConsecutiveBadWordsCount] = useState(0);
+	const [isCommentingDisabled, setIsCommentingDisabled] = useState<boolean>(
+		localStorage.getItem("isCommentingDisabled") === "true" || false
+	);
+	useEffect(() => {
+		if (isCommentingDisabled) {
+			setTimeout(() => {
+			setIsCommentingDisabled(false);
+			localStorage.removeItem("isCommentingDisabled");
+		  }, 5 * 60 * 1000); // 5분 동안 댓글 작성 비활성화
+		}
+	}, [isCommentingDisabled]);
 
 	const fetchBadWords =  async () => {
 
@@ -33,16 +46,15 @@ function CommentWrite(props: CommnetWriteProps) {
 
 	const getBoardDetail = async () => {
 
-		await axios.get(`http://localhost:8888/board/${seq}`, {params: {readerEmail: auth ? auth : ""}})
-		.then((resp) => {
-			console.log(resp.data);
+		await axios.get(`http://localhost:8888/board/${seq}`, { params: { readerEmail: auth ? auth : "" } })
+			.then((resp) => {
+				console.log(resp.data);
 
-			setBoard(resp.data.board);
-		})
-		.catch((err) => {
-			console.log(err);
-		});
-
+				setBoard(resp.data.board);
+			})
+			.catch((err) => {
+				console.log(err);
+			});
 	}
 
 	useEffect(() => {
@@ -64,13 +76,32 @@ function CommentWrite(props: CommnetWriteProps) {
 		// 댓글 내용에 욕설이 있는지 감지
 		const containsBadWord = detectBadWords(commentValue, badWords);
 		if (containsBadWord) {
-			alert("비속어 및 욕설이 감지되었습니다.");
+			setConsecutiveBadWordsCount(prevCount => prevCount + 1);
+			// console.log(consecutiveBadWordsCount);
+
+			if (consecutiveBadWordsCount + 1 >= 3) {
+				setIsCommentingDisabled(true);
+				localStorage.setItem("isCommentingDisabled", "true"); // 로컬 스토리지에 저장
+				setTimeout(() => {
+					setIsCommentingDisabled(false);
+					localStorage.removeItem("isCommentingDisabled");
+					setConsecutiveBadWordsCount(0);
+			  	}, 5 * 60 * 1000); // 5분 동안 댓글 작성 비활성화
+				alert("5분 동안 댓글 작성 불가능합니다.");
+			} else {
+				alert("비속어 및 욕설이 감지되었습니다.");
+			}
 			return;
 		}
+		// setConsecutiveBadWordsCount(0);
 		setContent(commentValue);
 	};
 
-	const createComment = async() => {
+	const createComment = async () => {
+		if (content.length === 0) {
+			alert("댓글 내용을 입력해주세요.");
+			return;
+		}
 
 		const req = {
 			email: email,
@@ -78,14 +109,14 @@ function CommentWrite(props: CommnetWriteProps) {
 			boardSeq: seq
 		}
 
-		await axios.post(`http://localhost:8888/comment`, req, { params: {"boardSeq": seq}, headers: headers})
-		.then((resp) => {
-			console.log(resp.data);
+		await axios.post(`http://localhost:8888/comment`, req, { params: { "boardSeq": seq }, headers: headers })
+			.then((resp) => {
+				console.log(resp.data);
 
-			if (resp.data.seq != null) {
-				alert("댓글을 성공적으로 등록했습니다 :D");
-				navigate(0);
-			}
+				if (resp.data.seq != null) {
+					alert("댓글을 성공적으로 등록했습니다 :D");
+					navigate(0);
+				}
 
 		}).catch((err) => {
 			console.log(err);
@@ -124,12 +155,13 @@ function CommentWrite(props: CommnetWriteProps) {
 							id="commentTextarea"
 							rows={2}
 							maxLength={300}
+							minLength={1}
 							value={content} 
 							onChange={chageContent}
-							placeholder='댓글은 최대 300자까지 작성 가능합니다. 다양한 의견이 서로 존중될 수 있도록 다른 사람에게 불쾌감을 주는 욕설, 혐오,
-							비하의 표현이나 타인의 권리를 침해하는 내용은 주의해주세요.'
+							placeholder='댓글은 최대 300자까지 작성 가능합니다.'
+							disabled={isCommentingDisabled}
 						></textarea>
-						<Button size='Small' onClick={createComment} >등록</Button>
+						<Button size='Small' onClick={createComment} disabled={isCommentingDisabled} >등록</Button>
 					</>
 					:
 					<textarea

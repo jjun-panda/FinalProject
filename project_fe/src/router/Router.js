@@ -27,7 +27,6 @@ import ListCategoryMusic from "../views/board/ListCategoryMusic";
 import UserDelete from "../views/mypage/UserDelete";
 
 export default function RouterLayOut() {
-
 	return (
 		<BrowserRouter>
 			<ScrollToTop/>
@@ -56,15 +55,14 @@ export default function RouterLayOut() {
 							{/* <Route path="/board/answer/:parentSeq" element={<BoardAnswer />} /> */}
 						</Route>
 
-						{/* 독립 라우터 */}
-						<Route path="/login" element={<Login />} />
-						<Route path="/signup" element={<SignUp />} />
-						<Route path="/logout" element={<Logout />} />
-						<Route path="*" element={<NotFoundPage />} />
-					</Routes>
-				</HttpHeadersProvider>
-			</AuthProvider>
-		</BrowserRouter>
-		
-	);
+            {/* 독립 라우터 */}
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<SignUp />} />
+            <Route path="/logout" element={<Logout />} />
+            <Route path="*" element={<NotFoundPage />} />
+          </Routes>
+        </HttpHeadersProvider>
+      </AuthProvider>
+    </BrowserRouter>
+  );
 }

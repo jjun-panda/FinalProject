@@ -55,7 +55,7 @@ export default function BoardWrite() {
     };
 
 	/* [POST /board]: 게시글 작성 */
-	const createBoard = async() => {
+	const createBoard = async () => {
 
 		// 입력창에 입력한 내용을 HTML 태그 형태로 취득
 		console.log(editorRef.current?.getInstance().getHTML());
@@ -70,9 +70,9 @@ export default function BoardWrite() {
 			category: category, 
 		}
 
-		await axios.post("http://localhost:8888/board", req, {headers: headers})
-		.then((resp) => {
-			console.log(resp.data);
+		await axios.post("http://localhost:8888/board", req, { headers: headers })
+			.then((resp) => {
+				console.log(resp.data);
 
 			alert("새로운 게시글을 성공적으로 등록했습니다");
 			navigate(`/board/detail/${resp.data.seq}`); // 새롭게 등록한 글 상세로 이동
@@ -88,7 +88,6 @@ export default function BoardWrite() {
 			navigate(-1);
 		}
 	}, []);
-
 
 	return (
 		<>

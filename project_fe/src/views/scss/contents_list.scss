@@ -20,17 +20,23 @@
                 margin-bottom: .25rem;
             }
             ul.naviator {
-                border-top: 1px solid var(--text-normal);
-                padding: 1rem 0 1rem .5rem;
                 width: 10rem;
-                display: flex;
-                flex-direction: column;
-                gap: .25rem;
-            }
-            .menuWrapper {
-                a.checked {
-                    color: var(--primary-normal);
-                    font-weight: 700;
+                padding-top: 1rem;
+                display: grid;
+                gap: 0.25rem;
+                .menuWrapper {
+                    border-radius: .25rem;
+                    &:hover, &:active {
+                        background-color: var(--background-maincolor);
+                    }
+                    a {
+                        display: block;
+                        padding: .25rem 1rem;
+                        &.checked {
+                            color: var(--primary-normal);
+                            font-weight: 700;
+                        }
+                    }
                 }
             }
             .writeBtn {
@@ -39,12 +45,12 @@
                 border: none;
                 border-radius: .25rem;
                 color: var(--primary-normal);
-                font-size: .875rem;
+                font-size: 1rem;
                 font-weight: 700;
                 cursor: pointer;
                 padding: 0 1rem;
-                height: 2rem;
-                min-width: 4rem;
+                height: 3rem;
+                min-width: 10rem;
                 max-width: 25rem;
                 text-rendering: auto;
                 justify-content: center;

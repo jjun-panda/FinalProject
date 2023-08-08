@@ -1,19 +1,5 @@
 @import '../../assets/scss/mixin';
 
-[type=email], [type=password], [type=text]{
-    display: inline-flex;
-    height: 3rem;
-    padding: 0.5rem 0.75rem;
-    align-items: center;
-    gap: 0.5rem;
-    border-radius: 0.25rem;
-    border: 1px solid var(--line-normal);
-    width: 100%;
-    font-size: 1rem;
-    background-color: var(--white);
-    color: var(--text-normal);
-}
-
 // 로그인 폼
 #loginRequired {
     display: block;
@@ -29,6 +15,21 @@
         
         .titleWrap {
             margin-bottom: 2rem;
+            .logo {
+                padding-bottom: 1rem;
+                .logoText {
+                    color: var(--primary-normal);
+                    font-weight: 700;
+                }
+                .logoImg{
+                    width: 8rem;
+                    height: 0;
+                    padding-top: 20%;
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                    position: relative;
+                }
+            }
         }
         .form-valid {
             display: flex;
