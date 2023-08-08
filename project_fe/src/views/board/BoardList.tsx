@@ -32,7 +32,7 @@ export default function BoardList() {
 				console.log(resp.data);
 
 				setBoardList(resp.data.boardList);
-				setTotalCnt(resp.data.pageCnt);
+				setTotalCnt(resp.data.boardList.length);
 			})
 			.catch((err) => {
 				console.log(err);
