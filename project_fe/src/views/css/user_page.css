@@ -97,9 +97,6 @@
   border-top-left-radius: 0.25rem;
   border-bottom-left-radius: 0.25rem;
 }
-#contentsUserTum #contentsHeader .searchMain .customBox select {
-  background: url(../../assets/images/icon/ico_arrow_down.svg) no-repeat calc(100% - 1rem) 50%;
-}
 #contentsUserTum #contentsHeader .searchMain .customBox select.customSelect {
   height: 3rem;
   padding: 0 1rem;
@@ -108,6 +105,12 @@
   border: 0;
   color: var(--text-normal);
   width: 7rem;
+}
+#contentsUserTum #contentsHeader .searchMain .customBox [data-theme=dark] select {
+  background: url("../../assets/images/icon/ico_arrow_down_dark.svg") no-repeat calc(100% - 1rem) 50%;
+}
+#contentsUserTum #contentsHeader .searchMain .customBox [data-theme=light] select {
+  background: url("../../assets/images/icon/ico_arrow_down_light.svg") no-repeat calc(100% - 1rem) 50%;
 }
 #contentsUserTum #contentsHeader .searchMain .searchBox {
   display: flex;

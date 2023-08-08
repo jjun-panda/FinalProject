@@ -36,17 +36,17 @@ export default function ContentsByViews() {
 
     return (
         <>
+        <div id='contentsCards'>
             {
-
                 sortByViews.slice(0, 4).map((board, idx) => (
-                    <div className="contentsTrgroup">
+                    <div className="contentsTrgroup" key={board.seq}>
                         <div id='contentsCards'>
-                        <TableRow obj={board} key={idx} cnt={idx + 1} />
+                        <TableRow obj={board} cnt={idx + 1} />
                         </div>
                     </div>
                 ))
-                
             }
+        </div>
         </>
     );
 }
@@ -71,10 +71,14 @@ interface TableRowProps {
 function TableRow(props: TableRowProps) {
     const board = props.obj;
 
+	const delBoard = () => {
+		alert("삭제된 글은 확인이 불가능합니다");		
+	};
+
     return (
         <>
         {
-            (board.del == 0) ?
+            (board.del === 0) ?
             // 삭제되지 않은 게시글
             <>
             <Link to={{ pathname: `/board/detail/${board.seq}` }} id='contentsBox'>
@@ -96,32 +100,47 @@ function TableRow(props: TableRowProps) {
             </>
             :
             // 삭제된 게시글
-            <>
-            <Link to={{ pathname: `/board/detail/${board.seq}` }} id='contentsBox'>
-                    <div id="contentsImg">
-                        <img src={bgImg} alt="" />
-                    </div>
-                    <div id='contentsText'>
-                        <span className="category tag10x">
-                            {board.category}
-                        </span>
-                        <p className="title bodyB16x">
-                            {
-								(localStorage.getItem("email") === "admin") ?
-								<>
-									<span className="admin">[삭제된 글] {board.title}</span>	
-								</>
-								:
-								<>
-									삭제된 글 입니다.	
-								</>
-							}
-                        </p>
-                        <div className="caption">
-                            <span>{maskDate({ writeDate: board.writeDate})}</span>・<span>조회수 {board.readCount}</span>
+			<>
+            {
+                (localStorage.getItem("email") === "admin") ?
+                <>
+                    <Link to={{ pathname: `/board/detail/${board.seq}` }} id='contentsBox'>
+                        <div id="contentsImg">
+                            <img src={bgImg} alt="" style={{filter: "grayscale(1)"}}/>
                         </div>
-                    </div>
-                </Link>
+                        <div id='contentsText'>
+                            <span className="category tag10x" style={{filter: "grayscale(1)"}}>
+                            {board.category}
+                            </span>
+                            <p className="title bodyB16x">
+                                <span className="admin">[삭제된 글] {board.title}</span>	
+                            </p>
+                            <div className="caption">
+                                <span>{maskDate({ writeDate: board.writeDate})}</span>・<span>조회수 {board.readCount}</span>
+                            </div>
+                        </div>
+                    </Link>
+                </>
+                :
+                <>
+                    <Link to='#' id='contentsBox' onClick={delBoard}>
+                        <div id="contentsImg">
+                            <img src={bgImg} alt="" style={{filter: "grayscale(1)"}}/>
+                        </div>
+                        <div id='contentsText'>
+                            <span className="category tag10x" style={{filter: "grayscale(1)"}}>
+                            {board.category}
+                            </span>
+                            <p className="title bodyB16x">
+                                삭제된 글 입니다.
+                            </p>
+                            <div className="caption">
+                                <span>{maskDate({ writeDate: board.writeDate})}</span>・<span>조회수 {board.readCount}</span>
+                            </div>
+                        </div>
+                    </Link>
+                </>
+            }
             </>	
         }
         </>

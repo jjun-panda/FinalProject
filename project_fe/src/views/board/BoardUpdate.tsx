@@ -63,6 +63,20 @@ export default function BoardUpdate() {
 		// 입력창에 입력한 내용을 MarkDown 형태로 취득
 		console.log(editorRef.current?.getInstance().getMarkdown());
 
+		if (category === "") {
+			alert("카테고리를 선택해주세요.");
+			return
+		}  else if (title.length === 0) {
+			alert("제목을 입력해주세요.");
+			return
+		} else if (title.length <= 10) {
+			alert("제목 10자 이상 입력해주세요.");
+			return
+		} else if (content.length === 0) {
+			alert("내용을 입력해주세요.");
+			return
+		}
+
 		const req = {
 			email: auth, 
 			title: title,
@@ -93,7 +107,7 @@ export default function BoardUpdate() {
 					<div>
 						<div className="mail-input">
 							<select className="customSelect body16x" value={category} onChange={changeCategory} required>
-								<option>카테고리를 선택해주세요</option>
+								<option value="">카테고리를 선택해주세요</option>
 								<option value="슬기로운 라이프">슬기로운 라이프</option>
 								<option value="아름다운 음악">아름다운 음악</option>
 								<option value="맛있는 요리">맛있는 요리</option>
@@ -107,7 +121,7 @@ export default function BoardUpdate() {
 					</div>
 					<div>
 						<div className="mail-input">
-							<input type="email" value={title} onChange={changeTitle} placeholder="제목을 입력해주세요" required />
+							<input type="email" value={title} minLength={10} onChange={changeTitle} placeholder="제목을 입력해주세요" required />
 						</div>
 						{/* <p className="message body14x"> {userEmailMessage} </p> */}
 					</div>
@@ -136,7 +150,7 @@ export default function BoardUpdate() {
 					></Editor>
 				</div>
 
-				<Button size="Small" onClick={updateBoard}>
+				<Button size="Large" onClick={updateBoard} className="BtnBoard">
 					수정하기
 				</Button>
 			</div>

@@ -41,9 +41,9 @@ export default function ContentsTrend() {
                 {
                     sortByViews.slice(0, 3).map((board, idx) => (
 
-                        <div className="contentsTrgroup">
+                        <div className="contentsTrgroup" key={board.seq}>
                             <div id='contentsCards'>
-                            <TableRow obj={board} key={idx} cnt={idx + 1} />
+                                <TableRow obj={board} cnt={idx + 1} />
                             </div>
                         </div>
                     ))
@@ -68,6 +68,7 @@ interface TableRowProps {
     obj: Board;
     cnt: number;
 }
+
 /* 글 목록 테이블 행 컴포넌트 */
 function TableRow(props: TableRowProps) {
     const board = props.obj;
@@ -78,7 +79,7 @@ function TableRow(props: TableRowProps) {
             (board.del == 0) ?
             // 삭제되지 않은 게시글
             <>
-                <a href={`/board/detail/${board.seq}`} id='contentsBox'>
+                <Link to={{ pathname: `/board/detail/${board.seq}` }} id='contentsBox'>
                     <div id="contentsImg">
                         <img src={bgImg} alt="" />
                     </div>
@@ -93,12 +94,12 @@ function TableRow(props: TableRowProps) {
                             <span>{maskDate({ writeDate: board.writeDate})}</span>・<span>조회수 {board.readCount}</span>
                         </div>
                     </div>
-                </a>
+                </Link>
             </>
             :
             // 삭제된 게시글
             <>
-                <a href={`/board/detail/${board.seq}`} id='contentsBox'>
+                <Link to={{ pathname: `/board/detail/${board.seq}` }} id='contentsBox'>
                     <div id="contentsImg">
                         <img src={bgImg} alt="" />
                     </div>
@@ -122,7 +123,7 @@ function TableRow(props: TableRowProps) {
                             <span>{maskDate({ writeDate: board.writeDate})}</span>・<span>조회수 {board.readCount}</span>
                         </div>
                     </div>
-                </a>
+                </Link>
             </>	
         }
         </>

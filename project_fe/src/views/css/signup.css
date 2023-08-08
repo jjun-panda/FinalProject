@@ -38,6 +38,40 @@
   padding-top: 0.25rem;
   color: var(--primary-normal);
 }
+#signupRequired .signupForm .form-valid .mail-input {
+  border: 1px solid var(--line-normal);
+  border-radius: 0.25rem;
+  gap: 0.5rem;
+  height: 3rem;
+  padding-right: 0.5rem;
+}
+#signupRequired .signupForm .form-valid .mail-input input {
+  display: inline-flex;
+  height: 100%;
+  padding: 0.5rem 0.75rem;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 0.25rem;
+  border: 0;
+  width: 100%;
+  font-size: 1rem;
+  background-color: var(--white);
+  color: var(--text-normal);
+}
+#signupRequired .signupForm .form-valid .mail-input Button {
+  width: 6rem;
+  padding: 0;
+  color: var(--primary-normal);
+  background-color: var(--primary-alternarive);
+}
+#signupRequired .signupForm .form-valid .mail-input Button:hover {
+  background-color: var(--primary-alternarive);
+  box-shadow: inset 0 0 0 100px var(--interaction-primary-hover);
+}
+#signupRequired .signupForm .form-valid .mail-input Button:active {
+  background-color: var(--primary-alternarive);
+  box-shadow: inset 0 0 0 100px var(--interaction-primary-pressed);
+}
 #signupRequired .signupForm .form-valid .mail-input, #signupRequired .signupForm .form-valid .pw-input, #signupRequired .signupForm .form-valid .txt-input {
   position: relative;
   display: flex;

@@ -1,8 +1,10 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import '../css/login.css'
 import '../css/modal.css';
 import Button from '../../components/Button';
 import React from 'react';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 export default function FindPassword() {
   const [isOpen, setIsOpen] = useState(false);
@@ -12,6 +14,29 @@ export default function FindPassword() {
   const cancelModal = () => {
     setIsOpen(false);
   };
+
+  const [email, setEmail] = useState('');
+	let navigate = useNavigate();
+
+	const checkPassword = async () => {
+    if (email.length === 0) {
+      alert("이메일을 입력해주세요.");
+      return;
+    }
+
+		await axios.get("http://localhost:8888/user", { params: { email: email } })
+		.then((resp: { data: any; status: number; }) => {
+			console.log(resp.data);
+      alert("[" + email +'] 메일을 확인해주세요');
+      navigate('/');
+		})
+		.catch((err: { response: any; }) => {
+			console.log(err);
+			const resp = err.response;
+		});
+	}
+
+  
 
   return (
     <>
@@ -24,11 +49,13 @@ export default function FindPassword() {
             <input
               className='modalPassword'
               type="email"
+              value={email}
               minLength={1}
               placeholder="가입하신 이메일을 입력해주세요"
+              onChange={(e) => setEmail(e.target.value)}
               required
             />
-            <Button size="Medium" onClick={cancelModal}>이메일 전송</Button>
+            <Button size="Medium" onClick={checkPassword}>이메일 전송</Button>
           </div>
         </div>
       )}

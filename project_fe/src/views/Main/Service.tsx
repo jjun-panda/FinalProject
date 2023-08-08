@@ -29,37 +29,37 @@ export default function Service() {
                     </div>
                     <div className="containerCategory">
                         <div className="sebCategories">
-                            <Link className="sebCategory" tabIndex={0} role="link" to="/">
+                            <Link className="sebCategory" tabIndex={0} role="link" to="/board/list/life">
                                 <div className="imageBox">
                                     <img src={cauegory1} style={{ width: '100%' }} />
                                 </div>
                                 <p className="bodyB16x">슬기로운 라이프</p>
                             </Link>
-                            <Link className="sebCategory" tabIndex={0} role="link" to="/">
+                            <Link className="sebCategory" tabIndex={0} role="link" to="/board/list/music">
                                 <div className="imageBox">
                                     <img src={cauegory2} style={{ width: '100%' }} />
                                 </div>
                                 <p className="bodyB16x">아름다운 음악</p>
                             </Link>
-                            <Link className="sebCategory" tabIndex={0} role="link" to="/">
+                            <Link className="sebCategory" tabIndex={0} role="link" to="/board/list/cooking">
                                 <div className="imageBox">
                                     <img src={cauegory3} style={{ width: '100%' }} />
                                 </div>
                                 <p className="bodyB16x">맛의 승부! 요리</p>
                             </Link>
-                            <Link className="sebCategory" tabIndex={0} role="link" to="/">
+                            <Link className="sebCategory" tabIndex={0} role="link" to="/board/list/design_dev">
                                 <div className="imageBox">
                                     <img src={cauegory4} style={{ width: '100%' }} />
                                 </div>
                                 <p className="bodyB16x">디자인 & 개발</p>
                             </Link>
-                            <Link className="sebCategory" tabIndex={0} role="link" to="/">
+                            <Link className="sebCategory" tabIndex={0} role="link" to="/board/list/art">
                                 <div className="imageBox">
                                     <img src={cauegory5} style={{ width: '100%' }} />
                                 </div>
                                 <p className="bodyB16x">미술의 감성</p>
                             </Link>
-                            <Link className="sebCategory" tabIndex={0} role="link" to="/">
+                            <Link className="sebCategory" tabIndex={0} role="link" to="/board/list/fashion">
                                 <div className="imageBox">
                                     <img src={cauegory6} style={{ width: '100%' }} />
                                 </div>

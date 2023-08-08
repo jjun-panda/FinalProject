@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function SNSInfo() {
     return (
         <>
@@ -6,11 +8,11 @@ export default function SNSInfo() {
                 <div className="termTxt body12x">
                     SNS 로그인 시 &nbsp;
                     <span>
-                        <a className='bodyB12x' href="/view/serviceTerms-join" target="_blank">회원가입 이용약관,</a>&nbsp;
-                        <a className='bodyB12x' target="_blank" href="/view/serviceTerms">서비스 이용약관,</a>&nbsp;
+                        <Link className='bodyB12x' to="#">회원가입 이용약관,</Link>&nbsp;
+                        <Link className='bodyB12x' to="#">서비스 이용약관,</Link>&nbsp;
                         <br />
-                        <a className='bodyB12x' href="/view/privacy" target="_blank">개인정보처리방침,</a>&nbsp;
-                        <a className='bodyB12x' href="/view/marketingTerms" target="_blank">마케팅 이용약관</a>
+                        <Link className='bodyB12x' to="#">개인정보처리방침,</Link>&nbsp;
+                        <Link className='bodyB12x' to="#">마케팅 이용약관</Link>
                     </span>
                     에 동의하는 것으로 간주합니다.
                 </div>

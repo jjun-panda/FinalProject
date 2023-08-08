@@ -8,7 +8,7 @@ import { AuthContext } from "../../context/AuthProvider";
 import maskDate from "../../components/maskDate";
 
 
-export default function ContentsTrend() {
+export default function MyContents() {
   const [boardList, setBoardList] = useState<Board[]>([]);
   // Paging
   const [totalCnt, setTotalCnt] = useState(0);

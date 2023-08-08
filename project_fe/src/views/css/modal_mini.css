@@ -1,26 +1,4 @@
-select {
-  display: inline-flex;
-  gap: 0.5rem;
-  border-radius: 0.25rem;
-  border: 1px solid var(--line-normal);
-  width: 100%;
-  font-size: 1rem;
-  height: 3rem;
-  padding: 0 1rem;
-  -webkit-appearance: none;
-  width: 100%;
-  color: var(--text-normal);
-}
-
-[data-theme=dark] select {
-  background: url("../../assets/images/icon/ico_arrow_down_dark.svg") no-repeat calc(100% - 1rem) 50%;
-}
-
-[data-theme=light] select {
-  background: url("../../assets/images/icon/ico_arrow_down_light.svg") no-repeat calc(100% - 1rem) 50%;
-}
-
-.modal {
+.modal_mini {
   position: fixed;
   top: 0;
   left: 0;
@@ -32,9 +10,9 @@ select {
   align-items: center;
   z-index: 100;
 }
-.modal .modalContent {
+.modal_mini .modalContent {
   background-color: var(--white);
-  max-width: 25rem;
+  max-width: 20rem;
   width: 100%;
   padding: 2.5rem;
   border-radius: 0.5rem;
@@ -44,35 +22,36 @@ select {
   flex-direction: column;
   align-items: center;
 }
-.modal .modalContent img {
+.modal_mini .modalContent img {
   width: 4rem;
   height: 4rem;
   margin-bottom: 1rem;
 }
-.modal .modalContent.ws20 {
+.modal_mini .modalContent.ws20 {
   max-width: 20rem;
 }
-.modal .modalContent .modalIcon {
+.modal_mini .modalContent .modalIcon {
   width: 64px;
   margin-bottom: 0.5rem;
 }
-.modal .modalContent .titleModal {
+.modal_mini .modalContent .titleModal {
   color: var(--text-normal);
 }
-.modal .modalContent .textModal {
-  margin: 0.5rem 0 1rem;
+.modal_mini .modalContent .textModal {
+  margin-top: 0.5rem;
   color: var(--text-assitive);
 }
-.modal .modalContent Button {
+.modal_mini .modalContent Button {
+  margin-top: 1rem;
   width: 100%;
 }
-.modal .modalContent .modalPassword {
+.modal_mini .modalContent .modalPassword {
   margin-bottom: 1rem;
 }
-.modal .modalContent .modalBill {
+.modal_mini .modalContent .modalBill {
   margin-bottom: 1rem;
 }
-.modal .modalContent .textBox {
+.modal_mini .modalContent .textBox {
   background-color: var(--background-primary);
   border-radius: 0.25rem;
   height: 3rem;
@@ -82,11 +61,11 @@ select {
   width: 15rem;
   margin-bottom: 1rem;
 }
-.modal .modalContent .twoBtn {
+.modal_mini .modalContent .twoBtn {
   display: flex;
   gap: 0.5rem;
 }
-.modal .modalContent .twoBtn button {
+.modal_mini .modalContent .twoBtn button {
   padding: 0 1rem;
   font-size: 1rem;
   font-weight: 700;
@@ -100,15 +79,15 @@ select {
   min-width: 6rem;
   max-width: 10rem;
 }
-.modal .modalContent .twoBtn button:hover {
+.modal_mini .modalContent .twoBtn button:hover {
   background-color: var(--primary-strong);
 }
-.modal .modalContent .twoBtn button + .cance {
+.modal_mini .modalContent .twoBtn button + .cance {
   border: 1px solid var(--primary-normal);
   background-color: var(--white);
   color: var(--primary-normal);
 }
-.modal .modalContent .twoBtn button + .cance:hover {
+.modal_mini .modalContent .twoBtn button + .cance:hover {
   background-color: var(--primary-assistive);
 }
 

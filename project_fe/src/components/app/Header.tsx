@@ -36,24 +36,26 @@ export default function Header() {
 					{							
 						(auth) ?
 							<>
-								{/* 회원 정보 */}
 								{
 									(localStorage.getItem("email") === "admin") ?
 									<>
-										<span className="body14x admin box">관리자 모드</span>	
+										<Link className="bodyB14x admin box" to="/user/detail" >관리자 모드</Link>	
 									</>
 									:
 									<>
-										<span className="body16x">{auth}님 반갑습니다</span>	
+										{/* 회원 정보 */}
+										<span className="body16x">{auth}님 반갑습니다</span>
+
+										{/*마이페이지 */}
+										<Link className="bodyB14x userPageBtn" to="/user/detail" >마이페이지</Link>
+										{/* <span>/</span> */}
+
+										{/* 로그아웃 */}
+										{/* <Link className="body16x" to="/logout">로그아웃</Link> */}
 									</>
 								}
 
-								{/*마이페이지 */}
-								<Link className="bodyB14x" to="/user/detail" >마이페이지</Link>
-								{/* <span>/</span> */}
-
-								{/* 로그아웃 */}
-								{/* <Link className="body16x" to="/logout">로그아웃</Link> */}
+								
 								
 							</>
 							:

@@ -12,6 +12,8 @@ import FindPassword from "./FindPwd";
 import SNSLogin from "./SNSLogin";
 import Terms from "./SNSInfo";
 import React from "react";
+import successIcon from '../../assets/images/icon/ico_success_line.svg'
+
 
 export default function Login() {
 
@@ -31,7 +33,13 @@ export default function Login() {
 		setPwd(event.target.value);
 	}
 
-	const login = async () => {
+	const [isOpen, setIsOpen] = useState(false);
+    
+	const openModal = () => {
+        setIsOpen(true);
+    };
+	
+	const checklogin = async () => {
 
 		const req = {
 			email: email,
@@ -40,11 +48,9 @@ export default function Login() {
 
 		await axios.post("http://localhost:8888/user/login", req)
 			.then((resp) => {
-				console.log("[Login.js] login() success :D");
-				console.log(resp.data);
-
-				alert(resp.data.email + "님, 로그인 되었습니다");
-
+				console.log("login success");
+				
+				openModal();
 				// JWT 토큰 저장
 				localStorage.setItem("board_access_token", resp.data.jwt);
 				localStorage.setItem("email", resp.data.email);
@@ -52,16 +58,27 @@ export default function Login() {
 				setAuth(resp.data.email); // 사용자 인증 정보(이메일 저장)
 				setHeaders({ "Authorization": `Bearer ${resp.data.jwt}` }); // 헤더 Authorization 필드 저장
 
-				navigate("/board/list");
+				
 
 			}).catch((err) => {
-				console.log("[Login.js] login() error :<");
+				console.log("login error");
 				console.log(err);
 
 				alert("ID(Email) or Password가 잘못 되었습니다.");
 			});
 	}
+	
+	const login = async () => {
+		navigate("/board/list");
+	}
+
 	const [darkMode, setDarkMode] = useState(false);
+
+	const handleKeyUp = (e: React.KeyboardEvent) => {
+		if(e.key === 'Enter') {
+			checklogin();
+		}
+	};
 
 	useEffect(() => {
 		const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
@@ -77,22 +94,17 @@ export default function Login() {
 		};
 	}, []);
 
-	const handleKeyUp = (e: React.KeyboardEvent) => {
-		if(e.key === 'Enter') {
-			login();
-		}
-	};
-
+	
 	return (
 		<>
 			<div id="loginRequired">
-				<div className="">
 					<div id="loginRequiredForm" className="loginForm">
 
 						{/* 타이틀 */}
 						<div className="titleWrap">
 							<Link to="/">
 								<div className="logo">
+									<span className="logoText caption">즐겨라, 혁신과 공존 함께!</span>
 									<p className={`logoImg ${darkMode ? 'dark-mode' : ''}`} />
 								</div>
 							</Link>
@@ -114,7 +126,7 @@ export default function Login() {
 							</div>
 						</div>
 						<div className="login-submitBtn">
-							<Button size="Medium" onClick={login} >로그인</Button>
+							<Button size="Medium" onClick={checklogin} >로그인</Button>
 						</div>
 
 						{/* 비밀번호 및 회원가입 링크  */}
@@ -134,8 +146,17 @@ export default function Login() {
 						{/* 개인정보 동의 문구 */}
 						<Terms />
 					</div>
-				</div>
 			</div>
+			{isOpen && (
+				<div className="modal_mini">
+					<div className="modalContent">
+						<img src={successIcon} alt="성공 아이콘" />
+						<p className="titleModal title24x">로그인 성공!</p>
+						<p className="textModal body16x">오늘도 행복한 하루 되세요!</p>
+						<Button size="Medium" onClick={login}>확인</Button>
+					</div>
+				</div>
+			)}
 		</>
 	);
 }

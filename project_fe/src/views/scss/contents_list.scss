@@ -69,6 +69,7 @@
     }
     .boardBox {
         width: 100%;
+        min-height: 100vh;
     }
     #contentsHeader{
         display: flex;
@@ -88,7 +89,6 @@
                 border-top-left-radius: .25rem;
                 border-bottom-left-radius: .25rem;
                 select {
-                    background: url(../../assets/images/icon/ico_arrow_down.svg) no-repeat calc(100% - 1rem) 50%;
                     &.customSelect {
                         height: 3rem;
                         padding: 0 1rem;
@@ -97,6 +97,16 @@
                         border: 0;
                         color: var(--text-normal);
                         width: 7rem;
+                    }
+                }
+                [data-theme=dark] {
+                    select {
+                        background: url("../../assets/images/icon/ico_arrow_down_dark.svg") no-repeat calc(100% - 1rem) 50%;
+                    }
+                }
+                [data-theme=light] {
+                    select {
+                        background: url("../../assets/images/icon/ico_arrow_down_light.svg") no-repeat calc(100% - 1rem) 50%;
                     }
                 }
             }

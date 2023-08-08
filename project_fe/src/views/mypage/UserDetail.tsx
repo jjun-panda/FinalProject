@@ -8,19 +8,13 @@ import bgImg from "../../assets/images/bg.png"
 import maskDate from "../../components/maskDate";
 import user from "../../assets/images/user.svg"
 import "../css/user_page.css"
-import UserDelete from "./UserDelete";
+import Button from "../../components/Button";
+import UserMenu from "./UserMenu";
 
-interface MyPage {
-	name : string;
-    phone : string;
-    email : string;
-    pwd : string;
-}
+
 
 export default function UserDetail() {
     const item_page = 9;
-
-    const [memberInfo, setMemberInfo] = useState<MyPage>({} as MyPage);
     const { auth, setAuth } = useContext(AuthContext);
 
     // Paging
@@ -37,6 +31,7 @@ export default function UserDetail() {
         return new Date(b.writeDate).getTime() - new Date(a.writeDate).getTime();
 
     });
+
 
     /* [GET /board]: 게시글 목록 */
     const getBoardList = async (choice: string, search: string, page: number) => {
@@ -59,7 +54,6 @@ export default function UserDetail() {
 
         });
     }
-
     useEffect(() => {
         getBoardList("", "", 1);
     }, []);
@@ -77,66 +71,24 @@ export default function UserDetail() {
 		navigate("/board/list", { state: { gotoTop: true } });
 	}
 
-	/* 멤버 정보 불러오기 */
-	const getMemberInfo = async (email: string) => {
-
-		await axios.get("http://localhost:8888/user/getMemberInfo", { params: {"email": auth  }})
-			.then((resp) => {
-				console.log(resp.data);
-
-				setMemberInfo(resp.data);
-			})
-			.catch((err) => {
-				console.log(err);
-
-			});
-	}
-
-	useEffect(() => {
-		getMemberInfo("");
-	}, []);
+    const handleButtonClick = () => {
+        navigate("/board/write");
+    };
 
     return (
         <>
         <div id="body">
 			<div id='contentsUserTum'>
-				<div className="navigatorMain">
-					<div className="navigatorWrapper">
-                        <img src={user} alt="프로필 사진" />
-						<p className="naviTitle bodyB24x">{memberInfo.name} 님</p>
-                        <p>{memberInfo.phone}</p>
-                        <p>{memberInfo.email}</p>
-                        <ul className="naviator">
-							<li className="menuWrapper">
-								<Link className="menu body18x" to="/user/detail">나의 게시물</Link>
-							</li>
-                            <li className="menuWrapper">
-								<Link className="menu body18x" to="#">기부 내역</Link>
-							</li>
-							<li className="menuWrapper">
-								<Link className="menu body18x" to="#">출금하기</Link>
-							</li>
-                            <hr />
-                            <li className="menuWrapper">
-								<Link className="menu body18x" to="/user/update">회원정보 수정</Link>
-							</li>
-							<li className="menuWrapper">
-								<Link className="menu body18x" to="/logout">로그아웃</Link>
-							</li>
-							<li className="menuWrapper">
-                                < UserDelete />							
-                            </li>
-						</ul>
-						<Link className="writeBtn" to="/board/write">글쓰기</Link>
-					</div>
-				</div>
+                <UserMenu />
+
+                {/* 우측 */}
 				<div className="boardBox">
 					<div id='contentsHeader'>
 						<div>
 							<p className="title24x">나의 게시물</p>
 							<p className="body16x">{totalCnt}개의 게시물이 있습니다</p>
 						</div>
-                        <Link className="writeBtn" to="/board/write">글쓰기</Link>
+                        <Button size="Small" className="writeBtn" onClick={handleButtonClick}>글쓰기</Button>
 					</div>
 
 					<div id='contentsCards'>

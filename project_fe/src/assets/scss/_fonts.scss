@@ -29,10 +29,10 @@ $fontType:
   "title" 800 1.25, 
   "bodyB" 700 1.6,
   "body" 400 1.6,
-  "tag" 400 1.6,
+  "tag" 500 1.6,
   "button" 700 1,
-  "field" 400 1,
-  "checkbox" 700 1;
+  "field" 500 1,
+  "checkbox" 500 1;
 
 
 @mixin fontFamily($spacing) {
@@ -45,6 +45,7 @@ $fontType:
 
 // ExBold: 800;
 // Bold: 700;
+// Medium: 500;
 // Regular: 400;
 
 @each $type, $weight, $height in $fontType {
