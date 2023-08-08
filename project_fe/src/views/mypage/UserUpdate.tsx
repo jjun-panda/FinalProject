@@ -45,7 +45,7 @@ export default function UserUpdate() {
 	/* 멤버 정보 불러오기 */
 	const getMemberInfo = async (email: string) => {
 
-		await axios.get("http://localhost:8888/user/getMemberInfo", { params: {"email": auth  }})
+		await axios.get("http://localhost:8888/user/getMemberInfo", { params: {"email": email  }})
 			.then((resp) => {
 				console.log(resp.data);
 
@@ -58,8 +58,8 @@ export default function UserUpdate() {
 	}
 
 	useEffect(() => {
-		getMemberInfo("");
-	}, []);
+		getMemberInfo(auth);
+	}, [auth]);
 
     return (
         <>
@@ -140,9 +140,9 @@ function UpdateMember({ member }: UpdateMemberProps) {
         setIsOpen(false);
     };
 
-    const [name, setName] = useState(member.name || '');
-    const [phone, setPhone] = useState(member.phone || '');
-    const [pwd, setPwd] = useState(member.pwd || '');
+    const [name, setName] = useState(member.name);
+    const [phone, setPhone] = useState(member.phone);
+    const [pwd, setPwd] = useState(member.pwd);
     const [newPwd, setNewPwd] = useState('');
     
     // 유효성검사
@@ -161,11 +161,17 @@ function UpdateMember({ member }: UpdateMemberProps) {
 	const [isUserNickname, setIsUserNickname] = React.useState(false);
 	const [isUserPhoneNumber, setIsUserPhoneNumber] = React.useState(false);
 
+    useEffect(() => {
+        setName(member.name);
+        setPhone(member.phone);
+        setPwd(member.pwd);
+    }, [member]);
+
     // 이름 유효성 검사
     const onChangeNickName = (event: ChangeEvent<HTMLInputElement>) => {
 		const newNickName = event.target.value;
 
-		if(newNickName.length < 2 || newNickName.length > 6) {
+		if(newNickName == null || newNickName.trim() === '' || newNickName.length < 2 || newNickName.length > 6) {
 			//이름은 2자이상 6자 미만 
 			setUserNicknameMessage("이름은 2글자 이상 6글자 이하로 입력해주세요.");
 			setIsUserNickname(false);
@@ -278,14 +284,14 @@ function UpdateMember({ member }: UpdateMemberProps) {
             <div>
                 <p className="formTit bodyB14x">이름</p>
                 <div className="txt-input">
-                    <input type="text" value={member.name} onChange={onChangeNickName} placeholder="이름을 입력해주세요" required />
+                    <input type="text" value={name} onChange={onChangeNickName} placeholder="이름을 입력해주세요" required />
                 </div>
                 <p className="message body14x">{userNicknameMessage}</p>
             </div>	
             <div>
                 <p className="formTit bodyB14x">연락처</p>
                 <div className="txt-input">
-                    <input type="text" value={member.phone} onChange={onChangeUserPhoneNumber} placeholder="휴대폰번호를 입력해주세요" required />
+                    <input type="text" value={phone} onChange={e => setPhone(e.target.value)} placeholder="휴대폰번호를 입력해주세요" required />
                 </div>
                 <p className="message body14x">{userPhoneNumberMessage}</p>									
             </div>                
