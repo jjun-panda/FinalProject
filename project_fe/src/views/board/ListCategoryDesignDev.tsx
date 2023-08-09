@@ -6,6 +6,7 @@ import Button from "../../components/Button";
 import '../../components/css/paging.css'
 import Paging from "../../components/paging";
 import TableRow from "./TableRow";
+import NotFoundContents from "../../components/app/NotFoundContents";
 
 type BoardItem = {
 	seq: number;
@@ -25,7 +26,7 @@ export default function ListCategoryDesignDev() {
 	const [boardList, setBoardList] = useState<BoardItem[]>([]);
 
 	// 검색용 Hook
-	const [choiceVal, setChoiceVal] = useState("");
+	const [choiceVal, setChoiceVal] = useState("all");
 	const [searchVal, setSearchVal] = useState("");
 
 	// Paging
@@ -82,7 +83,7 @@ export default function ListCategoryDesignDev() {
 
 	const changePage = (page: number) => {
 		setPage(page);
-		navigate("/s", { state: { gotoTop: true } });
+		navigate("/board/list", { state: { gotoTop: true } });
 		getBoardList(choiceVal, searchVal, page);
 	}
 
@@ -95,6 +96,11 @@ export default function ListCategoryDesignDev() {
 	const filteredBoardList = filterByCategory(boardList);
 	const totalFilteredCnt = filteredBoardList.length;
 
+	const handleKeyUp = (e: React.KeyboardEvent) => {
+		if(e.key === 'Enter') {
+			search();
+		}
+	}
 	
 	return (
 		<div id="body">
@@ -144,7 +150,7 @@ export default function ListCategoryDesignDev() {
 								</select>
 							</div>
 							<div className="searchBox">
-								<input type="text" className="form-control" placeholder="검색어" value={searchVal} onChange={changeSearch} />
+								<input type="text" className="form-control" placeholder="검색어" value={searchVal} onChange={changeSearch} onKeyUp={handleKeyUp} />
 							</div>
 							<Button size="Medium" type="button" className="searchButton" onClick={search}>검색</Button>
 						</div>
@@ -152,7 +158,12 @@ export default function ListCategoryDesignDev() {
 
 					<div id='contentsCards'>
 						<div className="contentsGroup">
-							<p className="contentsBox body14x">창의적인 디자인과 혁신적인 개발 기술로 더 멋진 세상을 만들어갑니다.<br/> 섬세하고 트렌디한 디자인과 최신 기술을 탐구하는 흥미로운 컨텐츠를 즐겨보세요!</p>
+							{
+								filteredBoardList.length > 0 ? 
+								<p className="contentsBox body14x">창의적인 디자인과 혁신적인 개발 기술로 더 멋진 세상을 만들어갑니다.<br/> 섬세하고 트렌디한 디자인과 최신 기술을 탐구하는 흥미로운 컨텐츠를 즐겨보세요!</p>
+								:
+								null
+							}
 							<div className="contentsSebgroup">
 							{
 									filteredBoardList.length > 0 ? (
@@ -164,7 +175,7 @@ export default function ListCategoryDesignDev() {
 										}
 									})
 									) : (
-									<p>해당 게시물이 존재하지 않습니다.</p>
+										<NotFoundContents />
 								)
 							}
 							</div>

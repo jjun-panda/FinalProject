@@ -258,6 +258,7 @@ textarea {
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
   &:focus {
     box-shadow: 0 2px 15px var(--shaow-nomal);
   }

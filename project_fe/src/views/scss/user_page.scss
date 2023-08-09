@@ -94,6 +94,7 @@
             // background-color: var(--background-primary);
             // padding: 1rem;
             border-radius: 0.25rem;
+            box-sizing: content-box;
             border: 1px solid var(--primary-normal);
             .customBox {
                 // margin-right: .5rem;
@@ -143,7 +144,8 @@
                 }
             }
             .searchButton {
-                border-radius: 0;
+                border-top-left-radius: 0;
+                border-top-right-radius: 0;
                 padding: 0 1.5rem;
             }
         }

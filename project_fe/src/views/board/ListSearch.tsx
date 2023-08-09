@@ -6,6 +6,19 @@ import Button from "../../components/Button";
 import '../../components/css/paging.css'
 import Paging from "../../components/paging";
 import TableRow from "./TableRow";
+import NotFoundContents from "../../components/app/NotFoundContents";
+
+type BoardItem = {
+	seq: number;
+	title: string;
+	content: string;
+	email: string;
+	del: number;
+	readCount: number;
+	writeDate: string;
+	fileImg: string;
+	category: string;
+};
 
 export default function ListSearch() {
 	const item_page = 9;
@@ -32,7 +45,14 @@ export default function ListSearch() {
 				console.log(resp.data);
 
 				setBoardList(resp.data.boardList);
-				setTotalCnt(resp.data.pageCnt);
+
+				// 전체보기일 경우 response에서 가져온 pageCnt를 사용
+				if (!choice && !search) {
+				   setTotalCnt(resp.data.pageCnt); //지피티와 합동!으로 힘냈다!
+				} else {
+				   // 검색 결과일 경우 검색 결과의 길이를 사용하여 설정
+					setTotalCnt(resp.data.boardList.length);
+				}
 			})
 			.catch((err) => {
 				console.log(err);
@@ -50,6 +70,15 @@ export default function ListSearch() {
 			window.scrollTo(0, 0);
 		}
 	}, [location]);
+
+	useEffect(() => {
+		const filteredBoardList = filterByCategory(boardList);
+		setTotalCnt(filteredBoardList.length);
+	
+		const startIndex = (page - 1) * item_page;
+		const endIndex = Math.min(startIndex + item_page, filteredBoardList.length);
+		setCurrentPageList(filteredBoardList.slice(startIndex, endIndex));
+	}, [boardList, page]);
 	
 	const changeChoice = (event: ChangeEvent<HTMLSelectElement>) => { setChoiceVal(event.target.value); }
 	const changeSearch = (event: ChangeEvent<HTMLInputElement>) => { setSearchVal(event.target.value); }
@@ -62,9 +91,18 @@ export default function ListSearch() {
 
 	const changePage = (page: number) => {
 		setPage(page);
-		navigate("/s", { state: { gotoTop: true } });
+		navigate("/board/list", { state: { gotoTop: true } });
 		getBoardList(choiceVal, searchVal, page);
 	}
+
+	const filterByCategory = (boardList: BoardItem[]): BoardItem[] => {
+		return boardList.filter((board) => board.category === search_name);
+	};
+	
+	const [currentPageList, setCurrentPageList] = useState<BoardItem[]>([]);
+
+	const filteredBoardList = filterByCategory(boardList);
+	const totalFilteredCnt = filteredBoardList.length;
 
 	const handleKeyUp = (e: React.KeyboardEvent) => {
 		if(e.key === 'Enter') {
@@ -73,13 +111,42 @@ export default function ListSearch() {
 	}
 
 	return (
-
 		<div id="body">
 			<div id='contentsListTum'>
+				<div className="navigatorMain">
+					<div className="navigatorWrapper">
+						<p className="naviTitle bodyB24x">카테고리</p>
+						<ul className="naviator">
+							<li className="menuWrapper">
+								<Link className="menu body18x" to="/board/list">전체</Link>
+							</li>
+							<li className="menuWrapper">
+								<Link className="menu body18x" to="/board/list/life">슬기로운 라이프</Link>
+							</li>
+							<li className="menuWrapper">
+								<Link className="menu body18x" to="/board/list/music">아름다운 음악</Link>
+							</li>
+							<li className="menuWrapper">
+								<Link className="menu body18x" to="/board/list/cooking">맛있는 요리</Link>
+							</li>
+							<li className="menuWrapper">
+								<Link className="menu body18x" to="/board/list/design_dev">디자인 & 개발</Link>
+							</li>
+							<li className="menuWrapper">
+								<Link className="menu body18x" to="/board/list/art">미술의 감성</Link>
+							</li>
+							<li className="menuWrapper">
+								<Link className="menu body18x" to="/board/list/fashion">멋의 패션</Link>
+							</li>
+						</ul>
+						<Link className="writeBtn" to="/board/write">글쓰기</Link>
+					</div>
+				</div>
 				<div className="boardBox">
 					<div id='contentsHeader'>
 						<div>
-							<p className="title24x">{search_name}</p>
+							{/* <p className="title24x">{search_name}</p> */}
+							<p className="title24x">검색 결과</p>
 							<p className="body16x">{totalCnt}개의 게시물이 있습니다</p>
 						</div>
 						<div className="searchMain">
@@ -107,7 +174,7 @@ export default function ListSearch() {
 											return <TableRow obj={board} key={idx} cnt={idx + 1} />;
 										})
 								) : (
-									<p>해당 게시물이 존재하지 않습니다.</p>
+									<NotFoundContents />
 								)
 							}
 							</div>

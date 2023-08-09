@@ -1,13 +1,13 @@
 import axios from "axios";
 import { useState, useEffect, ChangeEvent } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import bgImg from "../../assets/images/bg.png"
 import '../css/contents_list.css'
 import Button from "../../components/Button";
 import '../../components/css/paging.css'
 import Paging from "../../components/paging";
 import maskDate from "../../components/maskDate";
 import TableRow from "./TableRow";
+import NotFoundContents from "../../components/app/NotFoundContents";
 
 export default function BoardList() {
 	const item_page = 9;
@@ -15,7 +15,7 @@ export default function BoardList() {
 	const [boardList, setBoardList] = useState([]);
 
 	// 검색용 Hook
-	const [choiceVal, setChoiceVal] = useState("");
+	const [choiceVal, setChoiceVal] = useState("all");
 	const [searchVal, setSearchVal] = useState("");
 
 	// Paging
@@ -23,7 +23,7 @@ export default function BoardList() {
 	const [totalCnt, setTotalCnt] = useState(0);
 
 	// Link 용 (함수) 
-	let navigate = useNavigate();
+	const navigate = useNavigate();
 
 	/* [GET /board]: 게시글 목록 */
 	const getBoardList = async (choice: string, search: string, page: number) => {
@@ -54,7 +54,6 @@ export default function BoardList() {
 
 	const changeChoice = (event: ChangeEvent<HTMLSelectElement>) => { setChoiceVal(event.target.value); }
 	const changeSearch = (event: ChangeEvent<HTMLInputElement>) => { setSearchVal(event.target.value); }
-	
 	const search = () => {
 		console.log("[BoardList] choiceVal=" + choiceVal + ", searchVal=" + searchVal);
 
@@ -64,8 +63,14 @@ export default function BoardList() {
 
 	const changePage = (page: number) => {
 		setPage(page);
-		navigate("/s", { state: { gotoTop: true } });
+		navigate("/board/list", { state: { gotoTop: true } });
 		getBoardList(choiceVal, searchVal, page);
+	}
+
+	const handleKeyUp = (e: React.KeyboardEvent) => {
+		if(e.key === 'Enter') {
+			search();
+		}
 	}
 
 	return (
@@ -105,7 +110,12 @@ export default function BoardList() {
 					<div id='contentsHeader'>
 						<div>
 							<p className="title24x">전체 게시물</p>
-							<p className="body16x">{totalCnt}개의 게시물이 있습니다</p>
+							{
+								boardList.length > 0 ? 
+								<p className="body16x">{totalCnt}개의 게시물이 있습니다</p>
+								:
+								null
+							}
 						</div>
 						<div className="searchMain">
 							<div className="customBox">
@@ -117,7 +127,7 @@ export default function BoardList() {
 								</select>
 							</div>
 							<div className="searchBox">
-								<input type="text" className="form-control" placeholder="검색어" value={searchVal} onChange={changeSearch} />
+								<input type="text" className="form-control" placeholder="검색어" value={searchVal} onChange={changeSearch} onKeyUp={handleKeyUp} />
 							</div>
 							<Button size="Medium" type="button" className="searchButton" onClick={search}>검색</Button>
 						</div>
@@ -132,8 +142,8 @@ export default function BoardList() {
 											return <TableRow obj={board} key={idx} cnt={idx + 1} />;
 										})
 									) : (
-										<p>해당 게시물이 존재하지 않습니다.</p>
-									)
+										<NotFoundContents />
+								)
 								}
 							</div>
 						</div>

@@ -8,6 +8,7 @@ import '../../components/css/paging.css'
 import Paging from "../../components/paging";
 import maskDate from "../../components/maskDate";
 import TableRow from "./TableRow";
+import NotFoundContents from "../../components/app/NotFoundContents";
 
 type BoardItem = {
 	seq: number;
@@ -27,7 +28,7 @@ export default function ListCategoryMusic() {
 	const [boardList, setBoardList] = useState<BoardItem[]>([]);
 
 	// 검색용 Hook
-	const [choiceVal, setChoiceVal] = useState("");
+	const [choiceVal, setChoiceVal] = useState("all");
 	const [searchVal, setSearchVal] = useState("");
 
 	// Paging
@@ -84,7 +85,7 @@ export default function ListCategoryMusic() {
 
 	const changePage = (page: number) => {
 		setPage(page);
-		navigate("/s", { state: { gotoTop: true } });
+		navigate("/board/list", { state: { gotoTop: true } });
 		getBoardList(choiceVal, searchVal, page);
 	}
 
@@ -96,6 +97,12 @@ export default function ListCategoryMusic() {
 
 	const filteredBoardList = filterByCategory(boardList);
 	const totalFilteredCnt = filteredBoardList.length;
+
+	const handleKeyUp = (e: React.KeyboardEvent) => {
+		if(e.key === 'Enter') {
+			search();
+		}
+	}
 
 	
 	return (
@@ -146,7 +153,7 @@ export default function ListCategoryMusic() {
 								</select>
 							</div>
 							<div className="searchBox">
-								<input type="text" className="form-control" placeholder="검색어" value={searchVal} onChange={changeSearch} />
+								<input type="text" className="form-control" placeholder="검색어" value={searchVal} onChange={changeSearch} onKeyUp={handleKeyUp} />
 							</div>
 							<Button size="Medium" type="button" className="searchButton" onClick={search}>검색</Button>
 						</div>
@@ -154,7 +161,12 @@ export default function ListCategoryMusic() {
 
 					<div id='contentsCards'>
 						<div className="contentsGroup">
-							<p className="contentsBox body14x">감미로운 멜로디와 아름다운 가사로 마음을 녹이는 음악들을 소개합니다.<br/>힐링되는 음악과 감성적인 곡들로 특별한 감동을 선사하는 음악 세계로 초대합니다. 일상 속에서 음악과 함께하는 특별한 시간을 만들어보세요!</p>
+							{
+								filteredBoardList.length > 0 ? 
+								<p className="contentsBox body14x">감미로운 멜로디와 아름다운 가사로 마음을 녹이는 음악들을 소개합니다.<br/>힐링되는 음악과 감성적인 곡들로 특별한 감동을 선사하는 음악 세계로 초대합니다. 일상 속에서 음악과 함께하는 특별한 시간을 만들어보세요!</p>
+								:
+								null
+							}
 							<div className="contentsSebgroup">
 							{
 									filteredBoardList.length > 0 ? (
@@ -166,7 +178,7 @@ export default function ListCategoryMusic() {
 										}
 									})
 									) : (
-									<p>해당 게시물이 존재하지 않습니다.</p>
+										<NotFoundContents />
 								)
 							}
 							</div>

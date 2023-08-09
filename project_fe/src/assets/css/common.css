@@ -1476,6 +1476,7 @@ textarea {
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 }
 .themeMode:focus {
   box-shadow: 0 2px 15px var(--shaow-nomal);
@@ -1615,6 +1616,9 @@ h6 {
 .admin {
   color: var(--status-alert);
   font-weight: 700;
+}
+.admin .title {
+  filter: none;
 }
 .admin.box {
   background-color: var(--status-alert-bg);

@@ -6,6 +6,7 @@ import Button from "../../components/Button";
 import '../../components/css/paging.css'
 import Paging from "../../components/paging";
 import TableRow from "./TableRow";
+import NotFoundContents from "../../components/app/NotFoundContents";
 
 type BoardItem = {
 	seq: number;
@@ -25,7 +26,7 @@ export default function ListCategoryArt() {
 	const [boardList, setBoardList] = useState<BoardItem[]>([]);
 
 	// 검색용 Hook
-	const [choiceVal, setChoiceVal] = useState("");
+	const [choiceVal, setChoiceVal] = useState("all");
 	const [searchVal, setSearchVal] = useState("");
 
 	// Paging
@@ -82,7 +83,7 @@ export default function ListCategoryArt() {
 
 	const changePage = (page: number) => {
 		setPage(page);
-		navigate("/s", { state: { gotoTop: true } });
+		navigate("/board/list", { state: { gotoTop: true } });
 		getBoardList(choiceVal, searchVal, page);
 	}
 
@@ -94,6 +95,12 @@ export default function ListCategoryArt() {
 
 	const filteredBoardList = filterByCategory(boardList);
 	const totalFilteredCnt = filteredBoardList.length;
+
+	const handleKeyUp = (e: React.KeyboardEvent) => {
+		if(e.key === 'Enter') {
+			search();
+		}
+	}
 
 	
 	return (
@@ -144,7 +151,7 @@ export default function ListCategoryArt() {
 								</select>
 							</div>
 							<div className="searchBox">
-								<input type="text" className="form-control" placeholder="검색어" value={searchVal} onChange={changeSearch} />
+								<input type="text" className="form-control" placeholder="검색어" value={searchVal} onChange={changeSearch} onKeyUp={handleKeyUp} />
 							</div>
 							<Button size="Medium" type="button" className="searchButton" onClick={search}>검색</Button>
 						</div>
@@ -152,7 +159,12 @@ export default function ListCategoryArt() {
 
 					<div id='contentsCards'>
 						<div className="contentsGroup">
-							<p className="contentsBox body14x">예술적인 미술 작품과 감성적인 아트 피스톨로 여러분의 마음을 움직이는 아름다움을 전달합니다.<br/>미술의 세계에서 창의력과 아름다움을 함께해요!</p>
+							{
+								filteredBoardList.length > 0 ? 
+								<p className="contentsBox body14x">예술적인 미술 작품과 감성적인 아트 피스톨로 여러분의 마음을 움직이는 아름다움을 전달합니다.<br/>미술의 세계에서 창의력과 아름다움을 함께해요!</p>
+								:
+								null
+							}
 							<div className="contentsSebgroup">
 							{
 									filteredBoardList.length > 0 ? (
@@ -164,7 +176,7 @@ export default function ListCategoryArt() {
 											}
 										})
 									) : (
-									<p>해당 게시물이 존재하지 않습니다.</p>
+										<NotFoundContents />
 								)
 							}
 							</div>

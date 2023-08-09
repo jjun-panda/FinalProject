@@ -2,6 +2,9 @@
     color: var(--status-alert);
     font-weight: 700;
 
+    .title {
+        filter: none;
+    }
     &.box {
         background-color: var(--status-alert-bg);
         color: var(--status-alert);

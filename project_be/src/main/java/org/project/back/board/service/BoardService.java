@@ -50,7 +50,7 @@ public class BoardService {
 			CreateReadCountParam param = new CreateReadCountParam(seq, readerEmail);
 			Integer result = dao.createBoardReadCountHistory(param); // 조회수 히스토리 처리 (insert: 1, update: 2)
 			if (result == 1) {
-				Integer updatedRecordCount = dao.increaseBoardReadCount(seq); // 조회수 증가
+				dao.increaseBoardReadCount(seq);
 			}
 		}
 

@@ -115,7 +115,7 @@ function TableRow(props: TableRowProps) {
                             <p className="title bodyB16x">
                                 <span className="admin">[삭제된 글] {board.title}</span>	
                             </p>
-                            <div className="caption">
+                            <div className="caption" style={{filter: "grayscale(1)"}}>
                                 <span>{maskDate({ writeDate: board.writeDate})}</span>・<span>조회수 {board.readCount}</span>
                             </div>
                         </div>
@@ -131,10 +131,10 @@ function TableRow(props: TableRowProps) {
                             <span className="category tag10x" style={{filter: "grayscale(1)"}}>
                             {board.category}
                             </span>
-                            <p className="title bodyB16x">
-                                삭제된 글 입니다.
+                            <p className="title bodyB16x" style={{filter: "grayscale(1)"}}>
+                                ⚠️ 작성자에 의해 삭제된 댓글입니다.
                             </p>
-                            <div className="caption">
+                            <div className="caption" style={{filter: "grayscale(1)"}}>
                                 <span>{maskDate({ writeDate: board.writeDate})}</span>・<span>조회수 {board.readCount}</span>
                             </div>
                         </div>

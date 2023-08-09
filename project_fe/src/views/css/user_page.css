@@ -90,6 +90,7 @@
   display: inline-flex;
   justify-content: flex-end;
   border-radius: 0.25rem;
+  box-sizing: content-box;
   border: 1px solid var(--primary-normal);
 }
 #contentsUserTum #contentsHeader .searchMain .customBox {
@@ -130,7 +131,8 @@
   color: var(--text-normal);
 }
 #contentsUserTum #contentsHeader .searchMain .searchButton {
-  border-radius: 0;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
   padding: 0 1.5rem;
 }
 #contentsUserTum .contentsTitle {
