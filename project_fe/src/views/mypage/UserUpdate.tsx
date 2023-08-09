@@ -103,11 +103,6 @@ function UpdateMember({ member }: UpdateMemberProps) {
 	const [pwd, setPwd] = useState('');
     const [name, setName] = useState(member.name);
     const [phone, setPhone] = useState(member.phone);
-    
-    // 유효성검사
-	const [userPassword, setUserPassword] = useState<String>('');
-    const [userNickname, setUserNickname] = useState<String>('');
-	const [userPhoneNumber, setUserPhoneNumber] = useState<String>('');
 
 	const [userPasswordMessage, setUserPasswordMessage] = useState<String>('');
 	const [userNicknameMessage, setUserNicknameMessage] = useState<String>('');
@@ -118,7 +113,7 @@ function UpdateMember({ member }: UpdateMemberProps) {
 	const [isUserPhoneNumber, setIsUserPhoneNumber] = React.useState(false);
 
     useEffect(() => {
-        setUserNickname(member.name);
+        setName(member.name);
         setPhone(member.phone);
     }, [member]);
     
@@ -185,8 +180,8 @@ function UpdateMember({ member }: UpdateMemberProps) {
         const userData = {
             email: auth,
             pwd: pwd,
-            name: member.name,
-            phone: member.phone
+            name: name,
+            phone: phone
         };
         // setIsOpen(false);
         await axios.post("http://localhost:8888/user/updateMember",  userData)
