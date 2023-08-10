@@ -63,7 +63,7 @@ function App() {
     <>
       <Talk/>
       <RouterLayOut />
-      <p
+      {/* <p
         style={{
           position: 'fixed',
           color: '#000',
@@ -73,7 +73,7 @@ function App() {
         }}
       >
         Spring Boot 연결상태: <strong>{connection}</strong>
-      </p>
+      </p> */}
       <button id="themeMode" className="themeMode title32x" onClick={toggleDarkMode}>
         {buttonLabel}
       </button>

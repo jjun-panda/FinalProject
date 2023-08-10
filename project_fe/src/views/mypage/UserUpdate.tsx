@@ -212,9 +212,9 @@ function UpdateMember({ member }: UpdateMemberProps) {
                 <span className="info caption">* 이메일주소 변경은 관리자에게 문의해주세요</span>
             </div>
             <div className="formBox">
-                <p className="formTit bodyB14x">비밀번호</p>
+                <p className="formTit bodyB14x">새 비밀번호</p>
                 <div className="pw-input">
-                    <input type="password" value={pwd} onChange={onChangePassword} name="password" placeholder="비밀번호를 입력해주세요" required />
+                    <input type="password" value={pwd} onChange={onChangePassword} name="password" placeholder="변경하실 비밀번호를 입력해주세요" required />
                 </div>
                 <p className="message body14x">{userPasswordMessage}</p>
             </div>

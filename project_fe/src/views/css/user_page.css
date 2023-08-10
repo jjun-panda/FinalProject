@@ -230,15 +230,6 @@
   padding-top: 0.25rem;
   color: var(--status-warning);
 }
-#contentsUserTum #contentsUser .contentsGroup .form-valid .pw-input [type=password]:first-child {
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
-}
-#contentsUserTum #contentsUser .contentsGroup .form-valid .pw-input [type=password]:last-child {
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
-  border-top: 0;
-}
 #contentsUserTum #contentsUser .contentsGroup .form-valid .message {
   padding-top: 0.25rem;
   color: var(--primary-normal);

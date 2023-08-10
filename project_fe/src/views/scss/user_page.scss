@@ -259,17 +259,17 @@
                     padding-top: .25rem;
                     color: var(--status-warning);
                 }
-                .pw-input [type=password] {
-                    &:first-child {
-                        border-bottom-left-radius: 0 ;
-                        border-bottom-right-radius: 0;
-                    }
-                    &:last-child {
-                        border-top-left-radius: 0 ;
-                        border-top-right-radius: 0;
-                        border-top: 0;
-                    }
-                }
+                // .pw-input [type=password] {
+                //     &:first-child {
+                //         border-bottom-left-radius: 0 ;
+                //         border-bottom-right-radius: 0;
+                //     }
+                //     &:last-child {
+                //         border-top-left-radius: 0 ;
+                //         border-top-right-radius: 0;
+                //         border-top: 0;
+                //     }
+                // }
                 .message {
                     padding-top: .25rem;
                     color: var(--primary-normal);

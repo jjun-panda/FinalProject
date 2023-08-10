@@ -12,6 +12,7 @@ interface MyPage {
 }
 
 export default function Header() {
+	const [memberInfo, setMemberInfo] = useState<MyPage>({} as MyPage);
 	const { auth, setAuth } = useContext(AuthContext);
 	const [darkMode, setDarkMode] = useState(false);
 
@@ -29,7 +30,6 @@ export default function Header() {
 		};
 	}, []);
 
-	const [memberInfo, setMemberInfo] = useState<MyPage>({} as MyPage);
 
 	/* 멤버 정보 불러오기 */
 	const getMemberInfo = async (email: string) => {

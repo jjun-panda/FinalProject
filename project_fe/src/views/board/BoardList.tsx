@@ -123,7 +123,7 @@ export default function BoardList() {
                   <div className="searchMain">
                      <div className="customBox">
                         <select className="customSelect body16x" value={choiceVal} onChange={changeChoice}>
-                           <option>선택</option>
+                           <option value="all">통합검색</option>
                            <option value="title">제목</option>
                            <option value="content">내용</option>
                            <option value="writer">작성자</option>
@@ -238,17 +238,17 @@ function TableRow(props: TableRowProps) {
                         :
                         <div className="contentsTrgroup">
                            <Link to='#' id='contentsBox' onClick={delBoard}>
-                              <div id="contentsImg">
+                              <div id="contentsImg" style={{filter: "grayscale(1)"}}>
                                  <img src={bgImg} alt="" />
                               </div>
                               <div id='contentsText'>
-                                 <span className="category tag10x">
+                                 <span className="category tag10x" style={{filter: "grayscale(1)"}}>
                                     {board.category}
                                  </span>
-                                 <p className="title bodyB16x">
+                                 <p className="title bodyB16x" style={{filter: "grayscale(1)"}}>
                                     삭제된 글 입니다.
                                  </p>
-                                 <div className="caption">
+                                 <div className="caption" style={{filter: "grayscale(1)"}}>
                                     <span>{maskDate({ writeDate: board.writeDate })}</span>・<span>조회수 {board.readCount}</span>
                                  </div>
                               </div>

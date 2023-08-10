@@ -16,11 +16,14 @@
 					<if test="choice != null and choice != ''
 								and search != null and search != '' ">
 								
+						<!--통합검색 -->			
 						<if test="choice == 'all'">
 							WHERE title LIKE concat('%', #{search}, '%')
 							OR content LIKE concat('%', #{search}, '%')
 							OR email LIKE concat('%', #{search}, '%')
 						</if>
+						
+						<!-- 부분 검색 -->
 						<if test="choice == 'title'">
 							WHERE title LIKE concat('%', #{search}, '%')
 						</if>

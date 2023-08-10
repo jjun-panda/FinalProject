@@ -11,6 +11,13 @@ import Button from "../../components/Button";
 import React from "react";
 import successIcon from '../../assets/images/icon/ico_success_line.svg'
 
+interface MyPage {
+	name : string;
+    phone : string;
+    email : string;
+    pwd : string;
+}
+
 export default function UserDelete() {
     const [isOpen, setIsOpen] = useState(false);
     const [isChecked, setIsChecked] = useState(false);
@@ -33,6 +40,8 @@ export default function UserDelete() {
 			document.body.style.overflow = "visible";
 		};
 	}, [isOpen]);
+
+	const [memberInfo, setMemberInfo] = useState<MyPage>({} as MyPage);
 
     const { auth, setAuth } = useContext(AuthContext);
 
@@ -82,6 +91,26 @@ export default function UserDelete() {
 		};
 	}, []);
 
+
+	/* 멤버 정보 불러오기 */
+	const getMemberInfo = async (email: string) => {
+
+		await axios.get("http://localhost:8888/user/getMemberInfo", { params: {"email": auth  }})
+		.then((resp) => {
+			console.log(resp.data);
+
+			setMemberInfo(resp.data);
+		})
+		.catch((err) => {
+			console.log(err);
+
+		});
+	}
+
+	useEffect(() => {
+		getMemberInfo("");
+	}, []);
+
 	return (
 		<>
 			<div id="resignRequired">
@@ -95,7 +124,7 @@ export default function UserDelete() {
 								</div>
 							</Link>
 							<div className="bodyB32x resignTit">
-								<span className="bodyB32x point">{auth}</span> 님! <br/>정말로 탈퇴 하시겠어요?
+								<span className="bodyB32x point">{memberInfo.name}</span> 님! <br/>정말로 탈퇴 하시겠어요?
 							</div>
 						</div>
 
