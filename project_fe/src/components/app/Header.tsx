@@ -2,9 +2,17 @@ import { Link } from "react-router-dom";
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../context/AuthProvider";
 import '../css/Header.css';
+import axios from "axios";
 
+interface MyPage {
+	name : string;
+    phone : string;
+    email : string;
+    pwd : string;
+}
 
 export default function Header() {
+	const [memberInfo, setMemberInfo] = useState<MyPage>({} as MyPage);
 	const { auth, setAuth } = useContext(AuthContext);
 	const [darkMode, setDarkMode] = useState(false);
 
@@ -22,6 +30,26 @@ export default function Header() {
 		};
 	}, []);
 
+
+	/* 멤버 정보 불러오기 */
+	const getMemberInfo = async (email: string) => {
+
+		await axios.get("http://localhost:8888/user/getMemberInfo", { params: {"email": auth  }})
+		.then((resp) => {
+			console.log(resp.data);
+
+			setMemberInfo(resp.data);
+		})
+		.catch((err) => {
+			console.log(err);
+
+		});
+	}
+
+	useEffect(() => {
+		getMemberInfo("");
+	}, []);
+
 	return (
 		<div className="nav">
 			<div className="container">
@@ -36,24 +64,28 @@ export default function Header() {
 					{							
 						(auth) ?
 							<>
-								{/* 회원 정보 */}
 								{
 									(localStorage.getItem("email") === "admin") ?
 									<>
-										<span className="body14x admin box">관리자 모드</span>	
+										<Link className="bodyB14x admin box" to="/user/detail" >관리자 모드</Link>	
 									</>
 									:
 									<>
-										<span className="body16x">{auth}님 반갑습니다</span>	
+										{/* 회원 정보 */}
+										<span className="body18x">{memberInfo.name} 님</span>
+										<span>|</span>
+
+										{/*마이페이지 */}
+										{/* <Link className="bodyB14x userPageBtn" to="/user/detail" >마이페이지</Link> */}
+										<Link className="usericon" to="/user/detail" title="마이페이지"></Link>
+										<Link className="logouticon" to="/logout" title="로그아웃"></Link>
+
+										{/* 로그아웃 */}
+										{/* <Link className="body16x" to="/logout">로그아웃</Link> */}
 									</>
 								}
 
-								{/*마이페이지 */}
-								<Link className="bodyB14x" to="/user/detail" >마이페이지</Link>
-								{/* <span>/</span> */}
-
-								{/* 로그아웃 */}
-								{/* <Link className="body16x" to="/logout">로그아웃</Link> */}
+								
 								
 							</>
 							:

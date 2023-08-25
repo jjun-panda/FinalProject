@@ -8,6 +8,10 @@
   max-width: 75rem;
   padding-top: 2rem;
 }
+.containerBoard .BtnBoard {
+  margin: 2rem 0;
+  min-width: 7.5rem;
+}
 .containerBoard .form-valid {
   max-width: 50rem;
   width: 100%;

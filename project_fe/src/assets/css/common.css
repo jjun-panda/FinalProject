@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/variable/pretendardvariable.css");
 :root {
   --palette-primary-50: #f2edff;
@@ -122,6 +123,9 @@
 }
 [data-theme=light] .logoImg {
   background-image: url("../images/logo.svg");
+}
+[data-theme=light] .warningIco {
+  background-image: url("../images/icon/ico_warning_line.svg");
 }
 
 [data-theme=dark] {
@@ -612,7 +616,7 @@
   letter-spacing: -0.025rem;
   font-variant-numeric: tabular-nums;
   font-size: 4.5rem;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1.6;
 }
 
@@ -623,7 +627,7 @@
   letter-spacing: -0.025rem;
   font-variant-numeric: tabular-nums;
   font-size: 4rem;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1.6;
 }
 
@@ -634,7 +638,7 @@
   letter-spacing: -0.025rem;
   font-variant-numeric: tabular-nums;
   font-size: 3.5rem;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1.6;
 }
 
@@ -645,7 +649,7 @@
   letter-spacing: -0.025rem;
   font-variant-numeric: tabular-nums;
   font-size: 3rem;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1.6;
 }
 
@@ -656,7 +660,7 @@
   letter-spacing: -0.025rem;
   font-variant-numeric: tabular-nums;
   font-size: 2.5rem;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1.6;
 }
 
@@ -667,7 +671,7 @@
   letter-spacing: -0.025rem;
   font-variant-numeric: tabular-nums;
   font-size: 2rem;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1.6;
 }
 
@@ -678,7 +682,7 @@
   letter-spacing: -0.025rem;
   font-variant-numeric: tabular-nums;
   font-size: 1.5rem;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1.6;
 }
 
@@ -689,7 +693,7 @@
   letter-spacing: -0.025rem;
   font-variant-numeric: tabular-nums;
   font-size: 1.25rem;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1.6;
 }
 
@@ -700,7 +704,7 @@
   letter-spacing: -0.025rem;
   font-variant-numeric: tabular-nums;
   font-size: 1.125rem;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1.6;
 }
 
@@ -711,7 +715,7 @@
   letter-spacing: -0.025rem;
   font-variant-numeric: tabular-nums;
   font-size: 1rem;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1.6;
 }
 
@@ -722,7 +726,7 @@
   letter-spacing: -0.025rem;
   font-variant-numeric: tabular-nums;
   font-size: 0.875rem;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1.6;
 }
 
@@ -733,7 +737,7 @@
   letter-spacing: -0.025rem;
   font-variant-numeric: tabular-nums;
   font-size: 0.75rem;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1.6;
 }
 
@@ -744,7 +748,7 @@
   letter-spacing: -0.025rem;
   font-variant-numeric: tabular-nums;
   font-size: 0.625rem;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1.6;
 }
 
@@ -898,7 +902,7 @@
   letter-spacing: -0.025rem;
   font-variant-numeric: tabular-nums;
   font-size: 4.5rem;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1;
 }
 
@@ -909,7 +913,7 @@
   letter-spacing: -0.025rem;
   font-variant-numeric: tabular-nums;
   font-size: 4rem;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1;
 }
 
@@ -920,7 +924,7 @@
   letter-spacing: -0.025rem;
   font-variant-numeric: tabular-nums;
   font-size: 3.5rem;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1;
 }
 
@@ -931,7 +935,7 @@
   letter-spacing: -0.025rem;
   font-variant-numeric: tabular-nums;
   font-size: 3rem;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1;
 }
 
@@ -942,7 +946,7 @@
   letter-spacing: -0.025rem;
   font-variant-numeric: tabular-nums;
   font-size: 2.5rem;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1;
 }
 
@@ -953,7 +957,7 @@
   letter-spacing: -0.025rem;
   font-variant-numeric: tabular-nums;
   font-size: 2rem;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1;
 }
 
@@ -964,7 +968,7 @@
   letter-spacing: -0.025rem;
   font-variant-numeric: tabular-nums;
   font-size: 1.5rem;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1;
 }
 
@@ -975,7 +979,7 @@
   letter-spacing: -0.025rem;
   font-variant-numeric: tabular-nums;
   font-size: 1.25rem;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1;
 }
 
@@ -986,7 +990,7 @@
   letter-spacing: -0.025rem;
   font-variant-numeric: tabular-nums;
   font-size: 1.125rem;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1;
 }
 
@@ -997,7 +1001,7 @@
   letter-spacing: -0.025rem;
   font-variant-numeric: tabular-nums;
   font-size: 1rem;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1;
 }
 
@@ -1008,7 +1012,7 @@
   letter-spacing: -0.025rem;
   font-variant-numeric: tabular-nums;
   font-size: 0.875rem;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1;
 }
 
@@ -1019,7 +1023,7 @@
   letter-spacing: -0.025rem;
   font-variant-numeric: tabular-nums;
   font-size: 0.75rem;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1;
 }
 
@@ -1030,7 +1034,7 @@
   letter-spacing: -0.025rem;
   font-variant-numeric: tabular-nums;
   font-size: 0.625rem;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1;
 }
 
@@ -1041,7 +1045,7 @@
   letter-spacing: -0.025rem;
   font-variant-numeric: tabular-nums;
   font-size: 4.5rem;
-  font-weight: 700;
+  font-weight: 500;
   line-height: 1;
 }
 
@@ -1052,7 +1056,7 @@
   letter-spacing: -0.025rem;
   font-variant-numeric: tabular-nums;
   font-size: 4rem;
-  font-weight: 700;
+  font-weight: 500;
   line-height: 1;
 }
 
@@ -1063,7 +1067,7 @@
   letter-spacing: -0.025rem;
   font-variant-numeric: tabular-nums;
   font-size: 3.5rem;
-  font-weight: 700;
+  font-weight: 500;
   line-height: 1;
 }
 
@@ -1074,7 +1078,7 @@
   letter-spacing: -0.025rem;
   font-variant-numeric: tabular-nums;
   font-size: 3rem;
-  font-weight: 700;
+  font-weight: 500;
   line-height: 1;
 }
 
@@ -1085,7 +1089,7 @@
   letter-spacing: -0.025rem;
   font-variant-numeric: tabular-nums;
   font-size: 2.5rem;
-  font-weight: 700;
+  font-weight: 500;
   line-height: 1;
 }
 
@@ -1096,7 +1100,7 @@
   letter-spacing: -0.025rem;
   font-variant-numeric: tabular-nums;
   font-size: 2rem;
-  font-weight: 700;
+  font-weight: 500;
   line-height: 1;
 }
 
@@ -1107,7 +1111,7 @@
   letter-spacing: -0.025rem;
   font-variant-numeric: tabular-nums;
   font-size: 1.5rem;
-  font-weight: 700;
+  font-weight: 500;
   line-height: 1;
 }
 
@@ -1118,7 +1122,7 @@
   letter-spacing: -0.025rem;
   font-variant-numeric: tabular-nums;
   font-size: 1.25rem;
-  font-weight: 700;
+  font-weight: 500;
   line-height: 1;
 }
 
@@ -1129,7 +1133,7 @@
   letter-spacing: -0.025rem;
   font-variant-numeric: tabular-nums;
   font-size: 1.125rem;
-  font-weight: 700;
+  font-weight: 500;
   line-height: 1;
 }
 
@@ -1140,7 +1144,7 @@
   letter-spacing: -0.025rem;
   font-variant-numeric: tabular-nums;
   font-size: 1rem;
-  font-weight: 700;
+  font-weight: 500;
   line-height: 1;
 }
 
@@ -1151,7 +1155,7 @@
   letter-spacing: -0.025rem;
   font-variant-numeric: tabular-nums;
   font-size: 0.875rem;
-  font-weight: 700;
+  font-weight: 500;
   line-height: 1;
 }
 
@@ -1162,7 +1166,7 @@
   letter-spacing: -0.025rem;
   font-variant-numeric: tabular-nums;
   font-size: 0.75rem;
-  font-weight: 700;
+  font-weight: 500;
   line-height: 1;
 }
 
@@ -1173,7 +1177,7 @@
   letter-spacing: -0.025rem;
   font-variant-numeric: tabular-nums;
   font-size: 0.625rem;
-  font-weight: 700;
+  font-weight: 500;
   line-height: 1;
 }
 
@@ -1472,6 +1476,10 @@ textarea {
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
+}
+.themeMode:focus {
+  box-shadow: 0 2px 15px var(--shaow-nomal);
 }
 
 svg {
@@ -1486,6 +1494,73 @@ select:focus, input:focus, textarea:focus, button:focus {
 
 *:disabled, .disabled, #disabled {
   cursor: no-drop;
+}
+
+/* 체크박스 */
+.checkBox {
+  display: none;
+}
+
+.checkBox + em {
+  display: inline-block;
+  vertical-align: middle;
+  width: 20px;
+  height: 20px;
+  border-radius: 0.25rem;
+  border: 2px solid var(--line-strong);
+  position: relative;
+  background: var(--white);
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.checkBox + em:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  opacity: 1;
+  transition: all 0.3s ease;
+  transform: scale(1);
+}
+
+[data-theme=dark] .checkBox + em:before {
+  background: url("../images/icon/ico_check_off_dark.svg") no-repeat 50% 50%;
+}
+
+[data-theme=light] .checkBox + em:before {
+  background: url("../images/icon/ico_check_off_light.svg") no-repeat 50% 50%;
+}
+
+.checkBox + em + span {
+  display: inline-block;
+  vertical-align: middle;
+  color: var(--text-normal);
+  margin-left: 0.5rem;
+}
+
+.checkBox:checked + em {
+  background: var(--primary-normal);
+  border: var(--primary-normal);
+}
+
+.checkBox:checked + em:before {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.modal-open {
+  overflow: hidden;
+}
+
+[data-theme=dark] .checkBox:checked + em:before {
+  background: url("../images/icon/ico_check_on_dark.svg") no-repeat 50% 50%;
+}
+
+[data-theme=light] .checkBox:checked + em:before {
+  background: url("../images/icon/ico_check_on_light.svg") no-repeat 50% 50%;
 }
 
 [type=email], [type=password], [type=text] {
@@ -1542,13 +1617,19 @@ h6 {
   color: var(--status-alert);
   font-weight: 700;
 }
+.admin .title {
+  filter: none;
+}
 .admin.box {
   background-color: var(--status-alert-bg);
   color: var(--status-alert);
   padding: 0 1rem;
   border-radius: 1rem;
-  height: 1.5rem;
+  border: none;
+  height: 2rem;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  border-radius: 0.25rem;
+  transition: all 0.3s ease;
 }

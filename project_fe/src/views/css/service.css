@@ -49,6 +49,11 @@
   width: 12.5%;
   gap: 0.5rem;
 }
+@media (max-width: 767px) {
+  .containerBody .containerCategory .sebCategories .sebCategory {
+    width: 50%;
+  }
+}
 .containerBody .containerCategory .sebCategories .sebCategory .imageBox {
   display: flex;
   justify-content: center;

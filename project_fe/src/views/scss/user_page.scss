@@ -94,6 +94,7 @@
             // background-color: var(--background-primary);
             // padding: 1rem;
             border-radius: 0.25rem;
+            box-sizing: content-box;
             border: 1px solid var(--primary-normal);
             .customBox {
                 // margin-right: .5rem;
@@ -101,7 +102,6 @@
                 border-top-left-radius: .25rem;
                 border-bottom-left-radius: .25rem;
                 select {
-                    background: url(../../assets/images/icon/ico_arrow_down.svg) no-repeat calc(100% - 1rem) 50%;
                     &.customSelect {
                         height: 3rem;
                         padding: 0 1rem;
@@ -110,6 +110,17 @@
                         border: 0;
                         color: var(--text-normal);
                         width: 7rem;
+                    }
+                }
+
+                [data-theme=dark] {
+                    select {
+                        background: url("../../assets/images/icon/ico_arrow_down_dark.svg") no-repeat calc(100% - 1rem) 50%;
+                    }
+                }
+                [data-theme=light] {
+                    select {
+                        background: url("../../assets/images/icon/ico_arrow_down_light.svg") no-repeat calc(100% - 1rem) 50%;
                     }
                 }
             }
@@ -133,7 +144,8 @@
                 }
             }
             .searchButton {
-                border-radius: 0;
+                border-top-left-radius: 0;
+                border-top-right-radius: 0;
                 padding: 0 1.5rem;
             }
         }
@@ -247,17 +259,17 @@
                     padding-top: .25rem;
                     color: var(--status-warning);
                 }
-                .pw-input [type=password] {
-                    &:first-child {
-                        border-bottom-left-radius: 0 ;
-                        border-bottom-right-radius: 0;
-                    }
-                    &:last-child {
-                        border-top-left-radius: 0 ;
-                        border-top-right-radius: 0;
-                        border-top: 0;
-                    }
-                }
+                // .pw-input [type=password] {
+                //     &:first-child {
+                //         border-bottom-left-radius: 0 ;
+                //         border-bottom-right-radius: 0;
+                //     }
+                //     &:last-child {
+                //         border-top-left-radius: 0 ;
+                //         border-top-right-radius: 0;
+                //         border-top: 0;
+                //     }
+                // }
                 .message {
                     padding-top: .25rem;
                     color: var(--primary-normal);

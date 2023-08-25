@@ -67,6 +67,7 @@
 }
 #contentsListTum .boardBox {
   width: 100%;
+  min-height: 100vh;
 }
 #contentsListTum #contentsHeader {
   display: flex;
@@ -78,15 +79,13 @@
   justify-content: flex-end;
   border-radius: 0.25rem;
   height: 3rem;
+  box-sizing: content-box;
   border: 1px solid var(--primary-normal);
 }
 #contentsListTum #contentsHeader .searchMain .customBox {
   background-color: var(--white);
   border-top-left-radius: 0.25rem;
   border-bottom-left-radius: 0.25rem;
-}
-#contentsListTum #contentsHeader .searchMain .customBox select {
-  background: url(../../assets/images/icon/ico_arrow_down.svg) no-repeat calc(100% - 1rem) 50%;
 }
 #contentsListTum #contentsHeader .searchMain .customBox select.customSelect {
   height: 3rem;
@@ -96,6 +95,12 @@
   border: 0;
   color: var(--text-normal);
   width: 7rem;
+}
+#contentsListTum #contentsHeader .searchMain .customBox [data-theme=dark] select {
+  background: url("../../assets/images/icon/ico_arrow_down_dark.svg") no-repeat calc(100% - 1rem) 50%;
+}
+#contentsListTum #contentsHeader .searchMain .customBox [data-theme=light] select {
+  background: url("../../assets/images/icon/ico_arrow_down_light.svg") no-repeat calc(100% - 1rem) 50%;
 }
 #contentsListTum #contentsHeader .searchMain .searchBox {
   display: flex;
@@ -142,6 +147,22 @@
   flex-wrap: wrap;
   gap: 1rem;
   row-gap: 2rem;
+}
+#contentsListTum .contentsGroup .contentsSebgroup .noContentshBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 20rem;
+  background-color: var(--background-tertiary);
+  border-radius: 0.5rem;
+  flex-direction: column;
+  gap: 0.5rem;
+  color: var(--text-assitive);
+}
+#contentsListTum .contentsGroup .contentsSebgroup .noContentshBox ul {
+  list-style: disc;
+  padding-left: 0.75rem;
 }
 #contentsListTum .contentsGroup .contentsSebgroup .contentsTrgroup {
   position: relative;

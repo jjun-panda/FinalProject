@@ -258,6 +258,10 @@ textarea {
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
+  &:focus {
+    box-shadow: 0 2px 15px var(--shaow-nomal);
+  }
 }
 
 svg {
@@ -272,6 +276,82 @@ select:focus, input:focus, textarea:focus, button:focus {
 
 *:disabled, .disabled, #disabled {
   cursor: no-drop;
+}
+
+/* 체크박스 */
+.checkBox {
+  display: none;
+}
+
+.checkBox + em {
+  display: inline-block;
+  vertical-align: middle;
+  width: 20px;
+  height: 20px;
+  border-radius: .25rem;
+  border: 2px solid var(--line-strong);
+  position: relative;
+  background: var(--white);
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.checkBox + em:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  opacity: 1;
+  transition: all 0.3s ease;
+  transform: scale(1);
+}
+[data-theme=dark] {
+  .checkBox + em:before {
+    background: url("../images/icon/ico_check_off_dark.svg")
+    no-repeat 50% 50%;
+  }
+}
+[data-theme=light] {
+  .checkBox + em:before {
+    background: url("../images/icon/ico_check_off_light.svg")
+    no-repeat 50% 50%;
+  }
+}
+
+.checkBox + em + span {
+  display: inline-block;
+  vertical-align: middle;
+  color: var(--text-normal);
+  margin-left: .5rem;
+}
+
+.checkBox:checked + em {
+  background: var(--primary-normal);
+  border: var(--primary-normal);
+}
+
+.checkBox:checked + em:before {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.modal-open {
+  overflow: hidden;
+}
+
+[data-theme=dark] {
+  .checkBox:checked + em:before{
+    background: url("../images/icon/ico_check_on_dark.svg")
+    no-repeat 50% 50%;
+  }
+}
+[data-theme=light] {
+  .checkBox:checked + em:before{
+    background: url("../images/icon/ico_check_on_light.svg")
+    no-repeat 50% 50%;
+  }
 }
 
 [type=email], [type=password], [type=text]{

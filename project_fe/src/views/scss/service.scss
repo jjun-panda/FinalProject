@@ -16,7 +16,7 @@
         align-items: center;
         gap: 3rem;
         text-align: center;
-
+        
         .titleBG {
             background-color: var(--primary-normal);
             color: var(--white);
@@ -36,7 +36,9 @@
         gap: 1rem;
         margin-top: 8rem;
         width: 100%;
-
+        @include mobile {
+            // display: block;
+        }
         .sebCategories {
             display: flex;
             flex-flow: row wrap;
@@ -52,7 +54,9 @@
                 align-items: center;
                 width: calc(100% / 8);
                 gap: .5rem;
-                
+                @include mobile {
+                    width: calc(100% / 2);
+                }
                 .imageBox {
                     display: flex;
                     justify-content: center;

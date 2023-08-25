@@ -1,0 +1,153 @@
+.modal_mini {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+.modal_mini .modalContent {
+  background-color: var(--white);
+  max-width: 20rem;
+  width: 100%;
+  padding: 2.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.modal_mini .modalContent img {
+  width: 4rem;
+  height: 4rem;
+  margin-bottom: 1rem;
+}
+.modal_mini .modalContent.ws20 {
+  max-width: 20rem;
+}
+.modal_mini .modalContent .modalIcon {
+  width: 64px;
+  margin-bottom: 0.5rem;
+}
+.modal_mini .modalContent .titleModal {
+  color: var(--text-normal);
+}
+.modal_mini .modalContent .textModal {
+  margin-top: 0.5rem;
+  color: var(--text-assitive);
+}
+.modal_mini .modalContent Button {
+  margin-top: 1rem;
+  width: 100%;
+}
+.modal_mini .modalContent .modalPassword {
+  margin-bottom: 1rem;
+}
+.modal_mini .modalContent .modalBill {
+  margin-bottom: 1rem;
+}
+.modal_mini .modalContent .textBox {
+  background-color: var(--background-primary);
+  border-radius: 0.25rem;
+  height: 3rem;
+  padding: 0 1rem;
+  border: 0;
+  font-size: 1rem;
+  width: 15rem;
+  margin-bottom: 1rem;
+}
+.modal_mini .modalContent .twoBtn {
+  display: flex;
+  gap: 0.5rem;
+}
+.modal_mini .modalContent .twoBtn button {
+  padding: 0 1rem;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--white);
+  cursor: pointer;
+  background-color: var(--primary-normal);
+  border: none;
+  border-radius: 4px;
+  outline: none;
+  height: 2.5rem;
+  min-width: 6rem;
+  max-width: 10rem;
+}
+.modal_mini .modalContent .twoBtn button:hover {
+  background-color: var(--primary-strong);
+}
+.modal_mini .modalContent .twoBtn button + .cance {
+  border: 1px solid var(--primary-normal);
+  background-color: var(--white);
+  color: var(--primary-normal);
+}
+.modal_mini .modalContent .twoBtn button + .cance:hover {
+  background-color: var(--primary-assistive);
+}
+
+.todoBtn {
+  border: 1px solid var(--text-normal);
+  border-radius: 0.5rem;
+  height: 2rem;
+  padding: 0 1rem;
+  background-color: var(--white);
+  color: var(--text-normal);
+  font-size: 0.875rem;
+  transition: all 0.1s ease;
+}
+.todoBtn:hover {
+  background-color: var(--primary-normal);
+  color: var(--white);
+  border: 1px solid var(--primary-normal);
+}
+.todoBtn:active {
+  background-color: var(--primary-strong);
+}
+
+.flex {
+  display: flex;
+}
+
+.listBtn {
+  display: flex;
+  width: 1.5rem;
+  height: 1.5rem;
+  align-items: center;
+  justify-content: center;
+}
+.listBtn .checkIcon {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+.listBtn .imgIcon {
+  width: 1.25rem;
+  height: 1.25rem;
+  opacity: 0.1;
+}
+.listBtn .imgIcon:hover {
+  opacity: 0.5;
+}
+
+@media (max-width: 1023px) {
+  .modal {
+    padding: 0 1rem;
+  }
+  .modal .modalContent .twoBtn {
+    width: 100%;
+  }
+  .modal .modalContent .twoBtn button {
+    height: 3.5rem;
+    width: 100%;
+    max-width: none;
+  }
+  .modal .modalContent .textModal + .textBox {
+    width: calc(100% - 2rem);
+    height: 3.5rem;
+  }
+}

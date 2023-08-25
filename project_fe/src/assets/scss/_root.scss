@@ -158,7 +158,14 @@
         background-image: url("../images/logo.svg");
         // background-image: url("../images/logo2.svg");
     }
+
+    // warning
+    .warningIco {
+        background-image: url("../images/icon/ico_warning_line.svg");
+    }
 }
+
+
 [data-theme='dark'] {
 
     --black: #fff;

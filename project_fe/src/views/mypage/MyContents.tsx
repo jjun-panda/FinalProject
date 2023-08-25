@@ -8,7 +8,7 @@ import { AuthContext } from "../../context/AuthProvider";
 import maskDate from "../../components/maskDate";
 
 
-export default function ContentsTrend() {
+export default function MyContents() {
   const [boardList, setBoardList] = useState<Board[]>([]);
   // Paging
   const [totalCnt, setTotalCnt] = useState(0);
@@ -106,14 +106,14 @@ function TableRow(props: TableRowProps) { //위에 데이터를 받음
                 // 삭제된 게시글
                 <>
                   <Link to={{ pathname: `/board/detail/${board.seq}` }} id='contentsBox'>
-                    <div id="contentsImg">
+                    <div id="contentsImg" style={{filter: "grayscale(1)"}}>
                       <img src={bgImg} alt="" />
                     </div>
                     <div id='contentsText'>
-                      <span className="category tag10x">
+                      <span className="category tag10x" style={{filter: "grayscale(1)"}}>
                         {board.category}
                       </span>
-                      <p className="title bodyB16x">
+                      <p className="title bodyB16x" style={{filter: "grayscale(1)"}}>
                       {
                         (localStorage.getItem("email") === "admin") ?
                         <>
@@ -121,11 +121,11 @@ function TableRow(props: TableRowProps) { //위에 데이터를 받음
                         </>
                         :
                         <>
-                          삭제된 글 입니다.	
+                          ⚠️ 작성자에 의해 삭제된 댓글입니다.	
                         </>
                       }
                       </p>
-                      <div className="caption">
+                      <div className="caption" style={{filter: "grayscale(1)"}}>
                         <span>{maskDate({ writeDate: board.writeDate})}</span>・<span>조회수 {board.readCount}</span>
                       </div>
                     </div>

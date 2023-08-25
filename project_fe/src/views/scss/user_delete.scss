@@ -1,0 +1,114 @@
+@import '../../assets/scss/mixin';
+
+// 로그인 폼
+#resignRequired {
+    display: block;
+    min-height: 80vh;
+    position: relative;
+
+    .resignForm {
+        max-width: 22.5rem;
+        width: 100%;
+        margin: auto;
+        padding: 5rem 0 0 ;
+        background-color: var(--white);
+        
+        .titleWrap {
+            margin-bottom: 2rem;
+            .logo {
+                padding-bottom: 1rem;
+                .logoText {
+                    color: var(--primary-normal);
+                    font-weight: 700;
+                }
+                .logoImg{
+                    width: 8rem;
+                    height: 0;
+                    padding-top: 20%;
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                    position: relative;
+                }
+            }
+            .resignTit {
+                line-height: 1.2;
+                .point {
+                    color: var(--primary-normal);
+                }
+            }
+        }
+        .form-valid {
+            display: flex;
+            gap: .5rem;
+            flex-direction: column;
+            padding-bottom: 1rem;
+
+            .resignInput {
+                background-color: var(--background-tertiary);
+                padding: 1.5rem ;
+                border-radius: .5rem;
+
+                .warning {
+                    display: flex;
+                    margin-bottom: 1rem;
+                    gap: .5rem;
+                    align-items: center;
+                    img {
+                        width: 3rem;
+                    }
+                    p {
+                        // color: var(--status-warning);
+                        line-height: 1.2;
+                    }
+                }
+                
+                ul {
+                    list-style:disc;
+                    padding-left: .75rem;
+                }
+            }
+        }
+        .form-checkbox {
+            display: flex;
+            justify-content: center;
+        }
+
+        .modal {
+            .modalContent {
+                max-width: 20rem;
+                padding: 2.5rem;
+                img {
+                    width: 4rem;
+                    height: 4rem;
+                    margin-bottom: 1rem;
+                }
+                Button {
+                    // width: 10rem;
+                }
+            }
+        }
+    }
+}
+
+.resignLinkWrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+    gap: .5rem;
+
+    button {
+        max-width: 20rem;
+        width: 100%;
+        &:first-child {
+            // border-top-right-radius: 0;
+            // border-bottom-right-radius: 0;
+            background-color: var(--primary-alternarive);
+            color: var(--primary-normal);
+        }
+        &:last-child {
+            // border-top-left-radius: 0;
+            // border-bottom-left-radius: 0;
+        }
+    }
+}

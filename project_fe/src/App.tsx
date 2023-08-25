@@ -3,6 +3,7 @@ import axios from 'axios';
 import './assets/css/common.css';
 import RouterLayOut from './router/Router';
 import React from 'react';
+import Talk from './utils/Talk';
 
 function App() {
   // SpringBoot 연결 상태를 저장하는 상태 변수
@@ -57,10 +58,12 @@ function App() {
 
   const buttonLabel = darkMode ? '🌜' : '🌞';
 
+  
   return (
     <>
+      <Talk/>
       <RouterLayOut />
-      <p
+      {/* <p
         style={{
           position: 'fixed',
           color: '#000',
@@ -70,7 +73,7 @@ function App() {
         }}
       >
         Spring Boot 연결상태: <strong>{connection}</strong>
-      </p>
+      </p> */}
       <button id="themeMode" className="themeMode title32x" onClick={toggleDarkMode}>
         {buttonLabel}
       </button>

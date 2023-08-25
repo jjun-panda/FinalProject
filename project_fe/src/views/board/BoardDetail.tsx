@@ -54,12 +54,13 @@ export default function BoardDetail() {
 
 				if (resp.data.deletedRecordCount === 1) {
 					alert("게시글을 삭제했습니다");
-					navigate("/board/list");
 				}
+
 
 			}).catch((err) => {
 				console.log(err);
 			});
+			navigate("/board/list");
 	}
 
 	useEffect(() => {

@@ -61,6 +61,20 @@ export default function BoardWrite() {
 		console.log(editorRef.current?.getInstance().getHTML());
 		// 입력창에 입력한 내용을 MarkDown 형태로 취득
 		console.log(editorRef.current?.getInstance().getMarkdown());
+		
+		if (category === "") {
+			alert("카테고리를 선택해주세요.");
+			return
+		}  else if (title.length === 0) {
+			alert("제목을 입력해주세요.");
+			return
+		} else if (title.length <= 10) {
+			alert("제목 10자 이상 입력해주세요.");
+			return
+		} else if (content.length === 0) {
+			alert("내용을 입력해주세요.");
+			return
+		}
 
 		const req = {
 			email: localStorage.getItem("email"), 
@@ -89,6 +103,7 @@ export default function BoardWrite() {
 		}
 	}, []);
 
+	
 	return (
 		<>
 		<div id='body'>
@@ -97,7 +112,7 @@ export default function BoardWrite() {
 					<div>
 						<div className="mail-input">
 							<select className="customSelect body16x" value={category} onChange={changeCategory} required>
-								<option value="기타">카테고리를 선택해주세요</option>
+								<option value="">카테고리를 선택해주세요</option>
 								<option value="슬기로운 라이프">슬기로운 라이프</option>
 								<option value="아름다운 음악">아름다운 음악</option>
 								<option value="맛있는 요리">맛있는 요리</option>
@@ -111,36 +126,36 @@ export default function BoardWrite() {
 					</div>
 					<div>
 						<div className="mail-input">
-							<input type="email" value={title} onChange={changeTitle} placeholder="제목을 입력해주세요" required />
+							<input type="email" value={title} minLength={10} onChange={changeTitle} placeholder="제목을 입력해주세요" required />
 						</div>
 						{/* <p className="message body14x"> {userEmailMessage} </p> */}
 					</div>
 					
 					<Editor
-					ref={editorRef} // DOM 선택용 useRef
-					placeholder="내용을 입력해주세요."
-					previewStyle="vertical" // 미리보기 스타일 지정
-					height="400px" // 에디터 창 높이
-					initialEditType="wysiwyg" //위지윅, 마크다운 버전
-					language="ko-KR"
-					initialValue={content || ' '} // 글 수정 시 사용
-					toolbarItems={[
-					// 툴바 옵션 설정
-					['heading', 'bold', 'italic', 'strike'],
-					['hr', 'quote'],
-					['ul', 'ol', 'task', 'indent', 'outdent'],
-					['table', 'image', 'link'],
-					['code', 'codeblock']
-					]}
-					onChange={handleEditorChange} // onChange 이벤트 핸들러를 설정
-					useCommandShortcut={false} // 키보드 입력 컨트롤 방지
-					hooks={{
-						addImageBlobHook: handleImageUpload,
-					}}
-				></Editor>
+						ref={editorRef} // DOM 선택용 useRef
+						placeholder="내용을 입력해주세요."
+						previewStyle="vertical" // 미리보기 스타일 지정
+						height="400px" // 에디터 창 높이
+						initialEditType="wysiwyg" //위지윅, 마크다운 버전
+						language="ko-KR"
+						initialValue={content || ' '} // 글 수정 시 사용
+						toolbarItems={[
+						// 툴바 옵션 설정
+						['heading', 'bold', 'italic', 'strike'],
+						['hr', 'quote'],
+						['ul', 'ol', 'task', 'indent', 'outdent'],
+						['table', 'image', 'link'],
+						['code', 'codeblock']
+						]}
+						onChange={handleEditorChange} // onChange 이벤트 핸들러를 설정
+						useCommandShortcut={false} // 키보드 입력 컨트롤 방지
+						hooks={{
+							addImageBlobHook: handleImageUpload,
+						}}
+					></Editor>
 				</div>
 
-				<Button size="Small" onClick={createBoard}>
+				<Button size="Large" onClick={createBoard} className="BtnBoard">
 					등록하기
 				</Button>
 			</div>

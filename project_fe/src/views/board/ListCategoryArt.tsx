@@ -1,13 +1,12 @@
 import axios from "axios";
 import { useState, useEffect, ChangeEvent } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import bgImg from "../../assets/images/bg.png"
 import '../css/contents_list.css'
 import Button from "../../components/Button";
 import '../../components/css/paging.css'
 import Paging from "../../components/paging";
-import maskDate from "../../components/maskDate";
-import React from "react";
+import TableRow from "./TableRow";
+import NotFoundContents from "../../components/app/NotFoundContents";
 
 type BoardItem = {
 	seq: number;
@@ -21,13 +20,13 @@ type BoardItem = {
 	category: string;
 };
 
-function ListCategoryArt() {
+export default function ListCategoryArt() {
 	const category_name = "미술의 감성";
 	const item_page = 9;
 	const [boardList, setBoardList] = useState<BoardItem[]>([]);
 
 	// 검색용 Hook
-	const [choiceVal, setChoiceVal] = useState("");
+	const [choiceVal, setChoiceVal] = useState("all");
 	const [searchVal, setSearchVal] = useState("");
 
 	// Paging
@@ -76,16 +75,17 @@ function ListCategoryArt() {
 	const changeChoice = (event: ChangeEvent<HTMLSelectElement>) => { setChoiceVal(event.target.value); }
 	const changeSearch = (event: ChangeEvent<HTMLInputElement>) => { setSearchVal(event.target.value); }
 	const search = () => {
-		console.log("[BoardList.js searchBtn()] choiceVal=" + choiceVal + ", searchVal=" + searchVal);
+		console.log("[BoardList] choiceVal=" + choiceVal + ", searchVal=" + searchVal);
 
-		navigate("/board/list", { state: { gotoTop: true } });
+		navigate("/search ", { state: { gotoTop: true } });
 		getBoardList(choiceVal, searchVal, 1);
 	}
 
 	const changePage = (page: number) => {
 		setPage(page);
 		navigate("/board/list", { state: { gotoTop: true } });
-	};
+		getBoardList(choiceVal, searchVal, page);
+	}
 
 	const filterByCategory = (boardList: BoardItem[]): BoardItem[] => {
 		return boardList.filter((board) => board.category === category_name);
@@ -95,6 +95,12 @@ function ListCategoryArt() {
 
 	const filteredBoardList = filterByCategory(boardList);
 	const totalFilteredCnt = filteredBoardList.length;
+
+	const handleKeyUp = (e: React.KeyboardEvent) => {
+		if(e.key === 'Enter') {
+			search();
+		}
+	}
 
 	
 	return (
@@ -138,37 +144,41 @@ function ListCategoryArt() {
 						<div className="searchMain">
 							<div className="customBox">
 								<select className="customSelect body16x" value={choiceVal} onChange={changeChoice}>
-									<option>검색옵션</option>
+									<option value="all">통합검색</option>
 									<option value="title">제목</option>
 									<option value="content">내용</option>
 									<option value="writer">작성자</option>
 								</select>
 							</div>
 							<div className="searchBox">
-								<input type="text" className="form-control" placeholder="검색어" value={searchVal} onChange={changeSearch} />
+								<input type="text" className="form-control" placeholder="검색어" value={searchVal} onChange={changeSearch} onKeyUp={handleKeyUp} />
 							</div>
-							<Button size="Medium" type="button" className="searchButton" onClick={search}><i className="fas fa-search"></i> 검색</Button>
+							<Button size="Medium" type="button" className="searchButton" onClick={search}>검색</Button>
 						</div>
 					</div>
 
 					<div id='contentsCards'>
 						<div className="contentsGroup">
-							<p className="contentsBox body14x">예술적인 미술 작품과 감성적인 아트 피스톨로 여러분의 마음을 움직이는 아름다움을 전달합니다.<br/>미술의 세계에서 창의력과 아름다움을 함께해요!</p>
+							{
+								filteredBoardList.length > 0 ? 
+								<p className="contentsBox body14x">예술적인 미술 작품과 감성적인 아트 피스톨로 여러분의 마음을 움직이는 아름다움을 전달합니다.<br/>미술의 세계에서 창의력과 아름다움을 함께해요!</p>
+								:
+								null
+							}
 							<div className="contentsSebgroup">
 							{
 									filteredBoardList.length > 0 ? (
 										filteredBoardList.map(function (board, idx) {
 											if (board.category === category_name) {
-											return <TableRow obj={board} key={idx} cnt={idx + 1} />;
-										} else {
-											return null;
-										}
-									})
+												return <TableRow obj={board} key={idx} cnt={idx + 1} />;
+											} else {
+												return null;
+											}
+										})
 									) : (
-									<p>해당 게시물이 존재하지 않습니다.</p>
+										<NotFoundContents />
 								)
 							}
-								
 							</div>
 						</div>
 					</div>
@@ -183,104 +193,3 @@ function ListCategoryArt() {
 		</div>
 	);
 }
-
-interface Board {
-	seq: number;
-	title: string;
-	content: string;
-	email: string;
-	del: number;
-	readCount: number;
-	writeDate: string;
-	fileImg: string;
-	category: string;
-}
-
-interface TableRowProps {
-	obj: Board;
-	cnt: number;
-}
-/* 글 목록 컴포넌트 */
-function TableRow(props: TableRowProps) {
-	const board = props.obj;
-
-	const delBoard = () => {
-		alert("삭제된 글은 확인이 불가능합니다");		
-	};
-
-	return (
-		<>
-		{
-			(board.del == 0) ?
-			// 삭제되지 않은 게시글
-			<>
-				<div className="contentsTrgroup">
-					<Link to={{ pathname: `/board/detail/${board.seq}` }} id='contentsBox'>
-						<div id="contentsImg">
-							<img src={bgImg} alt="" />
-						</div>
-						<div id='contentsText'>
-							<span className="category tag10x">
-								{board.category}
-							</span>
-							<p className="title bodyB16x">
-								{board.title}
-							</p>
-							<div className="caption">
-								<span>{maskDate({ writeDate: board.writeDate})}</span>・<span>조회수 {board.readCount}</span>
-							</div>
-						</div>
-					</Link>
-				</div>
-			</>
-			:
-			// 삭제된 게시글
-			<>
-				{
-				(localStorage.getItem("email") === "admin") ?
-					<div className="contentsTrgroup">
-						<Link to={{ pathname: `/board/detail/${board.seq}` }} id='contentsBox'>
-							<div id="contentsImg">
-								<img src={bgImg} alt="" style={{filter: "grayscale(1)"}}/>
-							</div>
-							<div id='contentsText'>
-								<span className="category tag10x">
-								{board.category}
-								</span>
-								<p className="title bodyB16x">
-									<span className="admin">[삭제된 글] {board.title}</span>	
-								</p>
-								<div className="caption">
-									<span>{maskDate({ writeDate: board.writeDate})}</span>・<span>조회수 {board.readCount}</span>
-								</div>
-							</div>
-						</Link>
-					</div>
-					:
-					<div className="contentsTrgroup">
-						<Link to='#' id='contentsBox' onClick={delBoard}>
-							<div id="contentsImg">
-								<img src={bgImg} alt="" style={{filter: "grayscale(1)"}}/>
-							</div>
-							<div id='contentsText'>
-								<span className="category tag10x">
-								{board.category}
-								</span>
-								<p className="title bodyB16x">
-									삭제된 글 입니다.
-								</p>
-								<div className="caption">
-									<span>{maskDate({ writeDate: board.writeDate})}</span>・<span>조회수 {board.readCount}</span>
-								</div>
-							</div>
-						</Link>
-					</div>
-				}
-			</>	
-		}
-		</>
-	);
-}
-
-
-export default ListCategoryArt;

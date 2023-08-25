@@ -131,6 +131,10 @@ public class MemberService {
 		if (result == 0) {
 			throw new MemberException("등록되지 않은 사용자입니다.", HttpStatus.BAD_REQUEST);
 		}
+		  // 비밀번호를 인코딩.
+	    String encodedPwd = encoder.encode(member.getPwd());
+	    // 인코딩된 비밀번호로 멤버 객체를 업데이트.
+	    member.setPwd(encodedPwd);
 		return dao.updateMemberByEmail(member);
 	}
 }
