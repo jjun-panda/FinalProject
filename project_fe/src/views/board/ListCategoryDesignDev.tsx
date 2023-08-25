@@ -77,7 +77,7 @@ export default function ListCategoryDesignDev() {
 	const search = () => {
 		console.log("[BoardList] choiceVal=" + choiceVal + ", searchVal=" + searchVal);
 
-		navigate("/s", { state: { gotoTop: true } });
+		navigate("/search ", { state: { gotoTop: true } });
 		getBoardList(choiceVal, searchVal, 1);
 	}
 

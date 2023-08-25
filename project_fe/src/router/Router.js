@@ -47,7 +47,7 @@ export default function RouterLayOut() {
 						<Route path="/board/write" element={<BoardWrite />} />
 						<Route path="/board/detail/:seq" element={<BoardDetail />} />
 						<Route path="/board/update" element={<BoardUpdate />} />
-						<Route path="/s" element={<ListSearch />} />
+						<Route path="/search " element={<ListSearch />} />
 
 						<Route path="/user/detail" element={<UserDetail />} />
 						<Route path="/user/update" element={<UserUpdate />} />
