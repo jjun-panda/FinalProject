@@ -13,10 +13,10 @@ server:
 spring:
   datasource:
     hikari:
-      driver-class-name: com.mysql.cj.jdbc.Driver
-      jdbc-url: jdbc:mysql://db.jjuns-c.com:3306/dbjjundesign?characterEncoding=UTF-8&serverTimezone=UTC
-      username: jjundesign
-      password: jjundesign2023
+      driver-class-name: org.mariadb.jdbc.Driver
+      url: jdbc:mariadb://127.0.0.1:3306/board?characterEncoding=UTF-8&serverTimezone=UTC
+      username: {사용자명}
+      password: {비밀번호}
   
   jpa:
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
