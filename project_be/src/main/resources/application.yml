@@ -14,7 +14,7 @@ spring:
   datasource:
     hikari:
       driver-class-name: org.mariadb.jdbc.Driver
-      url: jdbc:mariadb://127.0.0.1:3306/board?characterEncoding=UTF-8&serverTimezone=UTC
+      jdbc-url: jdbc:mariadb://127.0.0.1:3306/board?characterEncoding=UTF-8&serverTimezone=UTC
       username: {사용자명}
       password: {비밀번호}
   
