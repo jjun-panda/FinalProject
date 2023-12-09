@@ -9,13 +9,18 @@
     width: 100%;
     margin: 0 auto;
     max-width: 75rem;
-
+    @include mobile {
+        padding: 5rem 1rem 5rem;
+    }
     .containerContext {
         display: flex;
         flex-direction: column;
         align-items: center;
         gap: 3rem;
         text-align: center;
+        @include mobile {
+            gap: 1rem;
+        }
         
         .titleBG {
             background-color: var(--primary-normal);
@@ -37,8 +42,9 @@
         margin-top: 8rem;
         width: 100%;
         @include mobile {
-            // display: block;
+            margin-top: 4rem;;
         }
+
         .sebCategories {
             display: flex;
             flex-flow: row wrap;
@@ -47,6 +53,9 @@
             row-gap: 1rem;
             justify-content: center;
             text-align: center;
+            @include mobile {
+                row-gap: 2rem
+            }
 
             .sebCategory {
                 display: flex;
@@ -55,7 +64,7 @@
                 width: calc(100% / 8);
                 gap: .5rem;
                 @include mobile {
-                    width: calc(100% / 2);
+                    width: calc(100%/2 - 0.5rem);
                 }
                 .imageBox {
                     display: flex;
@@ -68,6 +77,10 @@
                     border-radius: 1.5rem;
                     transition: all .2s linear;
                     padding: .5rem;
+                    @include mobile {
+                        width: 100%;
+                        height: 100%;
+                    }
                 }
 
 
@@ -85,6 +98,12 @@
 
     &.mainColor {
         background-color: var(--background-maincolor);
+        @include mobile {
+            .mainReversed:first-child {
+                display: flex;
+                flex-direction: column-reverse;
+            }
+        }
     }
     &.whiteColor {
         background-color: var(--white);
@@ -99,21 +118,46 @@
         margin: 0 auto;
         align-items: center;
         gap: 3rem;
+        @include mobile {
+            margin: 0;
+            max-width: 100%;
+            width: 100%;
+            display: block;
+            padding: 4rem 1rem;
+        }
 
         .mainImage {
             width: calc(100%/2);
             display: flex;
             justify-content: center;
             align-items: center;
+            @include tablet {
+                display: block;
+                width: 100%;
+            }
 
             img {
-            max-width: 30rem;
-            padding: 0;
+                max-width: 30rem;
+                padding: 0;
+                @include tablet {
+                    max-width: 100%;
+                }
             }
+            
         }
         .mainDescription {
             width: calc(100%/2);
             padding: 0 3rem;
+            @include tablet {
+                margin-left: 20px;
+                max-width: 240px;
+            }
+            @include mobile {
+                padding: 0;
+                margin: 0;
+                max-width: 100%;
+                width: 100%;
+            }
 
             .title {
                 margin-bottom: 1rem;
@@ -121,10 +165,6 @@
         }
 
         @include tablet {
-            .mainDescription {
-                margin-left: 20px;
-                max-width: 240px;
-            }
             .link-wrap {
                 flex-direction: column;
                 width: fit-content;

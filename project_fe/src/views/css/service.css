@@ -8,12 +8,22 @@
   margin: 0 auto;
   max-width: 75rem;
 }
+@media (max-width: 767px) {
+  .containerBody {
+    padding: 5rem 1rem 5rem;
+  }
+}
 .containerBody .containerContext {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 3rem;
   text-align: center;
+}
+@media (max-width: 767px) {
+  .containerBody .containerContext {
+    gap: 1rem;
+  }
 }
 .containerBody .containerContext .titleBG {
   background-color: var(--primary-normal);
@@ -33,6 +43,11 @@
   margin-top: 8rem;
   width: 100%;
 }
+@media (max-width: 767px) {
+  .containerBody .containerCategory {
+    margin-top: 4rem;
+  }
+}
 .containerBody .containerCategory .sebCategories {
   display: flex;
   flex-flow: row wrap;
@@ -41,6 +56,11 @@
   row-gap: 1rem;
   justify-content: center;
   text-align: center;
+}
+@media (max-width: 767px) {
+  .containerBody .containerCategory .sebCategories {
+    row-gap: 2rem;
+  }
 }
 .containerBody .containerCategory .sebCategories .sebCategory {
   display: flex;
@@ -51,7 +71,7 @@
 }
 @media (max-width: 767px) {
   .containerBody .containerCategory .sebCategories .sebCategory {
-    width: 50%;
+    width: calc(50% - 0.5rem);
   }
 }
 .containerBody .containerCategory .sebCategories .sebCategory .imageBox {
@@ -66,6 +86,12 @@
   transition: all 0.2s linear;
   padding: 0.5rem;
 }
+@media (max-width: 767px) {
+  .containerBody .containerCategory .sebCategories .sebCategory .imageBox {
+    width: 100%;
+    height: 100%;
+  }
+}
 .containerBody .containerCategory .sebCategories .sebCategory:hover .imageBox {
   border-color: var(--line-strong);
 }
@@ -75,6 +101,12 @@
 }
 .mainBanner.mainColor {
   background-color: var(--background-maincolor);
+}
+@media (max-width: 767px) {
+  .mainBanner.mainColor .mainReversed:first-child {
+    display: flex;
+    flex-direction: column-reverse;
+  }
 }
 .mainBanner.whiteColor {
   background-color: var(--white);
@@ -90,28 +122,58 @@
   align-items: center;
   gap: 3rem;
 }
+@media (max-width: 767px) {
+  .mainBanner .mainReversed {
+    margin: 0;
+    max-width: 100%;
+    width: 100%;
+    display: block;
+    padding: 4rem 1rem;
+  }
+}
 .mainBanner .mainReversed .mainImage {
   width: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+@media (max-width: 1023px) {
+  .mainBanner .mainReversed .mainImage {
+    display: block;
+    width: 100%;
+  }
+}
 .mainBanner .mainReversed .mainImage img {
   max-width: 30rem;
   padding: 0;
 }
+@media (max-width: 1023px) {
+  .mainBanner .mainReversed .mainImage img {
+    max-width: 100%;
+  }
+}
 .mainBanner .mainReversed .mainDescription {
   width: 50%;
   padding: 0 3rem;
-}
-.mainBanner .mainReversed .mainDescription .title {
-  margin-bottom: 1rem;
 }
 @media (max-width: 1023px) {
   .mainBanner .mainReversed .mainDescription {
     margin-left: 20px;
     max-width: 240px;
   }
+}
+@media (max-width: 767px) {
+  .mainBanner .mainReversed .mainDescription {
+    padding: 0;
+    margin: 0;
+    max-width: 100%;
+    width: 100%;
+  }
+}
+.mainBanner .mainReversed .mainDescription .title {
+  margin-bottom: 1rem;
+}
+@media (max-width: 1023px) {
   .mainBanner .mainReversed .link-wrap {
     flex-direction: column;
     width: -moz-fit-content;
